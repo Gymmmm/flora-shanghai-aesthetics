@@ -1,6 +1,6 @@
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
-import { appRouter } from "../routers";
-import { createContext } from "./context";
+import { appRouter } from "../../server/routers";
+import { createContext } from "../../server/_core/context";
 import type { Request, Response } from "express";
 
 // Vercel serverless function handler for tRPC
