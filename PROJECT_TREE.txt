@@ -1,0 +1,37 @@
+flora-shanghai-aesthetics/
+├── client/
+│   ├── index.html                         # title, OG metadata, favicon
+│   ├── public/
+│   │   ├── images/
+│   │   │   ├── brand/                     # local hero and mark
+│   │   │   ├── doctors/                   # neutral placeholder SVG
+│   │   │   ├── procedures/                # local procedure visuals
+│   │   │   ├── cases/                     # consent-gated case placeholder
+│   │   │   ├── recovery/                  # local recovery visual
+│   │   │   ├── shanghai/                  # local city visual
+│   │   │   └── ui/                        # favicon asset
+│   │   ├── robots.txt
+│   │   └── sitemap.xml
+│   └── src/
+│       ├── components/                    # shared UI primitives
+│       ├── contexts/ThemeContext.tsx
+│       ├── data/{site,doctors,procedures,cases,journeys,faq}.ts
+│       ├── lib/{trpc,analytics,utils}.ts
+│       ├── App.tsx                        # shell, dynamic routes, SEO, form
+│       ├── index.css
+│       └── main.tsx
+├── server/
+│   ├── _core/                             # full-stack framework plumbing
+│   ├── routers.ts                          # auth + consultation tRPC contract
+│   ├── db.ts                               # Lead/submission persistence
+│   └── consultation.test.ts                # API/privacy tests
+├── drizzle/schema.ts                       # users, leads, submissions, uploads
+├── drizzle/0000_remarkable_deadpool.sql   # generated migration
+├── shared/lead.ts                           # shared consultation contract
+├── vite.config.ts
+├── tsconfig.json
+├── package.json
+├── pnpm-lock.yaml
+├── README.md
+├── PROJECT_TREE.txt
+└── ACCEPTANCE_REPORT.md

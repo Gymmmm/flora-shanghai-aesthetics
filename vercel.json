@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "dist/**",
+          "server/**",
+          "shared/**",
+          "drizzle/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/dist/public/images/$1"
+    },
+    {
+      "src": "/videos/(.*)",
+      "dest": "/dist/public/videos/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/index.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["sin1"],
+  "build": {
+    "env": {
+      "NODE_VERSION": "20"
+    }
+  }
+}
