@@ -15,10 +15,34 @@ export function AdminContactButtons() {
   });
   const [editingId, setEditingId] = useState<number | null>(null);
 
-  const { data: buttons, refetch } = trpc.floatingContactButtons.listAll.useQuery();
+  const { data: buttons, refetch, error } = trpc.floatingContactButtons.listAll.useQuery();
   const createMutation = trpc.floatingContactButtons.create.useMutation();
   const updateMutation = trpc.floatingContactButtons.update.useMutation();
   const deleteMutation = trpc.floatingContactButtons.delete.useMutation();
+
+  // Check if database is not configured
+  const isDatabaseUnavailable = error?.message?.includes("Database not configured");
+
+  if (isDatabaseUnavailable) {
+    return (
+      <div className="admin-contact-buttons">
+        <div className="admin-header">
+          <h1>浮动联系按钮管理</h1>
+          <Link href="/">← 返回首页</Link>
+        </div>
+        <div className="admin-content">
+          <div className="database-warning">
+            <h2>⚠️ 数据库未配置</h2>
+            <p>浮动联系按钮管理需要数据库支持。</p>
+            <p>请在环境变量中配置 <code>DATABASE_URL</code> 后重新部署。</p>
+            <pre>DATABASE_URL=mysql://user:password@host:3306/database</pre>
+            <p>在配置数据库之前，你可以通过编辑 <code>.env</code> 文件中的以下变量来显示固定联系方式：</p>
+            <pre>VITE_CONTACT_EMAIL=contact@example.com{'\n'}VITE_CONTACT_WHATSAPP=https://wa.me/8613800138000</pre>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -195,7 +219,7 @@ export function AdminContactButtons() {
             <p className="empty-state">还没有配置任何按钮</p>
           ) : (
             <div className="buttons-grid">
-              {buttons.map((button) => (
+              {buttons.map((button: any) => (
                 <div key={button.id} className={`button-card ${!button.isActive ? 'inactive' : ''}`}>
                   <div className="button-preview">
                     <img src={button.iconUrl} alt={button.platformType} />

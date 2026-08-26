@@ -4,7 +4,7 @@ import { track } from "@/lib/analytics";
 
 export function FloatingContactButtons() {
   const [showButtons, setShowButtons] = useState(false);
-  const { data: buttons, isLoading } = trpc.floatingContactButtons.list.useQuery();
+  const { data: buttons, isLoading, error } = trpc.floatingContactButtons.list.useQuery();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,18 +14,19 @@ export function FloatingContactButtons() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (isLoading || !buttons || buttons.length === 0) {
+  // Gracefully handle missing database
+  if (isLoading || error || !buttons || buttons.length === 0) {
     return null;
   }
 
   return (
     <div className={`floating-contact-buttons ${showButtons ? 'visible' : ''}`}>
-      {buttons.map((button) => (
+      {buttons.map((button: any) => (
         <a
           key={button.id}
           href={button.linkUrl}
           className="floating-contact-button"
-          onClick={() => track("click_contact_button", { platform: button.platformType })}
+          onClick={() => track("contact_button_click", { platform: button.platformType })}
           aria-label={button.tooltipText || button.displayText || `Contact via ${button.platformType}`}
           title={button.tooltipText || button.displayText || undefined}
           target="_blank"

@@ -27,34 +27,46 @@ const updateButtonSchema = z.object({
 
 export const floatingContactButtonsRouter = router({
   list: publicProcedure.query(async () => {
-    const db = getDb();
+    const db = await getDb();
     if (!db) return [];
 
-    const buttons = await db
-      .select()
-      .from(floatingContactButtons)
-      .where(eq(floatingContactButtons.isActive, 1))
-      .orderBy(floatingContactButtons.sortOrder);
+    try {
+      const buttons = await db
+        .select()
+        .from(floatingContactButtons)
+        .where(eq(floatingContactButtons.isActive, 1))
+        .orderBy(floatingContactButtons.sortOrder);
 
-    return buttons;
+      return buttons;
+    } catch (err) {
+      console.error("Failed to fetch floating contact buttons:", err);
+      return [];
+    }
   }),
 
   listAll: publicProcedure.query(async () => {
-    const db = getDb();
-    if (!db) return [];
+    const db = await getDb();
+    if (!db) {
+      throw new Error("Database not configured");
+    }
 
-    const buttons = await db
-      .select()
-      .from(floatingContactButtons)
-      .orderBy(floatingContactButtons.sortOrder);
+    try {
+      const buttons = await db
+        .select()
+        .from(floatingContactButtons)
+        .orderBy(floatingContactButtons.sortOrder);
 
-    return buttons;
+      return buttons;
+    } catch (err) {
+      console.error("Failed to fetch all floating contact buttons:", err);
+      throw new Error("Database not configured");
+    }
   }),
 
   create: publicProcedure
     .input(createButtonSchema)
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       if (!db) throw new Error("Database not configured");
 
       const [button] = await db.insert(floatingContactButtons).values({
@@ -73,7 +85,7 @@ export const floatingContactButtonsRouter = router({
   update: publicProcedure
     .input(updateButtonSchema)
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       if (!db) throw new Error("Database not configured");
 
       const updateData: any = {};
@@ -96,7 +108,7 @@ export const floatingContactButtonsRouter = router({
   delete: publicProcedure
     .input(z.object({ id: z.number().int().positive() }))
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       if (!db) throw new Error("Database not configured");
 
       await db

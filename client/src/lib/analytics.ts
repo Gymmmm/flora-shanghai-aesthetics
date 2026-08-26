@@ -1,4 +1,4 @@
-export type AnalyticsEvent = "view_doctor" | "view_procedure" | "view_case" | "click_whatsapp" | "start_consultation" | "submit_consultation" | "upload_photo" | "view_verification" | "view_patient_journey";
+export type AnalyticsEvent = "view_doctor" | "view_procedure" | "view_case" | "click_whatsapp" | "contact_button_click" | "start_consultation" | "submit_consultation" | "upload_photo" | "view_verification" | "view_patient_journey";
 
 const configured = {
   ga4: import.meta.env.VITE_GA4_ID as string | undefined,
