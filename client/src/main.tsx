@@ -11,6 +11,7 @@ import "./index.css";
 import "./siteOptimizationRound2.css";
 import "./siteOptimizationRound3.css";
 import "./siteOptimizationRound4.css";
+import "./siteOptimizationRound5.css";
 
 const queryClient = new QueryClient();
 
