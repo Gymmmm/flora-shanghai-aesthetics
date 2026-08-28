@@ -1,20 +1,20 @@
 export function TrustBanner() {
-  const certifications = [
-    { id: "jci", label: "JCI Accredited", icon: "✓" },
-    { id: "shanghai-health", label: "Shanghai Health Commission", icon: "◉" },
-    { id: "plastic-surgery", label: "Chinese Society of Plastic Surgery", icon: "✦" },
-    { id: "international", label: "International Patient Services", icon: "⊕" },
+  const trustPrinciples = [
+    { id: "verify", label: "Source-backed profiles", icon: "✓" },
+    { id: "context", label: "Clear clinical boundaries", icon: "◉" },
+    { id: "journey", label: "International patient pathway", icon: "✦" },
+    { id: "privacy", label: "Privacy-first consultation", icon: "⊕" },
   ];
 
   return (
-    <section className="trust-banner">
+    <section className="trust-banner" aria-label="Flora trust principles">
       <div className="trust-content">
-        <span className="trust-label">Verified Credentials</span>
+        <span className="trust-label">HOW FLORA BUILDS TRUST</span>
         <div className="trust-badges">
-          {certifications.map((cert) => (
-            <div key={cert.id} className="trust-badge">
-              <span className="trust-icon">{cert.icon}</span>
-              <span className="trust-text">{cert.label}</span>
+          {trustPrinciples.map((item) => (
+            <div key={item.id} className="trust-badge">
+              <span className="trust-icon">{item.icon}</span>
+              <span className="trust-text">{item.label}</span>
             </div>
           ))}
         </div>
