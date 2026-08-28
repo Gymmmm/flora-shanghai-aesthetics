@@ -1,11 +1,13 @@
 export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Cases", "/cases"], ["Patient Journey", "/patient-journey"], ["Verify", "/surgeon-verification"]] as const;
 
+const env = typeof import.meta !== "undefined" ? import.meta.env : undefined;
+
 export const contact = {
-  whatsapp: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP || "",
-  email: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL || "",
-  instagram: "",
-  tiktok: "",
-  reddit: "",
+  whatsapp: env?.VITE_CONTACT_WHATSAPP || "",
+  email: env?.VITE_CONTACT_EMAIL || "",
+  instagram: env?.VITE_CONTACT_INSTAGRAM || "",
+  tiktok: env?.VITE_CONTACT_TIKTOK || "",
+  reddit: env?.VITE_CONTACT_REDDIT || "",
 };
 
 export const supportedLanguages = ["en", "ms", "id", "ru", "ar", "zh"] as const;
@@ -15,8 +17,12 @@ export const legalReviewed = false;
 export const siteCopy = {
   brand: "Flora Shanghai Aesthetics",
   tagline: "Still You. Just Refined.",
+  heroEyebrow: "Shanghai · International Patient Care",
+  heroBody: "Aesthetic and plastic surgery care in Shanghai for international patients seeking thoughtful, personalized care.",
+  primaryCta: "Start a Private Inquiry",
   medicalBoundary: "Remote review is not a final diagnosis. Final treatment plans must be confirmed by a licensed doctor in appropriate clinical context.",
   photoNotice: "Photos are reviewed only for preliminary consultation and do not constitute diagnosis.",
+  responseBoundary: "Response channels, languages, and service hours are shown only when they are actively monitored and confirmed.",
 };
 
 export const verificationItems = ["Source name", "Source URL", "Verification date", "Context note"];
