@@ -1,0 +1,214 @@
+/* Flora showcase — round 5
+   Source-material presentation, media watermarking and peer-demo polish. */
+
+:root {
+  --flora-watermark-bg: rgba(24, 28, 26, 0.62);
+  --flora-watermark-fg: rgba(255, 255, 255, 0.9);
+}
+
+/* Every source-facing visual gets a persistent presentation watermark. */
+.doctor-portrait-wrap,
+.procedure-card,
+.profile-photo,
+.case-pair > *,
+.media-watermarked,
+.showcase-video,
+.city-band,
+.journey-city {
+  position: relative;
+  overflow: hidden;
+}
+
+.doctor-portrait-wrap::after,
+.procedure-card::after,
+.profile-photo::after,
+.case-pair > *::after,
+.media-watermarked::after,
+.showcase-video::after,
+.city-band::after,
+.journey-city::after {
+  content: "FLORA · SHANGHAI AESTHETICS";
+  position: absolute;
+  z-index: 8;
+  right: 14px;
+  bottom: 12px;
+  padding: 7px 9px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: var(--flora-watermark-bg);
+  color: var(--flora-watermark-fg);
+  font: 600 8px/1 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero::after {
+  content: "FLORA · SHANGHAI AESTHETICS · SHOWCASE";
+  position: absolute;
+  z-index: 9;
+  right: 30px;
+  bottom: 26px;
+  color: rgba(255, 255, 255, 0.63);
+  font: 600 8px/1 var(--sans);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keep city overlays above the watermark pseudo-element where required. */
+.city-overlay,
+.city-content,
+.journey-city > * {
+  position: relative;
+  z-index: 10;
+}
+
+/* Source doctor cards: make verification state intentional, not unfinished. */
+.doctor-card .evidence-seal.seal-pending {
+  border-color: rgba(139, 102, 71, 0.34);
+  color: var(--bronze);
+}
+
+.doctor-meta > span:not(.evidence-seal) {
+  display: block;
+  max-width: 28ch;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+/* Pricing source sheet presentation. */
+.pricing-source-showcase .pricing-header p:last-child {
+  max-width: 690px;
+}
+
+.pricing-source-card {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(42px, 7vw, 96px);
+  margin: 38px 8vw 0;
+  padding: clamp(38px, 5vw, 72px);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 26px 80px rgba(29, 30, 28, 0.12);
+}
+
+.pricing-source-status > span {
+  display: block;
+  margin-bottom: 24px;
+  color: var(--bronze-light, #c8aa8f);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.pricing-source-status > strong {
+  display: block;
+  max-width: 12ch;
+  font: 500 clamp(32px, 4vw, 54px)/0.98 var(--serif);
+}
+
+.pricing-source-status p {
+  max-width: 440px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.7;
+}
+
+.pricing-source-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.pricing-source-list > div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.pricing-source-list > div > b {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.pricing-source-list span strong,
+.pricing-source-list span small {
+  display: block;
+}
+
+.pricing-source-list span strong {
+  font: 500 20px/1.2 var(--serif);
+}
+
+.pricing-source-list span small {
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+/* Case/recovery showcase styling ready for supplied patient media. */
+.case-row,
+.case-pair {
+  isolation: isolate;
+}
+
+.case-pair > *::after {
+  right: 10px;
+  bottom: 10px;
+}
+
+/* Stronger watermark for patient media to discourage casual reuse. */
+.case-pair::after {
+  content: "FLORA SHOWCASE";
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-14deg);
+  color: rgba(255, 255, 255, 0.34);
+  font: 600 clamp(12px, 2vw, 22px)/1 var(--sans);
+  letter-spacing: 0.28em;
+  white-space: nowrap;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 760px) {
+  .hero::after {
+    right: 20px;
+    bottom: 84px;
+    max-width: 180px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .doctor-portrait-wrap::after,
+  .procedure-card::after,
+  .profile-photo::after,
+  .case-pair > *::after,
+  .media-watermarked::after,
+  .showcase-video::after,
+  .city-band::after,
+  .journey-city::after {
+    right: 10px;
+    bottom: 10px;
+    padding: 6px 7px 5px;
+    font-size: 7px;
+  }
+
+  .pricing-source-card {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    margin: 26px 20px 0;
+    padding: 34px 22px 58px;
+  }
+}
