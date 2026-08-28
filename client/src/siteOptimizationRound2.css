@@ -1,0 +1,632 @@
+/* Flora site optimization — round 2
+   Focus: stronger hierarchy, clearer conversion paths, and mobile usability
+   while preserving the existing Quiet Meridian visual system. */
+
+:root {
+  --qm-shadow-soft: 0 24px 70px rgba(29, 30, 28, 0.12);
+  --qm-shadow-card: 0 16px 36px rgba(29, 30, 28, 0.08);
+}
+
+/* Header / navigation */
+.site-header {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.desktop-nav a {
+  position: relative;
+  padding: 8px 0;
+}
+
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 2px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.75;
+  transition: right 0.24s var(--ease);
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after {
+  right: 0;
+}
+
+.site-header > .qm-button {
+  min-height: 42px;
+  padding-inline: 18px;
+}
+
+/* Home hero */
+.hero {
+  min-height: min(900px, 100svh);
+  isolation: isolate;
+}
+
+.hero-video {
+  filter: saturate(0.9) contrast(1.02);
+}
+
+.hero-wash {
+  background:
+    linear-gradient(90deg, rgba(18, 22, 20, 0.79) 0%, rgba(18, 22, 20, 0.51) 44%, rgba(18, 22, 20, 0.13) 76%, rgba(18, 22, 20, 0.06) 100%),
+    linear-gradient(0deg, rgba(14, 17, 16, 0.22), transparent 42%);
+}
+
+.hero-copy {
+  max-width: 610px;
+  margin-left: clamp(7vw, 10vw, 11vw);
+}
+
+.hero h1 {
+  text-wrap: balance;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.14);
+}
+
+.hero-copy > p:not(.eyebrow) {
+  max-width: 470px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.hero-actions .qm-button {
+  min-height: 48px;
+  padding-inline: 19px;
+  background: rgba(255, 253, 250, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.hero-actions .qm-button-dark {
+  background: rgba(29, 30, 28, 0.9);
+}
+
+.hero-caption {
+  padding-top: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.34);
+  min-width: 190px;
+}
+
+/* Editorial sections */
+.intro-section,
+.surgeon-section,
+.procedures-section,
+.journey-teaser,
+.value-section {
+  column-gap: clamp(54px, 7vw, 112px);
+}
+
+.chapter-copy p {
+  font-size: 15.5px;
+}
+
+.value-item,
+.journey-line div,
+.procedure-row {
+  transition: background 0.22s var(--ease), padding 0.22s var(--ease), transform 0.22s var(--ease);
+}
+
+.value-item:hover {
+  background: rgba(255, 255, 255, 0.035);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.journey-line div:hover {
+  background: rgba(139, 102, 71, 0.055);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Surgeon cards */
+.doctor-card {
+  background: var(--white);
+}
+
+.doctor-portrait-wrap {
+  background: var(--paper-deep);
+}
+
+.doctor-portrait {
+  height: 300px;
+}
+
+.doctor-meta {
+  padding: 19px 3px 21px;
+}
+
+.doctor-meta h3 {
+  margin-top: 14px;
+}
+
+.doctor-card:focus-visible,
+.procedure-card:focus-visible,
+.qm-button:focus-visible,
+.desktop-nav a:focus-visible,
+.mobile-menu a:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 4px;
+}
+
+/* Procedure cards */
+.procedure-card {
+  box-shadow: var(--qm-shadow-card);
+}
+
+.procedure-card img {
+  filter: saturate(0.78) contrast(1.02);
+}
+
+.procedure-overlay {
+  padding-bottom: 24px;
+}
+
+/* Trust / verification section */
+.verify-teaser {
+  position: relative;
+}
+
+.verify-teaser::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18vw;
+  right: 18vw;
+  height: 1px;
+  background: rgba(139, 102, 71, 0.3);
+}
+
+/* Conversion section */
+.consult-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.consult-banner::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  right: -130px;
+  top: -180px;
+  pointer-events: none;
+}
+
+.consult-banner .qm-button {
+  min-height: 48px;
+  background: rgba(29, 30, 28, 0.94);
+}
+
+/* Footer legibility */
+.footer-col a {
+  transition: color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.footer-col a:hover {
+  color: var(--white);
+  transform: translateX(2px);
+}
+
+/* Tablets */
+@media (max-width: 1050px) {
+  .site-header {
+    gap: 20px;
+    padding-inline: 4vw;
+  }
+
+  .desktop-nav {
+    gap: 13px;
+  }
+
+  .desktop-nav a {
+    font-size: 9px;
+  }
+
+  .intro-section,
+  .surgeon-section,
+  .procedures-section,
+  .journey-teaser,
+  .value-section {
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+
+  .doctor-grid {
+    gap: 14px;
+  }
+
+  .doctor-portrait {
+    height: 260px;
+  }
+
+  .procedure-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  body {
+    font-size: 14px;
+    padding-bottom: 64px;
+  }
+
+  .site-shell {
+    overflow: clip;
+  }
+
+  .site-header,
+  .site-header.header-paper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    min-height: 72px;
+    padding: 16px 18px;
+    color: var(--white);
+    background: linear-gradient(180deg, rgba(18, 22, 20, 0.42), rgba(18, 22, 20, 0));
+  }
+
+  .site-header.header-paper {
+    position: relative;
+    color: var(--ink);
+    background: rgba(244, 240, 233, 0.97);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-mark {
+    width: 27px;
+    height: 27px;
+  }
+
+  .brand b {
+    font-size: 23px;
+  }
+
+  .desktop-nav,
+  .site-header > .qm-button {
+    display: none;
+  }
+
+  .menu-trigger {
+    display: inline-grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 98px 22px 30px;
+    background: rgba(244, 240, 233, 0.985);
+    color: var(--ink);
+    overflow-y: auto;
+  }
+
+  .mobile-menu > a:not(.qm-button) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    border-bottom: 1px solid var(--line);
+    font: 500 25px/1.1 var(--serif);
+  }
+
+  .mobile-menu .qm-button {
+    margin-top: 24px;
+    justify-content: space-between;
+    min-height: 52px;
+  }
+
+  .hero {
+    min-height: 760px;
+    height: 100svh;
+    align-items: flex-end;
+  }
+
+  .hero-video {
+    object-position: 57% center;
+  }
+
+  .hero-wash {
+    background:
+      linear-gradient(0deg, rgba(17, 21, 19, 0.88) 0%, rgba(17, 21, 19, 0.54) 46%, rgba(17, 21, 19, 0.18) 78%, rgba(17, 21, 19, 0.2) 100%),
+      linear-gradient(90deg, rgba(17, 21, 19, 0.28), transparent 72%);
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 120px 20px 108px;
+  }
+
+  .hero-copy .eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(58px, 18vw, 82px);
+    line-height: 0.84;
+    margin-bottom: 24px;
+  }
+
+  .hero-copy > p:not(.eyebrow) {
+    max-width: 92%;
+    font-size: 14px;
+    line-height: 1.68;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-top: 27px;
+  }
+
+  .hero-actions .qm-button {
+    width: 100%;
+    min-height: 50px;
+    justify-content: space-between;
+    backdrop-filter: blur(12px);
+  }
+
+  .hero-caption {
+    right: 20px;
+    bottom: 24px;
+    left: 20px;
+    min-width: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+  }
+
+  .intro-section,
+  .surgeon-section,
+  .procedures-section,
+  .journey-teaser,
+  .value-section,
+  .verify-teaser {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 46px;
+    padding: 78px 20px;
+  }
+
+  .chapter h2,
+  .value-heading h2 {
+    font-size: clamp(43px, 13vw, 59px);
+    line-height: 0.92;
+  }
+
+  .chapter-copy,
+  .chapter-copy p {
+    max-width: none;
+  }
+
+  .intro-aside {
+    padding: 26px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .value-item {
+    grid-template-columns: 34px 1fr 18px;
+    gap: 11px;
+    padding: 22px 0;
+  }
+
+  .value-item h3 {
+    font-size: 26px;
+  }
+
+  .doctor-grid,
+  .doctor-grid-large {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .doctor-portrait {
+    height: min(112vw, 470px);
+  }
+
+  .doctor-meta {
+    padding-bottom: 6px;
+  }
+
+  .procedure-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .procedure-card {
+    height: min(118vw, 470px);
+    box-shadow: none;
+  }
+
+  .city-band {
+    min-height: 590px;
+    background-position: 58% center;
+  }
+
+  .city-content {
+    margin: 0;
+    padding: 74px 20px;
+    align-self: end;
+  }
+
+  .city-content h2,
+  .consult-banner h2 {
+    font-size: clamp(49px, 15vw, 67px);
+  }
+
+  .verify-teaser::before {
+    left: 20px;
+    right: 20px;
+  }
+
+  .journey-line div {
+    gap: 17px;
+    padding: 14px 0;
+  }
+
+  .consult-banner {
+    padding: 78px 20px 88px;
+  }
+
+  .consult-banner .qm-button {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 58px 20px 88px;
+  }
+
+  .footer-note {
+    text-align: left;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .footer-note small {
+    margin-top: 30px;
+  }
+
+  .mobile-cta {
+    position: fixed;
+    z-index: 40;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    transform: translateY(110%);
+    transition: transform 0.3s var(--ease);
+    background: rgba(29, 30, 28, 0.97);
+    color: var(--white);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-cta.visible {
+    transform: translateY(0);
+  }
+
+  .mobile-cta a {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .interior-hero {
+    padding-top: 74px;
+  }
+
+  .interior-hero h1 {
+    font-size: clamp(58px, 18vw, 86px);
+  }
+
+  .interior-intro {
+    margin-left: 0;
+    max-width: none;
+    font-size: 15px;
+  }
+
+  .container-narrow {
+    padding-inline: 20px;
+  }
+
+  .article-split {
+    grid-template-columns: 1fr;
+  }
+
+  .article-image {
+    min-height: 410px;
+  }
+
+  .article-text {
+    padding: 70px 20px;
+  }
+
+  .paper-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 72px 20px;
+  }
+
+  .cta-strip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 34px;
+    padding: 70px 20px;
+  }
+
+  .cta-strip h2 {
+    font-size: 46px;
+  }
+
+  .listing-section,
+  .case-list,
+  .procedure-list,
+  .timeline,
+  .form-wrap,
+  .detail-lower {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-video {
+    display: none;
+  }
+
+  .hero {
+    background: linear-gradient(90deg, rgba(18, 22, 20, 0.72), rgba(18, 22, 20, 0.2)), url('/images/hero.jpg') center / cover no-repeat;
+  }
+}

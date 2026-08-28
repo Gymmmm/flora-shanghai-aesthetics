@@ -5,8 +5,13 @@ import { httpBatchLink, TRPCClientError } from "@trpc/client";
 import { createRoot } from "react-dom/client";
 import superjson from "superjson";
 import App from "./App";
+import { TemplateShowcaseChrome } from "./components/TemplateShowcaseChrome";
 import { startLogin } from "./const";
 import "./index.css";
+import "./siteOptimizationRound2.css";
+import "./siteOptimizationRound3.css";
+import "./siteOptimizationRound4.css";
+import "./siteOptimizationRound5.css";
 
 const queryClient = new QueryClient();
 
@@ -75,7 +80,9 @@ const trpcClient = trpc.createClient({
 createRoot(document.getElementById("root")!).render(
   <trpc.Provider client={trpcClient} queryClient={queryClient}>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <TemplateShowcaseChrome>
+        <App />
+      </TemplateShowcaseChrome>
     </QueryClientProvider>
   </trpc.Provider>
 );

@@ -1,62 +1,43 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
 
-type PricingTier = {
-  procedureType: string;
-  estimatedRange: string;
-  included: string[];
-  note: string;
-};
-
-const pricingTiers: PricingTier[] = [
-  {
-    procedureType: "Facial Procedures",
-    estimatedRange: "¥15,000 - ¥80,000",
-    included: ["Consultation", "Anesthesia", "Facility fees", "Basic follow-up"],
-    note: "Final pricing depends on technique, surgeon experience, and facility choice.",
-  },
-  {
-    procedureType: "Body Contouring",
-    estimatedRange: "¥25,000 - ¥120,000",
-    included: ["Pre-operative assessment", "Surgical fees", "Post-op garments", "Initial recovery care"],
-    note: "Multi-area procedures may qualify for bundled pricing.",
-  },
-  {
-    procedureType: "Breast Surgery",
-    estimatedRange: "¥20,000 - ¥90,000",
-    included: ["Imaging studies", "Implant costs (if applicable)", "Facility fees", "Follow-up appointments"],
-    note: "Implant brand and type significantly affect final cost.",
-  },
+const pricingChecklist = [
+  ["Procedure fee", "Technique and clinician scope"],
+  ["Facility & anesthesia", "What is included must be written clearly"],
+  ["Tests & medication", "Pre-op and post-op items can change the total"],
+  ["Follow-up", "Confirm in-person and remote review arrangements"],
 ];
 
 export function PricingGuide() {
   return (
-    <section className="pricing-section">
+    <section className="pricing-section pricing-source-showcase">
       <div className="pricing-header">
-        <p className="eyebrow">Transparent Pricing</p>
-        <h2>Understand the<br /><i>investment.</i></h2>
-        <p>Pricing varies by procedure complexity, surgeon expertise, and facility choice. These ranges reflect typical costs for international patients in Shanghai.</p>
+        <p className="eyebrow">Source-backed pricing</p>
+        <h2>Show the price.<br /><i>Show the context.</i></h2>
+        <p>
+          The showcase is prepared to display Flora's supplied surgery price sheet. We do not publish generic market estimates as if they were clinic prices. Source prices should be mapped item-by-item and paired with the inclusions, exclusions, and clinical-review boundary.
+        </p>
       </div>
-      <div className="pricing-grid">
-        {pricingTiers.map((tier) => (
-          <div key={tier.procedureType} className="pricing-card">
-            <h3>{tier.procedureType}</h3>
-            <div className="pricing-range">{tier.estimatedRange}</div>
-            <div className="pricing-included">
-              <span className="eyebrow">Typically includes</span>
-              <ul>
-                {tier.included.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+
+      <div className="pricing-source-card media-watermarked">
+        <div className="pricing-source-status">
+          <span>FLORA / SOURCE PRICE SHEET</span>
+          <strong>Reference pricing architecture</strong>
+          <p>Exact source rows are being mapped from the supplied material before numerical publication.</p>
+        </div>
+        <div className="pricing-source-list">
+          {pricingChecklist.map(([title, note], index) => (
+            <div key={title}>
+              <b>{String(index + 1).padStart(2, "0")}</b>
+              <span><strong>{title}</strong><small>{note}</small></span>
             </div>
-            <p className="pricing-note">{tier.note}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
       <div className="pricing-footer">
-        <p><strong>Important:</strong> These are educational estimates only. Final pricing requires a personalized consultation and written quote from your selected surgeon.</p>
-        <Link href="/consultation" className="qm-button">Request Detailed Quote <ArrowUpRight size={16} /></Link>
+        <p><strong>Showcase boundary:</strong> a displayed figure is a source reference, not a guaranteed quote. Final treatment and pricing require individual clinical assessment and a written quotation.</p>
+        <Link href="/consultation" className="qm-button">Request a Written Quote <ArrowUpRight size={16} /></Link>
       </div>
     </section>
   );
