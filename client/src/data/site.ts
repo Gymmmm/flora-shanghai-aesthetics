@@ -1,4 +1,4 @@
-export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Cases", "/cases"], ["Patient Journey", "/patient-journey"], ["Verify", "/surgeon-verification"]] as const;
+export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Patient Stories", "/cases"], ["Your Journey", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
 
 export const contact = {
   whatsapp: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP || "",
@@ -15,11 +15,13 @@ export const legalReviewed = false;
 export const siteCopy = {
   brand: "Flora Shanghai Aesthetics",
   tagline: "Still You. Just Refined.",
-  medicalBoundary: "Remote review is not a final diagnosis. Final treatment plans must be confirmed by a licensed doctor in appropriate clinical context.",
-  photoNotice: "Photos are reviewed only for preliminary consultation and do not constitute diagnosis.",
+  audienceLine: "A Shanghai-based aesthetic surgery pathway designed for international patients.",
+  consultationLine: "Start from home with an English-language inquiry. We help organize your questions, medical context, doctor review and Shanghai visit planning.",
+  medicalBoundary: "Remote review is preliminary and does not replace an in-person medical assessment. Any diagnosis or treatment plan must be confirmed by an appropriately licensed clinician in the relevant clinical setting.",
+  photoNotice: "Photos may be reviewed only to support a preliminary consultation. They are not a diagnosis and do not guarantee treatment suitability or outcome.",
 };
 
-export const verificationItems = ["Source name", "Source URL", "Verification date", "Context note"];
+export const verificationItems = ["Source", "Source link", "Last checked", "Context"];
 
 export const attributionKeys = ["source", "utm_source", "utm_medium", "utm_campaign", "utm_content", "landing_page", "referrer", "created_at"] as const;
 
@@ -29,10 +31,10 @@ export const crmPipelineStatuses = ["NEW", "QUALIFIED", "PHOTOS_RECEIVED", "DOCT
 
 export type LandingPage = { slug: string; title: string; eyebrow: string; intro: string; procedureSlug?: string; sourceChannel: string };
 export const landingPages: LandingPage[] = [
-  { slug: "rhinoplasty-malaysia", title: "Rhinoplasty in Shanghai", eyebrow: "Malaysia / international patient pathway", intro: "A focused entry point for questions about rhinoplasty, verification, and planning in Shanghai.", procedureSlug: "rhinoplasty", sourceChannel: "malaysia" },
-  { slug: "revision-rhinoplasty", title: "Revision Rhinoplasty", eyebrow: "A context-first pathway", intro: "Start with previous surgery, current concerns, and the questions a clinician needs to review.", procedureSlug: "revision-rhinoplasty", sourceChannel: "revision" },
-  { slug: "why-shanghai", title: "Why Shanghai", eyebrow: "A broader point of view", intro: "Understand the city, the care pathway, and the information needed before a decision.", sourceChannel: "city" },
-  { slug: "surgeon-verification", title: "Surgeon Verification", eyebrow: "Evidence before preference", intro: "Learn how factual profile information should be sourced, dated, and contextualized.", sourceChannel: "verification" },
+  { slug: "rhinoplasty-malaysia", title: "Rhinoplasty in Shanghai", eyebrow: "For patients travelling from Malaysia", intro: "Explore surgeon profiles, consultation questions, recovery considerations and practical planning before deciding whether a trip to Shanghai is right for you.", procedureSlug: "rhinoplasty", sourceChannel: "malaysia" },
+  { slug: "revision-rhinoplasty", title: "Revision Rhinoplasty in Shanghai", eyebrow: "For patients considering revision surgery", intro: "Begin with your previous procedure, current concerns and the information a surgeon would need before discussing revision options.", procedureSlug: "revision-rhinoplasty", sourceChannel: "revision" },
+  { slug: "why-shanghai", title: "Why Consider Shanghai?", eyebrow: "For international patients", intro: "Understand the city, the clinical pathway and the practical support available before you decide whether Shanghai belongs on your shortlist.", sourceChannel: "city" },
+  { slug: "surgeon-verification", title: "How We Present Surgeon Information", eyebrow: "Evidence before preference", intro: "See how profile claims are labelled, sourced and separated from information that is still awaiting independent verification.", sourceChannel: "verification" },
 ];
 
 export const footerLinks = [["Privacy Policy", "/privacy"], ["Medical Disclaimer", "/medical-disclaimer"], ["Terms of Use", "/terms"], ["Patient Media Consent", "/patient-media-consent"], ["Data Processing Notice", "/data-processing-notice"]] as const;
