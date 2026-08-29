@@ -8,6 +8,7 @@ import App from "./App";
 import { startLogin } from "./const";
 import "./index.css";
 import "./doctor-profile.css";
+import "./international-editorial.css";
 
 const queryClient = new QueryClient();
 
