@@ -101,3 +101,45 @@
  .procedure-grid{grid-template-columns:1fr}.procedure-card{height:500px}.city-band{background-attachment:scroll;min-height:620px}.city-content{margin:0 7vw}.city-content h2{font-size:65px}
  .profile-layout{display:block}.profile-photo{height:68svh}.profile-photo .doctor-portrait,.profile-photo img{min-height:0;height:100%;object-position:center 12%}.profile-copy{padding:75px 8vw}.profile-copy h2{font-size:68px}
 }
+
+/* Flora Noir Editorial — a complete visual architecture for the international patient journey */
+:root{--flora-ink:#f4f0e9;--flora-night:#0b0d0d;--flora-panel:#151918;--flora-line:rgba(244,240,233,.16);--flora-copper:#b78b68}
+html,body{background:var(--flora-night);color:var(--flora-ink)}
+.site-shell{background:var(--flora-night)}
+.site-header:not(.header-paper){background:rgba(11,13,13,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--flora-line)}
+.site-header .brand b,.site-header .desktop-nav a{color:var(--flora-ink)}
+.site-shell > main > .hero{min-height:100svh;padding:0;align-items:center;background:var(--flora-night)}
+.site-shell > main > .hero .hero-copy{margin-left:11vw;max-width:760px;padding-top:8vh}
+.site-shell > main > .hero .hero-copy h1{font-size:clamp(76px,11vw,172px);line-height:.78;letter-spacing:-.065em;margin-bottom:34px}
+.site-shell > main > .hero .hero-copy h1 i{color:var(--flora-copper)}
+.site-shell > main > .hero .hero-copy>p:not(.eyebrow){max-width:380px;font-size:15px;color:rgba(244,240,233,.66)}
+.site-shell > main > .hero .hero-actions{margin-top:40px}
+.site-shell > main > .hero .hero-actions .qm-button{border-color:var(--flora-copper);color:var(--flora-ink);background:transparent}
+.site-shell > main > .hero .hero-actions .qm-button:hover{background:var(--flora-copper);color:var(--flora-night)}
+.intro-section,.surgeon-section,.procedures-section,.verify-teaser{background:var(--flora-night);color:var(--flora-ink)}
+.intro-section .chapter h2,.value-heading h2,.surgeon-section .chapter h2,.procedures-section .chapter h2,.verify-teaser h2,.journey-teaser .chapter h2{font-weight:400;letter-spacing:-.05em}
+.value-section,.journey-teaser{background:var(--flora-panel);color:var(--flora-ink)}
+.intro-aside{border-left-color:var(--flora-copper);color:rgba(244,240,233,.72)}
+.value-item{border-color:var(--flora-line)}
+.surgeon-section{grid-template-columns:24% 1fr;padding-left:9vw;padding-right:9vw}
+.surgeon-section .chapter{top:100px}
+.surgeon-section .doctor-grid{grid-template-columns:repeat(3,1fr);gap:3px}
+.surgeon-section .doctor-portrait-wrap{height:620px;border-radius:0;background:var(--flora-panel)}
+.surgeon-section .doctor-portrait{filter:grayscale(.2) saturate(.7) contrast(1.08)}
+.surgeon-section .doctor-meta{border-top-color:var(--flora-line);padding:22px 8px 28px}
+.surgeon-section .doctor-meta>span{color:var(--flora-copper)}
+.surgeon-section .doctor-meta h3{color:var(--flora-ink)}
+.surgeon-section .doctor-meta p,.surgeon-section .doctor-meta small{color:rgba(244,240,233,.58)}
+.procedures-section{grid-template-columns:24% 1fr}
+.procedure-list{background:var(--flora-night);padding:5vw 11vw}
+.procedure-row{display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:28px;padding:30px 0;border-bottom:1px solid var(--flora-line);color:var(--flora-ink);transition:padding .35s var(--ease),color .35s var(--ease)}
+.procedure-row:hover{padding-left:18px;color:var(--flora-copper)}
+.procedure-row>span{font:italic 24px var(--serif);color:var(--flora-copper)}
+.procedure-row small{color:var(--flora-copper);letter-spacing:.16em;text-transform:uppercase}
+.procedure-row h2{font:400 44px/.95 var(--serif);margin:7px 0}
+.procedure-row p{max-width:530px;color:rgba(244,240,233,.58);margin:0}
+.journey-line div{border-color:var(--flora-line)}
+.consult-banner{background:var(--flora-copper);color:var(--flora-night)}
+.footer{background:#070808;color:var(--flora-ink)}
+@media(max-width:720px){.site-shell > main > .hero .hero-copy{margin-left:8vw}.surgeon-section{padding-left:7vw;padding-right:7vw}.surgeon-section .doctor-grid{gap:42px}.surgeon-section .doctor-portrait-wrap{height:560px}.procedure-list{padding:7vw}.procedure-row{grid-template-columns:34px 1fr auto;gap:14px}.procedure-row h2{font-size:34px}.procedure-row p{font-size:13px}}
+
