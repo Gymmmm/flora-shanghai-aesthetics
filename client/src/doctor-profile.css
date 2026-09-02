@@ -108,35 +108,3 @@
   .doctor-final-cta{padding:67px 7vw 110px}
   .doctor-final-cta h2{font-size:49px}
 }
-
-
-/* Dr. Zhang Yalun / presentation intro video */
-.doctor-intro-video-shell{position:relative;min-height:760px;overflow:hidden;background:#1d1e1c;display:flex;align-items:center;justify-content:center}
-.doctor-intro-video-shell video{width:min(100%,420px);height:auto;max-height:92%;aspect-ratio:720/1270;object-fit:cover;background:#111;border:1px solid rgba(255,253,250,.28);box-shadow:0 24px 80px rgba(0,0,0,.35)}
-.doctor-intro-video-meta{position:absolute;z-index:2;left:36px;bottom:36px;right:36px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:end;justify-content:space-between;pointer-events:none}
-.doctor-intro-video-meta strong{font:500 13px/1.25 var(--serif);letter-spacing:.08em;color:var(--white);text-shadow:0 1px 16px rgba(0,0,0,.35)}
-.doctor-intro-video-meta span,.doctor-intro-video-meta small{display:block;font:600 8px/1.6 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,253,250,.82)}
-.doctor-intro-video-chip{pointer-events:none;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,253,250,.28);background:rgba(29,30,28,.55);backdrop-filter:blur(8px);color:var(--white);font-size:8px;letter-spacing:.14em;text-transform:uppercase}
-
-.home-ai-intro{padding:96px 9vw;background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(180px,280px) 1fr;gap:min(8vw,96px);align-items:center}
-.home-ai-intro-media{position:relative;justify-self:center;width:100%;max-width:260px}
-.home-ai-intro-media video{width:100%;aspect-ratio:720/1270;object-fit:cover;display:block;background:#111;border:1px solid var(--line);box-shadow:0 18px 50px rgba(29,30,28,.12)}
-.home-ai-intro-media .home-ai-intro-badge{position:absolute;left:12px;top:12px;z-index:1;padding:7px 10px;background:rgba(244,240,233,.92);border:1px solid var(--line);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
-.home-ai-intro-copy .eyebrow{margin-bottom:14px}
-.home-ai-intro-copy h2{font:500 clamp(42px,5vw,68px)/.9 var(--serif);letter-spacing:-.035em;margin:0 0 22px}
-.home-ai-intro-copy h2 i{font-style:italic;font-weight:400}
-.home-ai-intro-copy>p{max-width:540px;color:var(--muted);font-size:15px;line-height:1.85;margin:0 0 18px}
-.home-ai-intro-copy .home-ai-intro-note{font-size:11px;line-height:1.7;color:var(--muted);max-width:520px;margin:0 0 28px;padding-top:14px;border-top:1px solid var(--line)}
-.home-ai-intro-actions{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
-
-@media(max-width:900px){
-  .doctor-intro-video-shell{min-height:620px;padding:28px 0}
-  .home-ai-intro{grid-template-columns:1fr;padding:78px 8vw;gap:36px}
-  .home-ai-intro-media{max-width:220px}
-}
-@media(max-width:520px){
-  .doctor-intro-video-shell{min-height:520px}
-  .doctor-intro-video-meta{left:22px;right:22px;bottom:22px}
-  .home-ai-intro{padding:65px 7vw}
-  .home-ai-intro-copy h2{font-size:42px}
-}
