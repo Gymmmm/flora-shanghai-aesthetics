@@ -1,9 +1,14 @@
 export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Patient Stories", "/cases"], ["Your Journey", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
 
+/** Digits for wa.me builders: strip non-digits (App.tsx already does .replace(/\D/g, "")). */
+export const DEFAULT_WHATSAPP = "+855 969510544";
+
+export const DEFAULT_INSTAGRAM = "goat.2014238";
+
 export const contact = {
-  whatsapp: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP || "",
+  whatsapp: (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP) || DEFAULT_WHATSAPP,
   email: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL || "",
-  instagram: "",
+  instagram: (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_INSTAGRAM) || DEFAULT_INSTAGRAM,
   tiktok: "",
   reddit: "",
 };
