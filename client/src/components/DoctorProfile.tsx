@@ -5,8 +5,6 @@ import { doctorHighlightBullets, type Doctor } from "../data/doctors";
 import { faq } from "../data/faq";
 import { track } from "../lib/analytics";
 
-const zhangAiIntroVideo = "/videos/zhang-yalun-ai-intro.mp4";
-
 function Seal({ children = "PENDING / VERIFY", status }: { children?: React.ReactNode; status?: string }) {
   const icon = status === "verified" ? "✓" : status === "pending_verification" ? "⏱" : status === "hospital_reported" ? "◐" : "✳";
   const color = status === "verified" ? "seal-verified" : status === "pending_verification" ? "seal-pending" : "";
@@ -25,14 +23,20 @@ function ButtonLink({ href, children, dark = false, onClick }: { href: string; c
 export function DoctorProfile({ doctor }: { doctor: Doctor }) {
   const bullets = doctorHighlightBullets(doctor);
   const whatsapp = contact.whatsapp ? `https://wa.me/${contact.whatsapp.replace(/\D/g, "")}` : "";
-  const showZhangVideo = doctor.slug === "dr-zhang-yalun";
   const specialtyTitle = doctor.specialties[0] || "Aesthetic Surgery";
 
   return (
     <>
       <section className="intl-doctor-hero">
         <div className="intl-doctor-portrait">
-          <img src={doctor.photo} alt={`${doctor.name} portrait`} />
+          <img
+            src={doctor.photo}
+            alt={`${doctor.name}`}
+            style={{
+              objectPosition: doctor.photoObjectPosition ?? "72% 10%",
+              transformOrigin: doctor.photoObjectPosition ?? "72% 10%",
+            }}
+          />
           <span className="intl-doctor-chip">Shanghai · Medical Aesthetics</span>
         </div>
         <div className="intl-doctor-copy">
@@ -65,22 +69,6 @@ export function DoctorProfile({ doctor }: { doctor: Doctor }) {
           </div>
         </div>
       </section>
-
-      {showZhangVideo ? (
-        <section className="intl-doctor-video" aria-label="Dr. Zhang Yalun presentation preview">
-          <div className="intl-doctor-video-copy">
-            <p className="eyebrow">Presentation preview (AI-assisted)</p>
-            <h2>A short look at the<br /><i>clinical point of view.</i></h2>
-            <p>Muted autoplay loop for international patients researching facial aesthetic surgery in Shanghai. Verification of profile credentials is still pending — this preview is presentation material only.</p>
-          </div>
-          <div className="intl-doctor-video-media">
-            <video className="intl-doctor-video-el" autoPlay muted loop playsInline controls poster="/videos/zhang-yalun-ai-intro-poster.jpg">
-              <source src={zhangAiIntroVideo} type="video/mp4" />
-            </video>
-            <p className="intl-doctor-video-caption">Presentation preview (AI-assisted) · verification pending</p>
-          </div>
-        </section>
-      ) : null}
 
       <section className="intl-doctor-procedures">
         <div>

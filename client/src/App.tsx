@@ -186,22 +186,6 @@ function Home() {
       <div className="value-heading"><p className="eyebrow">The Flora standard</p><h2>Care that begins<br /><i>before</i> the journey.</h2></div>
       <div className="value-list">{[["01", "Personalized", "Designed around the individual, not a template."], ["02", "Surgical Expertise", "Access to a verification-ready directory of surgeons."], ["03", "International Care", "Consultation, translation, travel support and follow-up."]].map(([n,tItem,d]) => <div className="value-item" key={n}><span>{n}</span><div><h3>{tItem}</h3><p>{d}</p></div><ArrowUpRight size={18} /></div>)}</div>
     </section>
-    <section className="home-ai-intro" aria-labelledby="home-ai-intro-title">
-      <div className="home-ai-intro-media">
-        <span className="home-ai-intro-badge">Presentation preview (AI-assisted)</span>
-        <video src="/videos/zhang-yalun-ai-intro.mp4" poster="/videos/zhang-yalun-ai-intro-poster.jpg" controls playsInline muted loop preload="metadata" aria-label="Dr. Zhang Yalun presentation intro preview" />
-      </div>
-      <div className="home-ai-intro-copy">
-        <p className="eyebrow">Surgeons · presentation intro</p>
-        <h2 id="home-ai-intro-title">Meet a surgeon<br /><i>before the trip.</i></h2>
-        <p>A short, watermarked presentation clip for Dr. Zhang Yalun — useful as an international orientation to the Flora surgeon directory, not as a consultation or clinical claim.</p>
-        <p className="home-ai-intro-note">Labelled as an AI-assisted / presentation intro preview. Credentials and institutional details remain pending verification. No procedure recommendation is made from this media alone.</p>
-        <div className="home-ai-intro-actions">
-          <ButtonLink href="/surgeons/dr-zhang-yalun" dark>View Dr. Zhang profile</ButtonLink>
-          <ButtonLink href="/surgeons">{t.viewAllSurgeons}</ButtonLink>
-        </div>
-      </div>
-    </section>
     <section className="surgeon-section">
       <Chapter index="02" eyebrow={t.surgeonsEyebrow} title={t.surgeonsTitle}>
         <p>{t.surgeonsLead}</p>
