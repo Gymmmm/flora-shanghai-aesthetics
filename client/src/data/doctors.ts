@@ -29,6 +29,9 @@ export type Doctor = {
   verificationStatus: VerificationStatus;
   verificationSources: VerificationSource[];
   caseIds: string[];
+  /** Optional presentation / AI-assisted intro clip (showcase preview). */
+  introVideo?: string;
+  introVideoPoster?: string;
   seo: { title: string; description: string };
 };
 
@@ -41,6 +44,8 @@ export const doctors: Doctor[] = [
     name: "Dr. Zhang Yalun",
     chineseName: "张亚伦",
     photo: "/images/doctors/doctor_zhang_yalun__source__clinical-review.jpg",
+    introVideo: "/videos/zhang-yalun-ai-intro.mp4",
+    introVideoPoster: "/videos/zhang-yalun-ai-intro-poster.jpg",
     specialties: ["Facial Aesthetic Surgery"],
     primaryProcedures: ["Rhinoplasty", "Revision rhinoplasty"],
     experienceYears: null,
