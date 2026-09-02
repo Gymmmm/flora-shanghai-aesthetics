@@ -33,8 +33,7 @@ export function DoctorProfile({ doctor }: { doctor: Doctor }) {
             src={doctor.photo}
             alt={`${doctor.name}`}
             style={{
-              objectPosition: doctor.photoObjectPosition ?? "72% 10%",
-              transformOrigin: doctor.photoObjectPosition ?? "72% 10%",
+              objectPosition: doctor.photoObjectPosition ?? "center 20%",
             }}
           />
           <span className="intl-doctor-chip">Shanghai · Medical Aesthetics</span>

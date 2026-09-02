@@ -12,9 +12,9 @@ export type Doctor = {
   slug: string;
   name: string;
   chineseName: string;
-  /** Clinical-review JPG — face-cropped via CSS (object-fit/cover + object-position). */
+  /** Pre-cropped head/shoulders JPG (no Chinese poster text). */
   photo: string;
-  /** CSS object-position for face crop (Chinese poster text cropped out). */
+  /** Optional object-position hint; pre-crops usually use center. */
   photoObjectPosition?: string;
   /** Optional full clinical-review poster kept for collapsed source transparency only. */
   sourcePoster?: string;
@@ -64,8 +64,8 @@ export const doctors: Doctor[] = [
     slug: "dr-zhang-yalun",
     name: "Dr. Zhang Yalun",
     chineseName: "张亚伦",
-    photo: "/images/doctors/doctor_zhang_yalun__source__clinical-review.jpg",
-    photoObjectPosition: "78% 10%",
+    photo: "/images/doctors/doctor_zhang_yalun__face-crop.jpg",
+    photoObjectPosition: "center 22%",
     sourcePoster: "/images/doctors/doctor_zhang_yalun__source__clinical-review.jpg",
     specialties: ["Facial Aesthetic Surgery"],
     primaryProcedures: ["Rhinoplasty", "Revision rhinoplasty"],
@@ -92,8 +92,8 @@ export const doctors: Doctor[] = [
     slug: "dr-si-yang",
     name: "Dr. Si Yang",
     chineseName: "司杨",
-    photo: "/images/doctors/doctor_si_yang__source__clinical-review.jpg",
-    photoObjectPosition: "80% 11%",
+    photo: "/images/doctors/doctor_si_yang__face-crop.jpg",
+    photoObjectPosition: "center 22%",
     sourcePoster: "/images/doctors/doctor_si_yang__source__clinical-review.jpg",
     specialties: ["Eye & Facial Aesthetic Surgery"],
     primaryProcedures: [
@@ -132,8 +132,8 @@ export const doctors: Doctor[] = [
     slug: "dr-wu-baoen",
     name: "Dr. Wu Baoen",
     chineseName: "吴宝恩",
-    photo: "/images/doctors/doctor_wu_baoci__source__clinical-review.jpg",
-    photoObjectPosition: "72% 9%",
+    photo: "/images/doctors/doctor_wu_baoci__face-crop.jpg",
+    photoObjectPosition: "center 22%",
     sourcePoster: "/images/doctors/doctor_wu_baoci__source__clinical-review.jpg",
     specialties: ["Body Aesthetic Surgery"],
     primaryProcedures: ["Body contouring", "Breast surgery"],
@@ -160,8 +160,8 @@ export const doctors: Doctor[] = [
     slug: "dr-dong-lei",
     name: "Dr. Dong Lei",
     chineseName: "董磊",
-    photo: "/images/doctors/doctor_dong_lei__source__clinical-review.jpg",
-    photoObjectPosition: "74% 10%",
+    photo: "/images/doctors/doctor_dong_lei__face-crop.jpg",
+    photoObjectPosition: "center 22%",
     sourcePoster: "/images/doctors/doctor_dong_lei__source__clinical-review.jpg",
     specialties: ["Facial Aesthetic Surgery"],
     primaryProcedures: ["Rhinoplasty", "Facial contouring"],
@@ -188,8 +188,8 @@ export const doctors: Doctor[] = [
     slug: "dr-zhang-shuming",
     name: "Dr. Zhang Shuming",
     chineseName: "张书铭",
-    photo: "/images/doctors/doctor_zhang_shuming__source__clinical-review.jpg",
-    photoObjectPosition: "78% 10%",
+    photo: "/images/doctors/doctor_zhang_shuming__face-crop.jpg",
+    photoObjectPosition: "center 22%",
     sourcePoster: "/images/doctors/doctor_zhang_shuming__source__clinical-review.jpg",
     specialties: ["Aesthetic Surgery"],
     primaryProcedures: ["Eyelid surgery", "Facial rejuvenation"],
@@ -216,8 +216,8 @@ export const doctors: Doctor[] = [
     slug: "dr-zhao-weihui",
     name: "Dr. Zhao Weihui",
     chineseName: "赵伟辉",
-    photo: "/images/doctors/doctor_zhao_weihui__source__clinical-review.jpg",
-    photoObjectPosition: "76% 11%",
+    photo: "/images/doctors/doctor_zhao_weihui__face-crop.jpg",
+    photoObjectPosition: "center 22%",
     sourcePoster: "/images/doctors/doctor_zhao_weihui__source__clinical-review.jpg",
     specialties: ["Reconstructive & Aesthetic Surgery"],
     primaryProcedures: ["Breast surgery", "Body contouring"],
