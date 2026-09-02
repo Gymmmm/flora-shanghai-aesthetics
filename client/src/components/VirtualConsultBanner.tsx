@@ -9,12 +9,12 @@ export function VirtualConsultBanner() {
           <Video size={32} />
         </div>
         <div className="virtual-consult-copy">
-          <span className="virtual-badge">FREE</span>
+          <span className="virtual-badge">PRELIMINARY</span>
           <h2>Start with a <i>Virtual Consultation</i></h2>
-          <p>Connect with a board-certified surgeon via video. No commitment, no travel required. Get a preliminary assessment and transparent pricing from the comfort of your home.</p>
+          <p>Connect with a surgeon from our verification-ready directory via video. No commitment, no travel required. Begin with a preliminary inquiry and transparent next-step discussion from the comfort of your home.</p>
         </div>
         <Link href="/consultation" className="qm-button qm-button-dark">
-          Book Free Consultation
+          Start Preliminary Inquiry
         </Link>
       </div>
     </section>
