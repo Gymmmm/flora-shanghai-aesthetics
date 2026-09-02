@@ -13,7 +13,7 @@ export type JourneyStep = {
 
 const journeyDetails: Record<string, { services: string[]; timing: string; boundary: string }> = {
   "inquiry": {
-    services: ["24/7 multi-language support via WhatsApp/Email", "Free preliminary assessment", "Treatment plan overview"],
+    services: ["Multilingual inquiry coordination when contact channels are configured", "Preliminary inquiry review (not a diagnosis)", "Treatment pathway overview"],
     timing: "24-48 hours response time",
     boundary: "Remote review is not a final diagnosis. Final treatment planning requires appropriate clinical context."
   },
@@ -38,7 +38,7 @@ const journeyDetails: Record<string, { services: string[]; timing: string; bound
     boundary: "This step does not replace medical advice or informed consent."
   },
   "procedure-recovery": {
-    services: ["Surgical procedure with board-certified surgeon", "Post-operative care and monitoring", "Hotel recovery support with daily check-ins", "Pain management and wound care"],
+    services: ["Surgical procedure with a licensed clinician once credentials are verified", "Post-operative care and monitoring", "Hotel recovery support with daily check-ins", "Pain management and wound care"],
     timing: "7-14 days in Shanghai",
     boundary: "This step does not replace medical advice or informed consent."
   },
