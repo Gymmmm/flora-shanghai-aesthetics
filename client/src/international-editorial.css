@@ -37,12 +37,8 @@
 .surgeon-section .doctor-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
 .surgeon-section .doctor-card{background:transparent;overflow:visible}
 .surgeon-section .doctor-portrait-wrap{height:520px;background:#efece7;overflow:hidden;border-radius:24px 24px 0 0}
-.surgeon-section .doctor-portrait{height:100%;width:100%;object-fit:cover;filter:saturate(.75) contrast(1.02);transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .45s ease}
-.surgeon-section .doctor-card:nth-child(1) .doctor-portrait{object-position:73% 16%;transform:scale(1.48)}
-.surgeon-section .doctor-card:nth-child(2) .doctor-portrait{object-position:69% 15%;transform:scale(1.48)}
-.surgeon-section .doctor-card:nth-child(3) .doctor-portrait{object-position:71% 16%;transform:scale(1.50)}
-.surgeon-section .doctor-card:hover .doctor-portrait{filter:saturate(.95) contrast(1.03)}
-.surgeon-section .doctor-card:nth-child(1):hover .doctor-portrait,.surgeon-section .doctor-card:nth-child(2):hover .doctor-portrait,.surgeon-section .doctor-card:nth-child(3):hover .doctor-portrait{transform:scale(1.54)}
+.surgeon-section .doctor-portrait{height:100%;width:100%;object-fit:cover;object-position:center 22%;filter:saturate(.88) contrast(1.02);transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .45s ease}
+.surgeon-section .doctor-card:hover .doctor-portrait{transform:scale(1.03);filter:saturate(.95) contrast(1.03)}
 .surgeon-section .doctor-meta{padding:26px 2px 10px;border-top:1px solid #d9d0c6;min-height:190px}
 .surgeon-section .doctor-meta .evidence-seal{display:none}
 .surgeon-section .doctor-meta>span{font-size:9px;letter-spacing:.13em;color:#927052;max-width:none;margin-bottom:14px}
@@ -97,7 +93,7 @@
 @media(max-width:720px){
  .site-shell > main > .hero{min-height:92svh;padding-bottom:10vh}.site-shell > main > .hero .hero-copy{margin:0 7vw;max-width:90vw}.site-shell > main > .hero .hero-copy h1{font-size:clamp(58px,17vw,88px);line-height:.8}.site-shell > main > .hero .hero-caption{display:none}
  .intro-section,.value-section,.surgeon-section,.procedures-section,.verify-teaser,.journey-teaser,.consult-banner{padding:88px 7vw}
- .surgeon-section .chapter h2{font-size:64px}.surgeon-section .doctor-grid{grid-template-columns:1fr;gap:52px}.surgeon-section .doctor-portrait-wrap{height:540px;border-radius:22px}.surgeon-section .doctor-card:nth-child(1) .doctor-portrait,.surgeon-section .doctor-card:nth-child(2) .doctor-portrait,.surgeon-section .doctor-card:nth-child(3) .doctor-portrait{transform:scale(1.43)}
+ .surgeon-section .chapter h2{font-size:64px}.surgeon-section .doctor-grid{grid-template-columns:1fr;gap:52px}.surgeon-section .doctor-portrait-wrap{height:540px;border-radius:22px}
  .procedure-grid{grid-template-columns:1fr}.procedure-card{height:500px}.city-band{background-attachment:scroll;min-height:620px}.city-content{margin:0 7vw}.city-content h2{font-size:65px}
  .profile-layout{display:block}.profile-photo{height:68svh}.profile-photo .doctor-portrait,.profile-photo img{min-height:0;height:100%;object-position:center 12%}.profile-copy{padding:75px 8vw}.profile-copy h2{font-size:68px}
 }
@@ -109,10 +105,10 @@
 .site-shell > main > .hero .hero-caption{color:rgba(183,212,198,.78)}
 .brand em{letter-spacing:.12em}
 
-/* Cards: clinical-review JPGs face-cropped via CSS (Chinese poster text out of frame) */
+/* Cards: pre-cropped face JPGs — normal cover, no scale hack */
 .doctor-card-intl .doctor-portrait-wrap{position:relative;height:420px;background:#efece7;overflow:hidden;border-radius:18px 18px 0 0;box-shadow:inset 0 0 0 1px rgba(47,107,87,.08)}
-.doctor-card-intl .doctor-portrait{width:100%;height:100%;object-fit:cover;object-position:72% 10%;transform-origin:72% 12%;filter:saturate(.88) contrast(1.04);transform:scale(1.72) !important}
-.doctor-card-intl:hover .doctor-portrait{transform:scale(1.8) !important;filter:saturate(.96) contrast(1.05)}
+.doctor-card-intl .doctor-portrait{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:saturate(.92) contrast(1.02);transform:none !important;transition:transform .45s ease,filter .45s ease}
+.doctor-card-intl:hover .doctor-portrait{transform:scale(1.03) !important;filter:saturate(.98) contrast(1.03)}
 .doctor-location-chip{position:absolute;left:14px;bottom:14px;z-index:2;padding:7px 10px;border-radius:999px;background:rgba(47,107,87,.9);color:#f4f1eb;font-size:8px;letter-spacing:.12em;text-transform:uppercase}
 .doctor-card-intl .doctor-meta{padding:18px 2px 10px;border-top:1px solid #d9d0c6;min-height:0}
 .doctor-card-intl .doctor-meta .evidence-seal{position:static;transform:none;margin:0 0 10px;display:inline-flex}
@@ -124,15 +120,15 @@
 .doctor-grid-large .doctor-card-intl .doctor-portrait-wrap{height:400px}
 .surgeon-section .chapter-index{color:var(--flora-scrub)}
 .surgeon-section .doctor-meta>span{color:var(--flora-scrub-soft)}
-/* Face crop from full clinical-review posters (override ethereal-portrait era) */
-.surgeon-section .doctor-card:nth-child(n) .doctor-portrait{object-position:72% 10%;transform:scale(1.72)}
-.surgeon-section .doctor-card:nth-child(n):hover .doctor-portrait{transform:scale(1.8)}
+/* Pre-cropped face JPGs — keep cover framing only */
+.surgeon-section .doctor-card:nth-child(n) .doctor-portrait{object-position:center 22%;transform:none}
+.surgeon-section .doctor-card:nth-child(n):hover .doctor-portrait{transform:scale(1.03)}
 .surgeon-section .doctor-portrait-wrap{height:460px;overflow:hidden}
 
 /* Detail profile — international layout */
 .intl-doctor-hero{display:grid;grid-template-columns:minmax(280px,.9fr) 1.1fr;min-height:720px;background:#f7f4ef;border-bottom:1px solid var(--line,#d9d0c6)}
 .intl-doctor-portrait{position:relative;background:#1a2220;overflow:hidden;min-height:560px}
-.intl-doctor-portrait img{width:100%;height:100%;min-height:560px;object-fit:cover;object-position:72% 10%;transform:scale(1.55);transform-origin:72% 12%;display:block;filter:saturate(.88) contrast(1.04)}
+.intl-doctor-portrait img{width:100%;height:100%;min-height:560px;object-fit:cover;object-position:center 20%;transform:none;display:block;filter:saturate(.92) contrast(1.02)}
 .intl-doctor-chip{position:absolute;left:22px;bottom:22px;padding:8px 12px;border-radius:999px;background:rgba(47,107,87,.92);color:#f4f1eb;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
 .intl-doctor-copy{padding:72px 7vw 64px 5vw;display:flex;flex-direction:column;justify-content:center}
 .intl-doctor-copy h1{font:500 clamp(48px,6vw,86px)/.88 var(--serif,"Georgia",serif);letter-spacing:-.04em;margin:14px 0 8px}
