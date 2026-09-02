@@ -16,7 +16,7 @@ function statusLabel(status: Doctor["verificationStatus"]) {
 }
 
 export function DoctorCard({ doctor }: { doctor: Doctor }) {
-  const facePos = doctor.photoObjectPosition ?? "center 22%";
+  const facePos = doctor.photoObjectPosition ?? "center 20%";
   return (
     <Link href={`/surgeons/${doctor.slug}`} className="doctor-card doctor-card-intl" onClick={() => track("view_doctor", { doctor: doctor.slug })}>
       <div className="doctor-portrait-wrap">
