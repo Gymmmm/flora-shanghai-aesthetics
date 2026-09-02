@@ -69,12 +69,12 @@ export function DoctorProfile({ doctor }: { doctor: Doctor }) {
       {showZhangVideo ? (
         <section className="intl-doctor-video" aria-label="Dr. Zhang Yalun introduction">
           <div className="intl-doctor-video-copy">
-            <p className="eyebrow">Brief introduction</p>
-            <h2>A short look at the<br /><i>clinical point of view.</i></h2>
-            <p>Muted autoplay loop for international patients researching facial aesthetic surgery in Shanghai.</p>
+            <p className="eyebrow">Presentation / AI-assisted intro</p>
+            <h2>A short look at the<br /><i>presentation point of view.</i></h2>
+            <p>Muted autoplay loop recovered from source showcase media. Presentation preview only — not a consultation, diagnosis or outcome claim. Credentials remain pending verification.</p>
           </div>
           <div className="intl-doctor-video-media">
-            <video className="intl-doctor-video-el" autoPlay muted loop playsInline controls poster={doctor.photo}>
+            <video className="intl-doctor-video-el" autoPlay muted loop playsInline controls poster="/videos/zhang-yalun-ai-intro-poster.jpg">
               <source src={zhangAiIntroVideo} type="video/mp4" />
             </video>
           </div>
