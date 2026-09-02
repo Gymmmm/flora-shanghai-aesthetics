@@ -19,6 +19,7 @@ import { cases, caseBySlug, publishableCases } from "./data/cases";
 import { journey } from "./data/journeys";
 import { faq } from "./data/faq";
 import { contact, footerLinks, legalReviewed, navItems, siteCopy, landingPages } from "./data/site";
+import { LocaleProvider, useLocale } from "./i18n/LocaleContext";
 
 const heroImage = "/images/hero.jpg";
 const heroVideo = "/images/hero-video.mp4";
@@ -62,25 +63,182 @@ function Seal({ children = "PENDING / VERIFY", status }: { children?: React.Reac
 }
 
 function SiteShell({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(false); const [location] = useLocation();
+  const [open, setOpen] = useState(false);
+  const [location] = useLocation();
   const [showMobileCta, setShowMobileCta] = useState(false);
+  const { locale, setLocale, t, footerLabel } = useLocale();
   const whatsapp = contact.whatsapp ? `https://wa.me/${contact.whatsapp.replace(/\D/g, "")}` : "";
 
   useEffect(() => {
     const handleScroll = () => {
       setShowMobileCta(window.scrollY > 400);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return <div className="site-shell"><header className={`site-header ${location !== "/" ? "header-paper" : ""}`}><Link href="/" className="brand" onClick={() => setOpen(false)}><Mark /><span><b>Flora</b><em>Shanghai Medical Aesthetics</em></span></Link><nav className="desktop-nav">{navItems.map(([label, href]) => <Link key={href} href={href} className={location === href ? "active" : ""}>{label}</Link>)}</nav><ButtonLink href="/consultation" onClick={() => track("start_consultation")}>Private Consultation</ButtonLink><button className="menu-trigger" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>{open ? <X size={20} /> : <Menu size={20} />}</button></header>{open && <div className="mobile-menu">{navItems.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowUpRight size={14} /></Link>)}<ButtonLink href="/consultation">Private Consultation</ButtonLink></div>}<main>{children}</main><div className={`mobile-cta ${showMobileCta ? 'visible' : ''}`}><Link href="/consultation" onClick={() => track("start_consultation")}>Start Consultation <ArrowUpRight size={15} /></Link></div><FloatingContactButtons /><footer className="footer"><div className="footer-brand"><Mark small /><div><div className="footer-title">Flora Shanghai Aesthetics</div><p>Shanghai Medical Aesthetics / Plastic Surgery<br />for International Patients</p></div></div><div className="footer-col"><span>Contact</span><p className="support-hours">{(contact.email || contact.whatsapp) ? "24/7 Multi-language Support" : "International patient inquiry"}</p>{contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : <span>Contact email / coming soon</span>}{whatsapp ? <a href={whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp (24h response)</a> : <span>WhatsApp / coming soon</span>}{contact.instagram ? <a href={`https://instagram.com/${String(contact.instagram).replace(/^@/, "")}`} target="_blank" rel="noopener noreferrer">Instagram @{String(contact.instagram).replace(/^@/, "")}</a> : null}</div><div className="footer-col"><span>Information</span>{footerLinks.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div><div className="footer-note">Still You.<br /><i>Just Refined.</i><small>© 2026 Flora Shanghai Aesthetics</small></div></footer></div>;
-
+  return (
+    <div className="site-shell">
+      <header className={`site-header ${location !== "/" ? "header-paper" : ""}`}>
+        <Link href="/" className="brand" onClick={() => setOpen(false)}>
+          <Mark />
+          <span>
+            <b>Flora</b>
+            <em>{t.brandSubtitle}</em>
+          </span>
+        </Link>
+        <nav className="desktop-nav">
+          {navItems.map(([label, href]) => (
+            <Link key={href} href={href} className={location === href ? "active" : ""}>
+              {t.nav[href] ?? label}
+            </Link>
+          ))}
+        </nav>
+        <div className="lang-toggle" role="group" aria-label={t.langAria}>
+          <button type="button" className={locale === "en" ? "active" : ""} onClick={() => setLocale("en")}>{t.langEn}</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" className={locale === "zh" ? "active" : ""} onClick={() => setLocale("zh")}>{t.langZh}</button>
+        </div>
+        <ButtonLink href="/consultation" onClick={() => track("start_consultation")}>{t.privateConsultation}</ButtonLink>
+        <button className="menu-trigger" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </header>
+      {open && (
+        <div className="mobile-menu">
+          {navItems.map(([label, href]) => (
+            <Link key={href} href={href} onClick={() => setOpen(false)}>
+              {t.nav[href] ?? label}
+              <ArrowUpRight size={14} />
+            </Link>
+          ))}
+          <div className="lang-toggle mobile" role="group" aria-label={t.langAria}>
+            <button type="button" className={locale === "en" ? "active" : ""} onClick={() => setLocale("en")}>{t.langEn}</button>
+            <span aria-hidden="true">|</span>
+            <button type="button" className={locale === "zh" ? "active" : ""} onClick={() => setLocale("zh")}>{t.langZh}</button>
+          </div>
+          <ButtonLink href="/consultation">{t.privateConsultation}</ButtonLink>
+        </div>
+      )}
+      <main>{children}</main>
+      <div className={`mobile-cta ${showMobileCta ? "visible" : ""}`}>
+        <Link href="/consultation" onClick={() => track("start_consultation")}>
+          {t.startConsultation} <ArrowUpRight size={15} />
+        </Link>
+      </div>
+      <FloatingContactButtons />
+      <footer className="footer">
+        <div className="footer-brand">
+          <Mark small />
+          <div>
+            <div className="footer-title">{t.footerTitle}</div>
+            <p>{t.footerBlurb.split("\n").map((line, i) => <span key={i}>{i > 0 ? <br /> : null}{line}</span>)}</p>
+          </div>
+        </div>
+        <div className="footer-col">
+          <span>{t.footerContact}</span>
+          <p className="support-hours">{(contact.email || contact.whatsapp) ? t.supportHours : t.inquiryFallback}</p>
+          {contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : <span>{t.emailComingSoon}</span>}
+          {whatsapp ? <a href={whatsapp} target="_blank" rel="noopener noreferrer">{t.whatsappLabel}</a> : <span>{t.whatsappComingSoon}</span>}
+          {contact.instagram ? <a href={`https://instagram.com/${String(contact.instagram).replace(/^@/, "")}`} target="_blank" rel="noopener noreferrer">Instagram @{String(contact.instagram).replace(/^@/, "")}</a> : null}
+        </div>
+        <div className="footer-col">
+          <span>{t.footerInformation}</span>
+          {footerLinks.map(([label, href]) => <Link key={href} href={href}>{footerLabel(href, label)}</Link>)}
+        </div>
+        <div className="footer-note">Still You.<br /><i>Just Refined.</i><small>© 2026 Flora Shanghai Aesthetics</small></div>
+      </footer>
+    </div>
+  );
 }
+
 function InteriorHero({ eyebrow, title, intro }: { eyebrow: string; title: React.ReactNode; intro: string }) { return <section className="interior-hero"><div className="hero-spine"><b>FLORA</b><span>MERIDIAN<br />{eyebrow.split(" ")[0]}</span></div><div className="container-narrow"><div className="meridian-rule"><span>{eyebrow.split(" ")[0]}</span><i /></div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><p className="interior-intro">{intro}</p></div></section>; }
 function Chapter({ index, eyebrow, title, children, dark = false }: { index: string; eyebrow: string; title: string; children?: React.ReactNode; dark?: boolean }) { return <div className={`chapter ${dark ? "chapter-dark" : ""}`}><div className="chapter-index"><span>{index}</span><small>{eyebrow}</small></div><h2>{title}</h2>{children && <div className="chapter-copy">{children}</div>}</div>; }
 
-function Home() { usePageSeo("Shanghai Plastic Surgery for International Patients | Flora", "Flora Shanghai Aesthetics offers a considered international patient pathway for plastic surgery in Shanghai.", "/", { "@context": "https://schema.org", "@type": "MedicalOrganization", name: siteCopy.brand }); return <><TrustBanner /><section className="hero"><video autoPlay muted loop playsInline className="hero-video"><source src={heroVideo} type="video/mp4" /></video><div className="hero-wash" /><div className="hero-copy"><p className="eyebrow light">Shanghai Medical Aesthetics / Plastic Surgery for International Patients</p><h1>Still You.<br /><i>Just Refined.</i></h1><p>Plastic surgery in Shanghai for international patients seeking thoughtful, personalized aesthetic care.</p><div className="hero-actions"><ButtonLink href="/surgeons" dark>Explore Surgeons</ButtonLink><ButtonLink href="/consultation" onClick={() => track("start_consultation")}>Private Consultation</ButtonLink></div></div><div className="hero-caption">SHANGHAI · MEDICAL AESTHETICS<br /><span>Plastic surgery for international patients.</span></div></section><VirtualConsultBanner /><section className="intro-section"><Chapter index="01" eyebrow="A different starting point" title="A Different Perspective on Asian Aesthetics"><p>Asian aesthetics do not have one standard of beauty. Shanghai offers an international city, a diverse clinical landscape, and another perspective for patients who want to make decisions with context.</p><ButtonLink href="/why-shanghai">Why Shanghai</ButtonLink></Chapter><div className="intro-aside"><div className="vertical-quote">"</div><p>Personalized<br /><b>over prescriptive.</b></p><span>- our point of view</span></div></section><section className="value-section"><div className="value-heading"><p className="eyebrow">The Flora standard</p><h2>Care that begins<br /><i>before</i> the journey.</h2></div><div className="value-list">{[["01", "Personalized", "Designed around the individual, not a template."], ["02", "Surgical Expertise", "Access to a verification-ready directory of surgeons."], ["03", "International Care", "Consultation, translation, travel support and follow-up."]].map(([n,t,d]) => <div className="value-item" key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div><ArrowUpRight size={18} /></div>)}</div></section><section className="home-ai-intro" aria-labelledby="home-ai-intro-title"><div className="home-ai-intro-media"><span className="home-ai-intro-badge">Presentation preview</span><video src="/videos/zhang-yalun-ai-intro.mp4" poster="/videos/zhang-yalun-ai-intro-poster.jpg" controls playsInline muted loop preload="metadata" aria-label="Dr. Zhang Yalun presentation intro preview" /></div><div className="home-ai-intro-copy"><p className="eyebrow">Surgeons · presentation intro</p><h2 id="home-ai-intro-title">Meet a surgeon<br /><i>before the trip.</i></h2><p>A short, watermarked presentation clip for Dr. Zhang Yalun — useful as an international orientation to the Flora surgeon directory, not as a consultation or clinical claim.</p><p className="home-ai-intro-note">Labelled as an AI-assisted / presentation intro preview. Credentials and institutional details remain pending verification. No procedure recommendation is made from this media alone.</p><div className="home-ai-intro-actions"><ButtonLink href="/surgeons/dr-zhang-yalun" dark>View Dr. Zhang profile</ButtonLink><ButtonLink href="/surgeons">All surgeons</ButtonLink></div></div></section><section className="surgeon-section"><Chapter index="02" eyebrow="Shanghai surgeons" title="Meet the Surgeons"><p>Clean clinical portraits for international patients researching Shanghai medical aesthetics. Profiles stay verification-honest.</p><ButtonLink href="/surgeons">View all surgeons</ButtonLink></Chapter><div className="doctor-grid doctor-grid-home">{publishableDoctors.map((d) => <DoctorCard key={d.id} doctor={d} />)}</div></section><section className="city-band" style={{ backgroundImage: `url(${cityImage})` }}><div className="city-overlay" /><div className="city-content"><p className="eyebrow light">Shanghai / beyond one standard</p><h2>A city with<br /><i>more than one</i><br />point of view.</h2><ButtonLink href="/why-shanghai" dark>Discover Shanghai</ButtonLink></div></section><section className="procedures-section"><Chapter index="03" eyebrow="Explore the options" title="Featured Procedures"><p>Information is a starting point, not a recommendation. Explore the language of each procedure before a personal consultation.</p><ButtonLink href="/procedures">Browse procedures</ButtonLink></Chapter><div className="procedure-grid">{procedures.slice(0, 4).map((p) => <Link href={`/procedures/${p.slug}`} className="procedure-card" key={p.slug}><img src={p.image} alt="" loading="lazy" /><div className="procedure-overlay"><span>{p.category}</span><h3>{p.name}</h3><p>{p.shortDescription}</p><ArrowUpRight size={18} /></div></Link>)}</div></section><section className="verify-teaser"><div><p className="eyebrow">Certifications & Accreditation</p><h2>Verify before<br /><i>you decide.</i></h2></div><div><p>We don't ask you to trust a marketing claim. We show you what can be verified.</p><ButtonLink href="/surgeon-verification">How verification works</ButtonLink></div></section><section className="journey-teaser"><Chapter index="04" eyebrow="From first question to follow-up" title="Your Journey in Shanghai"><p>A calm, transparent pathway for patients arriving from another country.</p><ButtonLink href="/patient-journey">See the patient journey</ButtonLink></Chapter><div className="journey-line">{journey.map((step) => <div key={step.id}><b>{String(step.step).padStart(2,"0")}</b><span>{step.title}</span></div>)}</div></section><PricingGuide /><section className="consult-banner"><p className="eyebrow light">A private first step</p><h2>Begin with<br /><i>a conversation.</i></h2><ButtonLink href="/consultation" dark>Submit for Review</ButtonLink></section></>; }
+function Home() {
+  const { t } = useLocale();
+  usePageSeo("Shanghai Plastic Surgery for International Patients | Flora", "Flora Shanghai Aesthetics offers a considered international patient pathway for plastic surgery in Shanghai.", "/", { "@context": "https://schema.org", "@type": "MedicalOrganization", name: siteCopy.brand });
+  return <>
+    <TrustBanner />
+    <section className="hero">
+      <video autoPlay muted loop playsInline className="hero-video"><source src={heroVideo} type="video/mp4" /></video>
+      <div className="hero-wash" />
+      <div className="hero-copy">
+        <p className="eyebrow light">{t.heroEyebrow}</p>
+        <h1>Still You.<br /><i>Just Refined.</i></h1>
+        <p>{t.heroLead}</p>
+        <div className="hero-actions">
+          <ButtonLink href="/surgeons" dark>{t.exploreSurgeons}</ButtonLink>
+          <ButtonLink href="/consultation" onClick={() => track("start_consultation")}>{t.privateConsultation}</ButtonLink>
+        </div>
+      </div>
+      <div className="hero-caption">{t.heroCaptionTitle}<br /><span>{t.heroCaptionSub}</span></div>
+    </section>
+    <VirtualConsultBanner />
+    <section className="intro-section">
+      <Chapter index="01" eyebrow="A different starting point" title="A Different Perspective on Asian Aesthetics">
+        <p>Asian aesthetics do not have one standard of beauty. Shanghai offers an international city, a diverse clinical landscape, and another perspective for patients who want to make decisions with context.</p>
+        <ButtonLink href="/why-shanghai">Why Shanghai</ButtonLink>
+      </Chapter>
+      <div className="intro-aside"><div className="vertical-quote">"</div><p>Personalized<br /><b>over prescriptive.</b></p><span>- our point of view</span></div>
+    </section>
+    <section className="value-section">
+      <div className="value-heading"><p className="eyebrow">The Flora standard</p><h2>Care that begins<br /><i>before</i> the journey.</h2></div>
+      <div className="value-list">{[["01", "Personalized", "Designed around the individual, not a template."], ["02", "Surgical Expertise", "Access to a verification-ready directory of surgeons."], ["03", "International Care", "Consultation, translation, travel support and follow-up."]].map(([n,tItem,d]) => <div className="value-item" key={n}><span>{n}</span><div><h3>{tItem}</h3><p>{d}</p></div><ArrowUpRight size={18} /></div>)}</div>
+    </section>
+    <section className="home-ai-intro" aria-labelledby="home-ai-intro-title">
+      <div className="home-ai-intro-media">
+        <span className="home-ai-intro-badge">Presentation preview (AI-assisted)</span>
+        <video src="/videos/zhang-yalun-ai-intro.mp4" poster="/videos/zhang-yalun-ai-intro-poster.jpg" controls playsInline muted loop preload="metadata" aria-label="Dr. Zhang Yalun presentation intro preview" />
+      </div>
+      <div className="home-ai-intro-copy">
+        <p className="eyebrow">Surgeons · presentation intro</p>
+        <h2 id="home-ai-intro-title">Meet a surgeon<br /><i>before the trip.</i></h2>
+        <p>A short, watermarked presentation clip for Dr. Zhang Yalun — useful as an international orientation to the Flora surgeon directory, not as a consultation or clinical claim.</p>
+        <p className="home-ai-intro-note">Labelled as an AI-assisted / presentation intro preview. Credentials and institutional details remain pending verification. No procedure recommendation is made from this media alone.</p>
+        <div className="home-ai-intro-actions">
+          <ButtonLink href="/surgeons/dr-zhang-yalun" dark>View Dr. Zhang profile</ButtonLink>
+          <ButtonLink href="/surgeons">{t.viewAllSurgeons}</ButtonLink>
+        </div>
+      </div>
+    </section>
+    <section className="surgeon-section">
+      <Chapter index="02" eyebrow={t.surgeonsEyebrow} title={t.surgeonsTitle}>
+        <p>{t.surgeonsLead}</p>
+        <ButtonLink href="/surgeons">{t.viewAllSurgeons}</ButtonLink>
+      </Chapter>
+      <div className="doctor-grid doctor-grid-home">{publishableDoctors.map((d) => <DoctorCard key={d.id} doctor={d} />)}</div>
+    </section>
+    <section className="city-band" style={{ backgroundImage: `url(${cityImage})` }}>
+      <div className="city-overlay" />
+      <div className="city-content"><p className="eyebrow light">Shanghai / beyond one standard</p><h2>A city with<br /><i>more than one</i><br />point of view.</h2><ButtonLink href="/why-shanghai" dark>Discover Shanghai</ButtonLink></div>
+    </section>
+    <section className="procedures-section">
+      <Chapter index="03" eyebrow="Explore the options" title="Featured Procedures">
+        <p>Information is a starting point, not a recommendation. Explore the language of each procedure before a personal consultation.</p>
+        <ButtonLink href="/procedures">Browse procedures</ButtonLink>
+      </Chapter>
+      <div className="procedure-grid">{procedures.slice(0, 4).map((p) => <Link href={`/procedures/${p.slug}`} className="procedure-card" key={p.slug}><img src={p.image} alt="" loading="lazy" /><div className="procedure-overlay"><span>{p.category}</span><h3>{p.name}</h3><p>{p.shortDescription}</p><ArrowUpRight size={18} /></div></Link>)}</div>
+    </section>
+    <section className="verify-teaser">
+      <div><p className="eyebrow">Certifications & Accreditation</p><h2>Verify before<br /><i>you decide.</i></h2></div>
+      <div><p>We don't ask you to trust a marketing claim. We show you what can be verified.</p><ButtonLink href="/surgeon-verification">How verification works</ButtonLink></div>
+    </section>
+    <section className="journey-teaser">
+      <Chapter index="04" eyebrow="From first question to follow-up" title="Your Journey in Shanghai">
+        <p>A calm, transparent pathway for patients arriving from another country.</p>
+        <ButtonLink href="/patient-journey">See the patient journey</ButtonLink>
+      </Chapter>
+      <div className="journey-line">{journey.map((step) => <div key={step.id}><b>{String(step.step).padStart(2,"0")}</b><span>{step.title}</span></div>)}</div>
+    </section>
+    <PricingGuide />
+    <section className="consult-banner">
+      <p className="eyebrow light">A private first step</p>
+      <h2>Begin with<br /><i>a conversation.</i></h2>
+      <ButtonLink href="/consultation" dark>{t.submitForReview}</ButtonLink>
+    </section>
+  </>;
+}
 
 
 function WhyShanghai() { usePageSeo("Why Shanghai Plastic Surgery | Flora Shanghai Aesthetics", "Understand the international patient context for considering plastic surgery in Shanghai.", "/why-shanghai"); return <><InteriorHero eyebrow="01 / The city" title={<>A different<br /><i>perspective.</i></>} intro="Shanghai is not a promise of one perfect outcome. It is a place to consider a broader range of aesthetic perspectives, clinical conversations, and care pathways." /><section className="article-split"><div className="article-image" style={{ backgroundImage: `url(${cityImage})` }} /><div className="article-text"><p className="eyebrow">Shanghai, in context</p><h2>International by nature.</h2><p>Shanghai connects people, languages, and ideas across Asia and beyond. For international patients, that context can make the process more legible: from remote consultation and translation to travel planning and follow-up.</p><p>Different strengths. Different aesthetic perspectives. The right decision begins with knowing what you are comparing.</p></div></section><section className="paper-grid">{[["Aesthetic diversity", "Asian aesthetics are not a single visual language."], ["Personalized philosophy", "A thoughtful plan starts with the individual, not a template."], ["International support", "Practical care matters before, during, and after a visit."]].map(([t,d]) => <div key={t}><span>-</span><h3>{t}</h3><p>{d}</p></div>)}</section><section className="cta-strip"><h2>Explore the pathway<br /><i>with context.</i></h2><ButtonLink href="/consultation">Private Consultation</ButtonLink></section></>; }
@@ -110,4 +268,4 @@ function Consultation() { const [sent, setSent] = useState(false); const [error,
 function LandingPage({ slug }: { slug: string }) { const page = landingPages.find((item) => item.slug === slug); if (!page) return <SimplePage title="Landing page unavailable" eyebrow="Channel entry">This campaign landing page has not been configured.</SimplePage>; usePageSeo(`${page.title} | Flora Shanghai Aesthetics`, page.intro, `/lp/${page.slug}`); return <><InteriorHero eyebrow={page.eyebrow} title={<>{page.title}<br /><i>with context.</i></>} intro={page.intro} /><section className="cta-strip"><p className="eyebrow">Source channel: {page.sourceChannel}</p><h2>Start with<br /><i>the right questions.</i></h2><ButtonLink href={page.procedureSlug ? `/procedures/${page.procedureSlug}` : "/consultation"}>Explore the pathway</ButtonLink></section></>; }
 function SimplePage({ title, eyebrow, children }: { title: string; eyebrow: string; children: React.ReactNode }) { usePageSeo(`${title} | Flora Shanghai Aesthetics`, `${title}. Draft content requiring professional review before production.`, `/${title.toLowerCase().replaceAll(" ", "-")}`); return <><InteriorHero eyebrow={eyebrow} title={<>{title}<br /><i>in plain language.</i></>} intro="DRAFT - REQUIRES LEGAL REVIEW BEFORE PRODUCTION." /><section className="simple-copy"><p>{children}</p>{!legalReviewed && <div className="info-callout"><b>DRAFT - REQUIRES LEGAL REVIEW BEFORE PRODUCTION</b><p>This page is a structural placeholder. Confirm applicable privacy, consent, data processing, and medical advertising requirements before launch.</p></div>}</section></>; }
 function AppRoutes() { return <Switch><Route path="/" component={Home} /><Route path="/admin/contact-buttons" component={AdminContactButtons} /><Route path="/why-shanghai" component={WhyShanghai} /><Route path="/surgeons" component={Surgeons} /><Route path="/surgeons/:slug" component={DoctorDetail} /><Route path="/procedures" component={Procedures} /><Route path="/procedures/:slug" component={ProcedureDetail} /><Route path="/cases" component={Cases} /><Route path="/cases/:slug" component={CaseDetail} /><Route path="/surgeon-verification" component={Verification} /><Route path="/patient-journey" component={Journey} /><Route path="/consultation" component={Consultation} /><Route path="/lp/:slug">{(params) => <LandingPage slug={params.slug} />}</Route><Route path="/privacy"><SimplePage title="Privacy Policy" eyebrow="Information">Describe collection, use, storage, retention, international transfer, rights, and clinic contact details after legal review.</SimplePage></Route><Route path="/medical-disclaimer"><SimplePage title="Medical Disclaimer" eyebrow="Information">This website provides general educational information only. It does not provide medical advice, diagnosis, or a guarantee of results.</SimplePage></Route><Route path="/terms"><SimplePage title="Terms of Use" eyebrow="Information">Add reviewed terms governing website use, third-party links, limitations, and applicable law.</SimplePage></Route><Route path="/patient-media-consent"><SimplePage title="Patient Media Consent" eyebrow="Information">Add the approved consent language, channels, expiry, withdrawal, and deletion process for patient media.</SimplePage></Route><Route path="/data-processing-notice"><SimplePage title="Data Processing Notice" eyebrow="Information">Add a reviewed notice describing sensitive information, processors, retention, access controls, and deletion requests.</SimplePage></Route><Route><SimplePage title="Page not found" eyebrow="404">The page you are looking for is not part of this release.</SimplePage></Route></Switch>; }
-export default function App() { return <ErrorBoundary><ThemeProvider defaultTheme="light"><SiteShell><AppRoutes /></SiteShell><Toaster /></ThemeProvider></ErrorBoundary>; }
+export default function App() { return <ErrorBoundary><ThemeProvider defaultTheme="light"><LocaleProvider><SiteShell><AppRoutes /></SiteShell><Toaster /></LocaleProvider></ThemeProvider></ErrorBoundary>; }

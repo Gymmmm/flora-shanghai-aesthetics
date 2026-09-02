@@ -67,16 +67,17 @@ export function DoctorProfile({ doctor }: { doctor: Doctor }) {
       </section>
 
       {showZhangVideo ? (
-        <section className="intl-doctor-video" aria-label="Dr. Zhang Yalun introduction">
+        <section className="intl-doctor-video" aria-label="Dr. Zhang Yalun presentation preview">
           <div className="intl-doctor-video-copy">
-            <p className="eyebrow">Presentation / AI-assisted intro</p>
-            <h2>A short look at the<br /><i>presentation point of view.</i></h2>
-            <p>Muted autoplay loop recovered from source showcase media. Presentation preview only — not a consultation, diagnosis or outcome claim. Credentials remain pending verification.</p>
+            <p className="eyebrow">Presentation preview (AI-assisted)</p>
+            <h2>A short look at the<br /><i>clinical point of view.</i></h2>
+            <p>Muted autoplay loop for international patients researching facial aesthetic surgery in Shanghai. Verification of profile credentials is still pending — this preview is presentation material only.</p>
           </div>
           <div className="intl-doctor-video-media">
             <video className="intl-doctor-video-el" autoPlay muted loop playsInline controls poster="/videos/zhang-yalun-ai-intro-poster.jpg">
               <source src={zhangAiIntroVideo} type="video/mp4" />
             </video>
+            <p className="intl-doctor-video-caption">Presentation preview (AI-assisted) · verification pending</p>
           </div>
         </section>
       ) : null}
