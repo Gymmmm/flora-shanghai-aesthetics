@@ -176,3 +176,27 @@
 @media(max-width:980px){
   .lang-toggle:not(.mobile){display:none}
 }
+
+
+/* Real Flora media fills */
+.intro-aside-media{display:flex;flex-direction:column;gap:18px}
+.intro-media-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.intro-media-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;background:#efece7}
+.clinic-media-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:22px}
+.clinic-media-strip img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:#efece7}
+.clinic-media-strip-page{padding:28px 9vw 8px;grid-template-columns:repeat(6,minmax(0,1fr));margin:0}
+.journey-media-col{display:flex;flex-direction:column;gap:18px}
+.procedure-row{display:grid;grid-template-columns:88px 48px 1fr auto;gap:16px;align-items:center}
+.procedure-row-thumb{width:88px;height:72px;object-fit:cover;border-radius:10px;background:#efece7}
+.procedure-hero-media{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:18px 9vw 0}
+.procedure-hero-media img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:14px;background:#efece7}
+.cases-pending-fill{display:flex;flex-direction:column;gap:18px}
+.cases-pending-note{color:#6f6860;font-size:13px;line-height:1.6;max-width:520px}
+.article-split-reverse{direction:rtl}
+.article-split-reverse>*{direction:ltr}
+@media(max-width:900px){
+  .clinic-media-strip-page{grid-template-columns:repeat(3,minmax(0,1fr));padding:22px 7vw}
+  .procedure-row{grid-template-columns:72px 36px 1fr auto}
+  .procedure-hero-media{grid-template-columns:1fr;padding:14px 7vw 0}
+  .article-split-reverse{direction:ltr}
+}
