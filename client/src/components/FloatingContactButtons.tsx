@@ -30,7 +30,7 @@ function defaultContactButtons() {
       iconUrl: WHATSAPP_ICON,
       linkUrl: `https://wa.me/${digits}`,
       displayText: "",
-      tooltipText: "WhatsApp (24h response)",
+      tooltipText: "WhatsApp",
     });
   }
   const ig = String(contact.instagram || "").replace(/^@/, "").trim();
@@ -53,13 +53,13 @@ export function FloatingContactButtons() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowButtons(window.scrollY > 400);
+      setShowButtons(window.scrollY > 160);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prefer DB-configured buttons; when DB is empty/unavailable, fall back to site.ts WhatsApp.
   const resolved =
     !isLoading && !error && buttons && buttons.length > 0
       ? buttons
