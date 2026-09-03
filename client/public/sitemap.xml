@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/</loc></url>
-  <url><loc>/why-shanghai</loc></url>
-  <url><loc>/surgeons</loc></url>
-  <url><loc>/procedures</loc></url>
-  <url><loc>/cases</loc></url>
-  <url><loc>/patient-journey</loc></url>
-  <url><loc>/surgeon-verification</loc></url>
-  <url><loc>/consultation</loc></url>
-  <url><loc>/privacy</loc></url>
-  <url><loc>/medical-disclaimer</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/why-shanghai</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/surgeons</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/procedures</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/cases</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/patient-journey</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/surgeon-verification</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/consultation</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/privacy</loc></url>
+  <url><loc>https://flora-shanghai-aesthetics.vercel.app/medical-disclaimer</loc></url>
 </urlset>
