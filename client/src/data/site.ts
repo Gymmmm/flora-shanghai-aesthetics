@@ -1,6 +1,6 @@
 export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Patient Stories", "/cases"], ["Your Journey", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
 
-/** Digits for wa.me builders: strip non-digits (App.tsx already does .replace(/\D/g, "")). */
+/** Digits for wa.me builders: strip non-digits (App.tsx already does .replace(/\\D/g, "")). */
 export const DEFAULT_WHATSAPP = "+855 969510544";
 
 export const DEFAULT_INSTAGRAM = "goat.2014238";
@@ -21,7 +21,7 @@ export const siteCopy = {
   brand: "Flora Shanghai Aesthetics",
   tagline: "Still You. Just Refined.",
   audienceLine: "Shanghai Medical Aesthetics / Plastic Surgery for International Patients.",
-  consultationLine: "Start from home with an English-language inquiry. We help organize your questions, medical context, doctor review and Shanghai visit planning.",
+  consultationLine: "Start from home. No travel required for the first conversation. We help organise questions, medical context, surgeon review and — if it is appropriate — a Shanghai visit.",
   medicalBoundary: "Remote review is preliminary and does not replace an in-person medical assessment. Any diagnosis or treatment plan must be confirmed by an appropriately licensed clinician in the relevant clinical setting.",
   photoNotice: "Photos may be reviewed only to support a preliminary consultation. They are not a diagnosis and do not guarantee treatment suitability or outcome.",
 };
