@@ -1,6 +1,6 @@
 export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Patient Stories", "/cases"], ["Your Journey", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
 
-/** Digits for wa.me builders: strip non-digits (App.tsx already does .replace(/\\D/g, "")). */
+/** Digits for wa.me builders: strip non-digits (App.tsx already does .replace(/\D/g, "")). */
 export const DEFAULT_WHATSAPP = "+855 969510544";
 
 export const DEFAULT_INSTAGRAM = "goat.2014238";
@@ -36,9 +36,10 @@ export const crmPipelineStatuses = ["NEW", "QUALIFIED", "PHOTOS_RECEIVED", "DOCT
 
 export type LandingPage = { slug: string; title: string; eyebrow: string; intro: string; procedureSlug?: string; sourceChannel: string };
 export const landingPages: LandingPage[] = [
-  { slug: "rhinoplasty-malaysia", title: "Rhinoplasty in Shanghai", eyebrow: "For patients travelling from Malaysia", intro: "Explore surgeon profiles, consultation questions, recovery considerations and practical planning before deciding whether a trip to Shanghai is right for you.", procedureSlug: "rhinoplasty", sourceChannel: "malaysia" },
-  { slug: "revision-rhinoplasty", title: "Revision Rhinoplasty in Shanghai", eyebrow: "For patients considering revision surgery", intro: "Begin with your previous procedure, current concerns and the information a surgeon would need before discussing revision options.", procedureSlug: "revision-rhinoplasty", sourceChannel: "revision" },
-  { slug: "why-shanghai", title: "Why Consider Shanghai?", eyebrow: "For international patients", intro: "Understand the city, the clinical pathway and the practical support available before you decide whether Shanghai belongs on your shortlist.", sourceChannel: "city" },
+  { slug: "rhinoplasty-malaysia", title: "Rhinoplasty in Shanghai", eyebrow: "Malaysia & Singapore pathway", intro: "Korea is often the first comparison. Shanghai is a second look: a planning-led conversation about proportion, breathing and a result that still reads as you. Start remotely from Kuala Lumpur or Singapore before any flight is booked.", procedureSlug: "rhinoplasty", sourceChannel: "malaysia" },
+  { slug: "revision-rhinoplasty", title: "Revision Rhinoplasty in Shanghai", eyebrow: "For patients considering revision surgery", intro: "Begin with your previous procedure, current concerns and the records a surgeon would need. Revision is a context-first pathway — not a promise that everything can be undone.", procedureSlug: "revision-rhinoplasty", sourceChannel: "revision" },
+  { slug: "eyelid-sea", title: "Eyelid Surgery in Shanghai", eyebrow: "Southeast Asia pathway", intro: "Eyelid design is one of the most searched procedures among patients travelling within Asia. Flora starts with expression and anatomy, not a single crease template. A virtual review can happen before you decide whether Shanghai is the right city.", procedureSlug: "eyelid-surgery", sourceChannel: "asean" },
+  { slug: "why-shanghai", title: "Why Consider Shanghai?", eyebrow: "For international patients", intro: "Compare Shanghai with Korea and Thailand using public market context, then decide whether a remote consultation is worth your time. No outcome is promised on a webpage.", sourceChannel: "city" },
   { slug: "surgeon-verification", title: "How We Present Surgeon Information", eyebrow: "Evidence before preference", intro: "See how profile claims are labelled, sourced and separated from information that is still awaiting independent verification.", sourceChannel: "verification" },
 ];
 
