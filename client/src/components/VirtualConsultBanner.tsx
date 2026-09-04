@@ -1,6 +1,7 @@
 import { Video } from "lucide-react";
 import { Link } from "wouter";
 import { marketFacts } from "@/data/marketContext";
+import { CorridorBand } from "@/components/CorridorBand";
 
 export function VirtualConsultBanner() {
   return (
@@ -20,6 +21,7 @@ export function VirtualConsultBanner() {
           </Link>
         </div>
       </section>
+      <CorridorBand />
       <section className="paper-grid">
         {marketFacts.slice(0, 3).map((fact) => (
           <div key={fact.id}>

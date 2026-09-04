@@ -7,6 +7,7 @@ import { publishableDoctors } from "@/data/doctors";
 import { DoctorCard } from "@/components/DoctorCard";
 import { track } from "@/lib/analytics";
 import { MarketContext } from "@/components/MarketContext";
+import { faq } from "@/data/faq";
 
 function waLink(prompt: string) {
   const digits = (contact.whatsapp || "").replace(/\D/g, "");
@@ -66,12 +67,12 @@ export function LandingExperience({ slug }: { slug: string }) {
         <div>
           <span>02</span>
           <h3>What to bring</h3>
-          <p>{page.bring.join(" · ")}</p>
+          <p>{page.bring.join(" \u00b7 ")}</p>
         </div>
         <div>
           <span>03</span>
           <h3>What this page will not do</h3>
-          <p>{page.notThis.join(" · ")}</p>
+          <p>{page.notThis.join(" \u00b7 ")}</p>
         </div>
       </section>
 
@@ -107,6 +108,17 @@ export function LandingExperience({ slug }: { slug: string }) {
             <DoctorCard key={doctor.id} doctor={doctor} />
           ))}
         </div>
+      </section>
+
+      <section className="article-text" style={{ padding: "2rem 6vw 4rem" }}>
+        <p className="eyebrow">Questions before you write</p>
+        <h2>Clear limits.</h2>
+        {faq.slice(0, 4).map((item) => (
+          <div key={item.question} style={{ marginTop: "1.25rem" }}>
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </div>
+        ))}
       </section>
 
       {page.sourceChannel === "city" || page.slug === "why-shanghai" ? <MarketContext /> : null}
