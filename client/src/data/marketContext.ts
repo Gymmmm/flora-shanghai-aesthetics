@@ -11,7 +11,7 @@ export type MarketFact = {
 export const marketPositioning = {
   eyebrow: "Inbound aesthetics / industry context",
   title: "Why patients compare Shanghai now",
-  lead: "Korea remains the strongest elective-aesthetics brand. Thailand remains the most mature full-service hub. Shanghai is being researched as a third option: hospital-grade infrastructure plus a \u201cborn-with-it\u201d refinement philosophy — not a template face.",
+  lead: "Korea remains the strongest elective-aesthetics brand. Thailand remains the most mature full-service hub. Shanghai is being researched as a third option: hospital-grade infrastructure plus a born-with-it refinement philosophy — not a template face.",
   note: "The figures below describe the wider market. They are not Flora patient counts, guaranteed savings, or a clinical recommendation.",
 };
 
@@ -71,13 +71,13 @@ export const comparisonNotes = [
 export const priorityCorridors = [
   {
     region: "Malaysia & Singapore",
-    why: "Short flight, English-language inquiry, and a preference for natural eyelid and nasal refinement over a \u201cK-pop template\u201d.",
+    why: "Short flight, English-language inquiry, and a preference for natural eyelid and nasal refinement over a template face.",
     href: "/lp/rhinoplasty-malaysia",
   },
   {
     region: "Indonesia",
     why: "Growing ASEAN aesthetics demand. Start with a remote review before any travel decision.",
-    href: "/consultation",
+    href: "/lp/rhinoplasty-indonesia",
   },
   {
     region: "Revision cases",
