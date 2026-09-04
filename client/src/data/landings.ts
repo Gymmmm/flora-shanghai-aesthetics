@@ -22,6 +22,18 @@ const details: Record<string, Omit<LandingDetail, keyof LandingPage>> = {
     notThis: ["No published price that pretends every nose costs the same", "No promise that a Korean template will be copied", "No booking until an in-person assessment can confirm the plan"],
     whatsappPrompt: "Hello Flora, I am writing from Malaysia/Singapore about rhinoplasty in Shanghai. I would like a remote review before travelling.",
   },
+  "rhinoplasty-indonesia": {
+    promise: "An English-language remote review from Indonesia — before any ticket to Shanghai is bought.",
+    comparedWith: "Korea and Thailand are familiar names. Shanghai is useful when the brief is proportion and a result that still reads as you, not a package face.",
+    steps: [
+      "Write from Jakarta, Surabaya, Bali or elsewhere in English",
+      "Share photos and any previous nasal work",
+      "Decide later whether an in-person assessment in Shanghai is appropriate",
+    ],
+    bring: ["Front and profile photos", "Filler or implant history if any", "Breathing notes", "A flexible two-week window, not a surgery date"],
+    notThis: ["No guaranteed visa outcome", "No same-week surgery sold from this page", "No copied Korean template"],
+    whatsappPrompt: "Hello Flora, I am writing from Indonesia about rhinoplasty in Shanghai. I would like a remote review before travelling.",
+  },
   "eyelid-sea": {
     promise: "Eyelid planning that starts with expression and crease anatomy — not one standard double eyelid.",
     comparedWith: "Patients across ASEAN often compare Korea first. Shanghai is useful when you want the crease to still look like your face in daylight, not only in clinic lighting.",
@@ -31,7 +43,7 @@ const details: Record<string, Omit<LandingDetail, keyof LandingPage>> = {
       "A surgeon discussion can follow if the case is appropriate for travel",
     ],
     bring: ["Open-eye and closed-eye photos", "Notes on previous eyelid surgery or thread/filler work", "Whether the goal is crease, puffiness, or revision", "How many days you can stay in Shanghai"],
-    notThis: ["No single \u201cstandard Asian crease\u201d sold as universal", "No before/after borrowed from another patient", "No same-week surgery promise from a webpage"],
+    notThis: ["No single standard Asian crease sold as universal", "No before/after borrowed from another patient", "No same-week surgery promise from a webpage"],
     whatsappPrompt: "Hello Flora, I am enquiring from Southeast Asia about eyelid surgery in Shanghai. I want a natural crease discussion before I travel.",
   },
   "revision-rhinoplasty": {
