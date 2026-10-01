@@ -341,7 +341,17 @@
 }
 
 
-/* Consistent doctor portrait framing */
-.doctor-card-intl .doctor-portrait-wrap,.intl-doctor-portrait{background:linear-gradient(145deg,#f3eee7 0%,#fbf8f3 58%,#ece5dc 100%)}
-.doctor-card-intl .doctor-portrait,.intl-doctor-portrait img{filter:saturate(.82) contrast(.98) brightness(1.035)}
-@media(max-width:720px){.surgeon-section .doctor-card-intl .doctor-portrait{object-fit:contain;object-position:center center!important;transform:scale(.94)!important;transform-origin:center bottom}.surgeon-section .doctor-card-intl:hover .doctor-portrait{transform:scale(.96)!important}.surgeon-section .doctor-card-intl .doctor-portrait-wrap{background:linear-gradient(145deg,#f1ebe3,#fbf8f3 62%,#e9e1d7)}}
+
+/* Mobile conversion pass: keep the homepage concise and controls clear */
+@media(max-width:720px){
+  .home-proof-strip>div{padding:18px 7vw 19px}
+  .home-proof-strip b{font-size:18px}
+  .home-proof-strip small{font-size:11px;line-height:1.45}
+  .surgeon-section .chapter h2{font-size:clamp(48px,14vw,62px)}
+  .procedures-section .procedure-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .procedures-section .procedure-card{height:260px;border-radius:16px}
+  .procedures-section .procedure-overlay{padding:18px 14px}
+  .procedures-section .procedure-overlay h3{font-size:clamp(22px,7vw,30px)}
+  .procedures-section .procedure-overlay p{display:none}
+  .floating-contact-buttons{bottom:82px}
+}
