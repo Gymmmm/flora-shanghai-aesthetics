@@ -345,3 +345,66 @@
 .doctor-card-intl .doctor-portrait-wrap,.intl-doctor-portrait{background:linear-gradient(145deg,#f3eee7 0%,#fbf8f3 58%,#ece5dc 100%)}
 .doctor-card-intl .doctor-portrait,.intl-doctor-portrait img{filter:saturate(.82) contrast(.98) brightness(1.035)}
 @media(max-width:720px){.surgeon-section .doctor-card-intl .doctor-portrait{object-fit:contain;object-position:center center!important;transform:scale(.94)!important;transform-origin:center bottom}.surgeon-section .doctor-card-intl:hover .doctor-portrait{transform:scale(.96)!important}.surgeon-section .doctor-card-intl .doctor-portrait-wrap{background:linear-gradient(145deg,#f1ebe3,#fbf8f3 62%,#e9e1d7)}}
+
+
+/* Mobile conversion pass — uses existing Flora tokens */
+.mobile-consult-link,.mobile-action-bar,.hero-pause{display:none}
+.home-corridors,.home-compact-section,.home-verification-line{padding:72px clamp(24px,6vw,96px)}
+.home-section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:32px}
+.home-section-head h2{margin:0;font-size:clamp(34px,4vw,58px);letter-spacing:-.04em}
+.home-section-head p{max-width:620px;color:var(--muted);line-height:1.65}
+.home-section-head>a{display:inline-flex;align-items:center;gap:6px}
+.corridor-snap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.corridor-card{border:1px solid var(--line);padding:26px;min-height:260px;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:rgba(255,255,255,.2)}
+.corridor-card span{font-size:10px;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.corridor-card h3{font-size:25px;line-height:1.08;margin:28px 0 12px}
+.corridor-card p{font-size:13px;line-height:1.65;color:var(--muted);margin:0 0 24px}
+.corridor-card b{margin-top:auto;font-size:11px;display:flex;gap:6px;align-items:center}
+.home-verification-line{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:24px}
+.home-verification-line a{display:flex;gap:6px;align-items:center}
+.home-final-cta>div{display:flex;gap:10px;justify-content:center}.home-final-cta>p{font-size:12px;margin-top:22px}.home-final-cta>p a{text-decoration:underline}
+.consultation-wrap form{max-width:760px}.more-detail-toggle{width:100%;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:none;padding:18px 0;margin:18px 0;text-align:left;display:flex;justify-content:space-between;font:600 12px/1 Manrope,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.photo-followup{font-size:13px;color:var(--muted);line-height:1.6}
+.consultation-submit{width:100%;justify-content:center;margin-top:20px}
+
+@media(max-width:720px){
+  body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+  .site-header{height:62px;padding:0 14px;gap:10px}
+  .site-header .brand-mark{width:28px;height:28px}.site-header .brand span em{display:none}
+  .site-header>.qm-button,.site-header>.lang-toggle{display:none}
+  .mobile-consult-link{display:block;margin-left:auto;font-size:12px;font-weight:700;text-decoration:none;color:var(--ink);padding:10px 6px}
+  .menu-trigger{display:grid}
+  .mobile-menu{top:62px}
+  .mobile-action-bar{position:fixed;z-index:90;display:grid;grid-template-columns:1fr 1fr;left:0;right:0;bottom:0;height:calc(56px + env(safe-area-inset-bottom));padding:0 10px env(safe-area-inset-bottom);background:rgba(244,240,233,.97);border-top:1px solid var(--line);transition:transform .18s ease}
+  .mobile-action-bar.hidden{transform:translateY(110%)}
+  .mobile-action-bar a{display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;color:var(--ink);font-size:12px;font-weight:700}
+  .mobile-action-bar a+a{background:var(--ink);color:var(--paper);margin:7px 0}
+  .footer{padding-bottom:84px}
+  .hero-mobile-first{height:calc(100svh - 62px);min-height:650px;max-height:782px}
+  .hero-mobile-first .hero-copy{left:20px;right:20px;bottom:28px;max-width:none}
+  .hero-mobile-first .hero-copy .eyebrow{font-size:9px;line-height:1.4;margin-bottom:12px;max-width:300px}
+  .hero-mobile-first .hero-copy h1{font-size:clamp(50px,15vw,64px);line-height:.88;margin:0 0 14px}
+  .hero-mobile-first .hero-copy>p:not(.eyebrow){font-size:13px;line-height:1.45;margin:0 0 14px;max-width:340px}
+  .hero-mobile-first .hero-actions{display:grid;grid-template-columns:1fr;gap:8px}
+  .hero-mobile-first .hero-actions .qm-button{width:100%;justify-content:center;min-height:44px}
+  .hero-pause{display:grid;place-items:center;position:absolute;z-index:4;right:16px;top:16px;width:36px;height:36px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(29,30,28,.3);color:white}
+  @media(prefers-reduced-motion:reduce){.hero-mobile-first .hero-video{display:none}.hero-mobile-first{background:url("/images/hero.jpg") center/cover no-repeat}.hero-pause{display:none}}
+  .home-proof-strip.compact{display:grid;grid-template-columns:1fr;padding:26px 20px}
+  .home-proof-strip.compact>div{padding:13px 0;border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:112px 1fr;gap:12px;align-items:start}
+  .home-proof-strip.compact>div:last-child{border-bottom:0}.home-proof-strip.compact b{font-size:13px}.home-proof-strip.compact small{font-size:12px;line-height:1.45}
+  .home-corridors,.home-compact-section,.home-verification-line{padding:46px 20px}
+  .home-section-head{align-items:start;margin-bottom:22px}.home-section-head h2{font-size:34px}.home-section-head p{font-size:13px;margin:8px 0 0}
+  .home-section-head .qm-button{display:none}
+  .corridor-snap{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-right:-20px;padding-right:20px;scrollbar-width:none}.corridor-snap::-webkit-scrollbar{display:none}
+  .corridor-card{flex:0 0 78vw;scroll-snap-align:start;min-height:230px;padding:22px}.corridor-card h3{font-size:24px;margin-top:24px}.corridor-card p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .doctor-grid-home{display:grid;grid-template-columns:1fr;gap:16px}
+  .surgeon-section .doctor-card-intl:nth-child(n+4){display:none}
+  .home-procedure-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+  .home-procedure-grid .procedure-card{min-height:210px!important}.home-procedure-grid .procedure-overlay{padding:14px!important}.home-procedure-grid .procedure-overlay span,.home-procedure-grid .procedure-overlay p{display:none}.home-procedure-grid .procedure-overlay h3{font-size:17px!important;margin:0!important}
+  .home-verification-line{display:block;font-size:13px;line-height:1.55}.home-verification-line a{margin-top:12px;font-weight:700}
+  .home-final-cta{padding:54px 20px 62px}.home-final-cta>div{display:grid;grid-template-columns:1fr;gap:8px}.home-final-cta .qm-button{width:100%;justify-content:center}
+  .consultation-wrap{padding:38px 20px 90px}.consultation-wrap .form-spine{display:none}.consultation-wrap form{width:100%}
+  .consultation-form .form-grid{display:grid;grid-template-columns:1fr;gap:16px}.consultation-form label{font-size:12px}.consultation-form input,.consultation-form select,.consultation-form textarea{font-size:16px!important;width:100%;min-height:48px}.consultation-form textarea{padding-top:12px}
+  .consultation-form .consent{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}.consultation-form .consent input{width:18px;min-height:18px}
+  .consultation-submit{min-height:50px;margin-bottom:18px}
+}
