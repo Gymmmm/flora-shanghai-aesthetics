@@ -1,86 +1,43 @@
-/* Flora mobile refinement: preserves the existing editorial system while shortening the first visit. */
-@media (max-width: 720px) {
-  .site-header { position: sticky; top: 0; z-index: 30; min-height: 62px; padding: 14px 5vw !important; }
-  .site-header .brand-mark { width: 24px; height: 24px; }
-  .site-header .brand em { display: none; }
-  .site-header .brand b { font-size: 22px !important; }
-  .site-header .desktop-nav { display: none; }
-  .site-header > .qm-button { display: inline-flex; margin-left: auto; margin-right: 10px; padding: 8px 0; border: 0; background: transparent; color: inherit; font-size: 10px; }
-  .site-header > .qm-button svg { display: none; }
-  .menu-trigger { display: inline-flex; }
-  .mobile-menu { position: fixed; inset: 62px 0 auto; z-index: 25; display: flex; flex-direction: column; gap: 0; padding: 16px 7vw 22px; background: var(--flora-night); border-bottom: 1px solid var(--flora-line); }
-  .mobile-menu a { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; color: var(--flora-ink); border-bottom: 1px solid var(--flora-line); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-  .site-shell > main > .hero { min-height: calc(100svh - 62px); height: calc(100svh - 62px); align-items: flex-start; padding: 0; }
-  .site-shell > main > .hero .hero-copy { margin: 0; padding: 20svh 7vw 0; max-width: 100%; }
-  .site-shell > main > .hero .hero-copy .eyebrow { margin-bottom: 18px; font-size: 9px; }
-  .site-shell > main > .hero .hero-copy h1 { font-size: clamp(62px, 18vw, 86px); line-height: .79; margin-bottom: 24px; }
-  .site-shell > main > .hero .hero-copy > p:not(.eyebrow) { max-width: 280px; font-size: 14px; line-height: 1.55; }
-  .site-shell > main > .hero .hero-actions { margin-top: 26px; }
-  .site-shell > main > .hero .hero-actions .qm-button { width: 100%; justify-content: center; }
-  .site-shell > main > .hero .hero-caption { display: none; }
-  .site-shell > main > .hero:after { content: "Explore surgeons"; position: absolute; left: 7vw; bottom: 28px; z-index: 3; color: var(--flora-ink); border-bottom: 1px solid var(--flora-copper); padding-bottom: 5px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
-  .site-shell > main > .hero:has(.hero-actions) .hero-actions:after { content: ""; }
-  .intro-section { display: none; }
-  .value-section { padding-top: 54px; padding-bottom: 54px; }
-  .value-heading h2 { font-size: 44px; }
+/* Mobile refinement for the existing Flora editorial system. */
+@media (max-width: 900px) {
+  .site-shell { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  .mobile-cta { display: flex !important; position: fixed; inset: auto 0 0; z-index: 40; min-height: 56px; padding-bottom: env(safe-area-inset-bottom); background: rgba(9,10,10,.97); border-top: 1px solid var(--flora-line); }
+  .mobile-cta a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 56px; color: var(--flora-ink); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+  .mobile-cta a + a { background: var(--flora-copper); color: var(--flora-night); }
+  .site-shell:has(input:focus) .mobile-cta, .site-shell:has(textarea:focus) .mobile-cta, .site-shell:has(select:focus) .mobile-cta { display: none !important; }
+  .mobile-menu .lang-toggle.mobile { display: flex; align-items: center; gap: 9px; padding: 16px 0 4px; color: var(--flora-ink); }
+  .mobile-menu .lang-toggle button { border: 0; background: none; color: inherit; padding: 0; font: inherit; font-size: 11px; letter-spacing: .12em; }
+  .mobile-menu .lang-toggle button.active { color: var(--flora-copper); }
+  .hero-pause { position: absolute; right: 7vw; bottom: 28px; z-index: 4; border: 1px solid rgba(244,240,233,.42); background: rgba(9,10,10,.5); color: var(--flora-ink); padding: 7px 10px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+  .form-wrap { padding-bottom: 120px !important; }
+  .form-wrap input, .form-wrap select, .form-wrap textarea { font-size: 16px !important; }
+  .form-wrap button[type=submit] { width: 100%; min-height: 52px; }
+  .intro-section, .city-band, .journey-teaser, .market-stats, .market-stats-section, .pricing-section, .pricing-guide, .trust-banner, .virtual-consult-banner { display: none !important; }
+  .value-section { padding-top: 62px; padding-bottom: 62px; }
   .value-list .value-item:nth-child(n+4) { display: none; }
-  .city-band { min-height: 260px; }
-  .city-band + section { padding-top: 54px; }
   .surgeon-section { padding-top: 68px; padding-bottom: 68px; }
-  .surgeon-section .chapter h2 { font-size: 54px; }
-  .surgeon-section .doctor-grid { grid-template-columns: repeat(3, 78vw); display: grid; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-right: -7vw; padding-right: 7vw; }
+  .surgeon-section .doctor-grid { display: grid; grid-template-columns: repeat(3, 78vw); overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-right: -7vw; padding-right: 7vw; }
   .surgeon-section .doctor-card { min-height: 480px; scroll-snap-align: start; }
-  .surgeon-section .doctor-card:nth-child(n+4) { display: none; }
   .surgeon-section .doctor-portrait-wrap { min-height: 480px; }
-  .surgeon-section .doctor-meta { padding: 90px 18px 20px; }
-  .surgeon-section .doctor-meta h3 { font-size: 34px; }
-  .doctor-status { display: block; color: var(--flora-copper); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; }
-  .procedures-section { padding-top: 68px; padding-bottom: 68px; }
+  .surgeon-section .doctor-meta .evidence-seal, .doctor-card .doctor-badges { display: none !important; }
+  .procedures-section { display: block; padding-top: 68px; padding-bottom: 68px; }
   .procedure-list { padding: 54px 7vw; }
   .editorial-accordion-item strong { font-size: 29px; }
   .verify-teaser { padding-top: 60px; padding-bottom: 60px; }
-  .verify-teaser h2 { font-size: 52px; }
-  .journey-teaser { display: none; }
   .consult-banner { padding: 68px 7vw 110px; }
-  .consult-banner h2 { font-size: 54px; }
-  .mobile-cta { display: flex !important; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; min-height: 56px; padding-bottom: env(safe-area-inset-bottom); background: rgba(9,10,10,.96); border-top: 1px solid var(--flora-line); }
-  .mobile-cta a { flex: 1; display: flex; align-items: center; justify-content: center; color: var(--flora-ink); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
-  .mobile-cta a + a { background: var(--flora-copper); color: var(--flora-night); }
-  .site-shell { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
-  .site-shell:has(.form-wrap input:focus) .mobile-cta, .site-shell:has(.form-wrap textarea:focus) .mobile-cta, .site-shell:has(.form-wrap select:focus) .mobile-cta { display: none !important; }
-  .form-wrap { padding-bottom: 120px !important; }
-  .form-wrap form { display: flex; flex-direction: column; gap: 18px; }
-  .form-wrap input, .form-wrap select, .form-wrap textarea { font-size: 16px !important; }
-  .form-wrap button[type="submit"] { width: 100%; min-height: 52px; }
+  .case-list .demo-banner { font-size: 0; }
+  .case-list .demo-banner::after { content: "No patient journeys are publicly displayed yet."; font-size: 15px; }
+  .case-list .demo-banner .evidence-seal, .consult-photo-note, .photo-upload-note, .footer .instagram, .footer a[href*=instagram] { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .site-shell > main > .hero .hero-video { display: none; }
-  .site-shell > main > .hero { background-image: url('/images/hero.jpg'); background-size: cover; background-position: center; }
+  .hero-video { display: none; }
+  .site-shell > main > .hero { background: url('/images/hero.jpg') center/cover; }
 }
-@media (min-width: 721px) { .mobile-refinement-only { display: none; } }
 .mobile-cta { display: none; }
 .doctor-status { display: none; }
-.footer .support-hours { letter-spacing: .08em; }
+.form-wrap { padding-bottom: 120px; }
 .js-consultation-more { display: none; }
-
-/* Compact corridor navigation when the existing homepage uses corridor cards. */
-@media (max-width: 720px) {
-  .corridors, .corridor-grid, .landing-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-right: 7vw; }
-  .corridors > *, .corridor-grid > *, .landing-grid > * { flex: 0 0 78vw; scroll-snap-align: start; }
-}
-
-/* Small status replaces internal verification language on cards. */
-.surgeon-section .doctor-meta .evidence-seal, .doctor-card .doctor-badges { display: none !important; }
-.case-list .demo-banner { font-size: 0; }
-.case-list .demo-banner::after { content: "No patient journeys are publicly displayed yet."; font-size: 15px; }
-.case-list .demo-banner .evidence-seal { display: none; }
-.consult-photo-note, .photo-upload-note { display: none; }
-.footer .instagram, .footer a[href*="instagram"] { display: none; }
-.footer .footer-note small { color: rgba(244,240,233,.5); }
-
-@media (max-width: 720px) {
-  .procedure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px; }
-  .procedure-card { height: 220px; }
-  .procedure-overlay { padding: 70px 12px 14px; }
-  .procedure-overlay h3 { font-size: 21px; }
-}
+.footer .support-hours { letter-spacing: .08em; }
+.hidden-mobile-upload, input[type="file"] { display: none !important; } .case-list [class*="empty"] { text-transform: none; }
+@media (max-width: 900px) { .doctor-status { display: block; color: var(--flora-copper); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; } .mobile-cta { display: flex !important; } .mobile-cta:has(~ main input:focus), .mobile-cta:has(~ main textarea:focus) { display: none !important; } }
+      
