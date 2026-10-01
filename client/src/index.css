@@ -71,3 +71,9 @@
   .hero-video{display:none}
   .hero{background:url(/images/hero.jpg) center/cover no-repeat}
 }
+
+.fact-strip small{display:block;margin-top:8px;color:#6d675f;font-size:11px;line-height:1.45}
+@media (max-width:900px){
+  .fact-strip{display:block;padding:8px 5vw 28px}
+  .fact-strip>div{padding:16px 0;border-top:1px solid var(--line)}
+}

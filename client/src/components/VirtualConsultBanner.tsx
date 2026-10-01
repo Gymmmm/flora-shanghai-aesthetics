@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { marketFacts } from "@/data/marketContext";
 import { CorridorBand } from "@/components/CorridorBand";
 
+const homeFacts = ["shanghai-foreign", "travel-for-care", "inbound-aesthetics"];
+
 export function VirtualConsultBanner() {
   return (
     <>
@@ -14,7 +16,7 @@ export function VirtualConsultBanner() {
           <div className="virtual-consult-copy">
             <span className="virtual-badge">PRELIMINARY</span>
             <h2>Start with a <i>Virtual Consultation</i></h2>
-            <p>Connect from Malaysia, Singapore, Indonesia or further. No travel required for the first conversation. A remote review is not a diagnosis — it organises the questions a surgeon would need next.</p>
+            <p>From Malaysia, Singapore or Indonesia, the first step is a remote review. It is not a diagnosis and it does not require a flight.</p>
           </div>
           <Link href="/consultation" className="qm-button qm-button-dark">
             Start Preliminary Inquiry
@@ -22,8 +24,8 @@ export function VirtualConsultBanner() {
         </div>
       </section>
       <CorridorBand />
-      <section className="paper-grid desktop-only">
-        {marketFacts.slice(0, 3).map((fact) => (
+      <section className="paper-grid fact-strip" aria-label="Public figures, not Flora volume">
+        {marketFacts.filter((fact) => homeFacts.includes(fact.id)).map((fact) => (
           <div key={fact.id}>
             <span>{fact.year}</span>
             <h3>{fact.label}</h3>
