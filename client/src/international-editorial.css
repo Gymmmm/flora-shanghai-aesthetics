@@ -240,3 +240,77 @@
   .home-proof-strip>div{border-right:0;border-bottom:1px solid #d9d0c6;padding:22px 7vw 24px}
   .home-proof-strip>div:last-child{border-bottom:0}
 }
+
+
+/* Doctor cards — compact mobile editorial treatment */
+@media(max-width:720px){
+  .surgeon-section{padding:78px 7vw 96px}
+  .surgeon-section .chapter{margin-bottom:44px}
+  .surgeon-section .doctor-grid{gap:18px}
+  .surgeon-section .doctor-card-intl{
+    display:grid;
+    grid-template-columns:42% 58%;
+    min-height:196px;
+    border:1px solid #ded7ce;
+    border-radius:18px;
+    overflow:hidden;
+    background:#fffdfa;
+  }
+  .surgeon-section .doctor-card-intl .doctor-portrait-wrap{
+    height:196px;
+    min-height:196px;
+    border-radius:0;
+    border:0;
+  }
+  .surgeon-section .doctor-card-intl .doctor-portrait{
+    height:100%;
+    object-position:center 16% !important;
+  }
+  .surgeon-section .doctor-location-chip{
+    left:10px;
+    bottom:10px;
+    max-width:calc(100% - 20px);
+    padding:6px 8px;
+    font-size:7px;
+    line-height:1.25;
+    letter-spacing:.08em;
+  }
+  .surgeon-section .doctor-card-intl .doctor-meta{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-width:0;
+    min-height:196px;
+    padding:18px 16px;
+    border:0;
+  }
+  .surgeon-section .doctor-card-intl .doctor-meta .evidence-seal{
+    margin:0 0 13px;
+    font-size:7px;
+    padding:6px 7px;
+    align-self:flex-start;
+  }
+  .surgeon-section .doctor-card-intl .doctor-meta h3{
+    font-size:clamp(27px,8.2vw,38px);
+    line-height:.94;
+    margin:0 0 9px;
+    letter-spacing:-.04em;
+  }
+  .surgeon-section .doctor-card-intl .doctor-specialty-line{
+    font-size:11px;
+    line-height:1.35;
+    margin:0 0 18px;
+    color:#5f5a54;
+  }
+  .surgeon-section .doctor-card-intl .doctor-card-cta{
+    margin-top:auto;
+    margin-bottom:0;
+    font-size:8px;
+    color:var(--flora-scrub);
+  }
+  .surgeon-section .doctor-card-intl .doctor-meta svg{
+    right:15px;
+    bottom:17px;
+  }
+}
