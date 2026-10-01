@@ -190,7 +190,7 @@ function Home() {
         <p>{t.heroLead}</p>
         <div className="hero-actions">
           <ButtonLink href="/consultation" dark onClick={() => track("start_consultation")}>{t.privateConsultation}</ButtonLink>
-          <ButtonLink href="/surgeons">{t.exploreSurgeons}</ButtonLink>
+          <ButtonLink href="/lp/rhinoplasty-malaysia">Malaysia & Singapore</ButtonLink>
         </div>
       </div>
       <div className="hero-caption">{t.heroCaptionTitle}<br /><span>{t.heroCaptionSub}</span></div>
@@ -199,6 +199,14 @@ function Home() {
       <div><span>01</span><b>Remote first</b><small>A review from home. Not a diagnosis, and not a flight.</small></div>
       <div><span>02</span><b>Proportion, not a template</b><small>Nose and eyelid plans stay inside your face. No Korean or Western standard.</small></div>
       <div><span>03</span><b>Verified context</b><small>Surgeon status is shown as in review or hospital reported until it is sourced.</small></div>
+    </section>
+    <section className="compare-band" aria-label="How to compare destinations">
+      <p className="eyebrow">The comparison</p>
+      <div className="compare-row">
+        <article><span>Korea</span><b>Brand</b><p>Use when name recognition and high-volume facial work are the benchmark.</p></article>
+        <article><span>Thailand</span><b>Package</b><p>Use when a hospital package, transfer and recovery stay are the benchmark.</p></article>
+        <article className="is-flora"><span>Shanghai</span><b>Review first</b><p>Use when you want proportion checked before a flight. Not a template face.</p></article>
+      </div>
     </section>
     <section className="stance-band" aria-label="What Flora will not sell">
       <p className="eyebrow">The brief</p>
@@ -275,7 +283,7 @@ function Home() {
 
 
 function WhyShanghai() { usePageSeo("Why Shanghai Plastic Surgery | Flora Shanghai Aesthetics", "Understand the international patient context for considering plastic surgery in Shanghai.", "/why-shanghai"); return <><InteriorHero eyebrow="01 / The city" title={<>A different<br /><i>perspective.</i></>} intro="Shanghai is not a promise of one perfect outcome. It is a place to consider a broader range of aesthetic perspectives, clinical conversations, and care pathways." /><section className="article-split"><div className="article-image" style={{ backgroundImage: `url(${cityImage})` }} /><div className="article-text"><p className="eyebrow">Shanghai, in context</p><h2>International by nature.</h2><p>Shanghai connects people, languages, and ideas across Asia and beyond. For international patients, that context can make the process more legible: from remote consultation and translation to travel planning and follow-up.</p><p>Different strengths. Different aesthetic perspectives. The right decision begins with knowing what you are comparing.</p></div></section><section className="article-split article-split-reverse"><div className="article-image" style={{ backgroundImage: `url(${clinicStill})` }} /><div className="article-text"><p className="eyebrow">Flora surgeons</p><h2>Our own clinical team.</h2><p>Profiles on this site use Flora\'s own doctor photographs — not stock faces. Credentials stay verification-honest until independently confirmed.</p><ButtonLink href="/surgeons">Meet the surgeons</ButtonLink></div></section><div className="clinic-media-strip clinic-media-strip-page" aria-label="Flora surgeons">{clinicMediaStrip.slice(0,4).map((src) => <img key={src} src={src} alt="" loading="lazy" />)}</div><section className="paper-grid">{[["Aesthetic diversity", "Asian aesthetics are not a single visual language."], ["Personalized philosophy", "A thoughtful plan starts with the individual, not a template."], ["International support", "Practical care matters before, during, and after a visit."]].map(([t,d]) => <div key={t}><span>-</span><h3>{t}</h3><p>{d}</p></div>)}</section><MarketContext /><section className="cta-strip"><h2>Explore the pathway<br /><i>with context.</i></h2><ButtonLink href="/consultation">Private Consultation</ButtonLink></section></>; }
-function Surgeons() { usePageSeo("Plastic Surgeons in Shanghai | Flora", "A verification-ready directory of surgeon profiles for international patients.", "/surgeons"); return <><InteriorHero eyebrow="Shanghai Medical Aesthetics" title={<>Meet the<br /><i>surgeons.</i></>} intro="Clean international profiles for overseas patients. Every factual claim carries a verification status — credentials are never invented." /><section className="listing-section"><div className="listing-note">{publishableDoctors.length} profiles / Shanghai medical aesthetics <span>Credentials are not claims until sourced</span></div><div className="doctor-grid doctor-grid-large">{publishableDoctors.map((d) => <DoctorCard doctor={d} key={d.id} />)}</div></section></>; }
+function Surgeons() { usePageSeo("Plastic Surgeons in Shanghai | Flora", "A verification-ready directory of surgeon profiles for international patients.", "/surgeons"); return <><InteriorHero eyebrow="Shanghai Medical Aesthetics" title={<>Meet the<br /><i>surgeons.</i></>} intro="Clean international profiles for overseas patients. Every factual claim carries a verification status — credentials are never invented." /><section className="listing-section desktop-only"><div className="listing-note">{publishableDoctors.length} profiles / Shanghai medical aesthetics <span>Credentials are not claims until sourced</span></div><div className="doctor-grid doctor-grid-large">{publishableDoctors.map((d) => <DoctorCard doctor={d} key={d.id} />)}</div></section></>; }
 function DoctorDetail() {
   const [, params] = useRoute("/surgeons/:slug");
   const d = params ? doctorBySlug(params.slug) : undefined;

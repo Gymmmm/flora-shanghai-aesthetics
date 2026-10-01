@@ -99,3 +99,13 @@
   .doctor-meta{padding:10px}
   .doctor-meta h3{font-size:15px}
 }
+
+.compare-band{padding:28px 5vw 8px}
+.compare-row{display:grid;grid-template-columns:1fr;gap:10px}
+.compare-row article{border:1px solid var(--line);padding:16px 16px 14px;background:#f7f3ec}
+.compare-row span{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9c795f}
+.compare-row b{display:block;font:500 28px/1.1 var(--serif);margin:6px 0}
+.compare-row p{margin:0;font-size:13px}
+.compare-row .is-flora{background:#1d1e1c;color:#f4f0e9}
+.compare-row .is-flora span{color:#d7c4b0}
+@media (min-width:800px){.compare-row{grid-template-columns:1fr 1fr 1fr}}
