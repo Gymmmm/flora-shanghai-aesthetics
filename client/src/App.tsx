@@ -186,6 +186,11 @@ function Home() {
       </div>
       <div className="hero-caption">{t.heroCaptionTitle}<br /><span>{t.heroCaptionSub}</span></div>
     </section>
+    <section className="home-proof-strip" aria-label="Flora international patient pathway">
+      <div><span>01</span><b>Remote first</b><small>Begin with a private review before planning travel.</small></div>
+      <div><span>02</span><b>Surgeon context</b><small>Compare profiles, focus areas and verification status.</small></div>
+      <div><span>03</span><b>Shanghai pathway</b><small>Translation, planning and follow-up in one patient journey.</small></div>
+    </section>
     <VirtualConsultBanner />
     <section className="intro-section">
       <Chapter index="01" eyebrow="A different starting point" title="A Different Perspective on Asian Aesthetics">
