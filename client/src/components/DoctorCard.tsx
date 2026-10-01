@@ -4,15 +4,15 @@ import { track } from "../lib/analytics";
 import type { Doctor } from "../data/doctors";
 
 function Seal({ children = "PENDING / VERIFY", status }: { children?: React.ReactNode; status?: string }) {
-  const icon = status === "verified" ? "✓" : status === "pending_verification" ? "⏱" : status === "hospital_reported" ? "◐" : "✳";
+  const icon = status === "verified" ? "✓" : "•";
   const color = status === "verified" ? "seal-verified" : status === "pending_verification" ? "seal-pending" : "";
   return <span className={`evidence-seal ${color}`}><b>{icon}</b>{children}</span>;
 }
 
 function statusLabel(status: Doctor["verificationStatus"]) {
-  if (status === "verified") return "VERIFIED";
-  if (status === "hospital_reported") return "HOSPITAL REPORTED";
-  return "PENDING VERIFICATION";
+  if (status === "verified") return "Verified";
+  if (status === "hospital_reported") return "Hospital reported";
+  return "In review";
 }
 
 export function DoctorCard({ doctor }: { doctor: Doctor }) {
@@ -26,7 +26,6 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
           className="doctor-portrait"
           style={{ objectPosition: facePos }}
         />
-        <span className="doctor-location-chip">Shanghai · Medical Aesthetics</span>
       </div>
       <div className="doctor-meta">
         <Seal status={doctor.verificationStatus}>{statusLabel(doctor.verificationStatus)}</Seal>
