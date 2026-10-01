@@ -5,31 +5,31 @@ const corridors = [
   {
     href: "/lp/rhinoplasty-malaysia",
     label: "Malaysia & Singapore",
-    detail: "Rhinoplasty — start remotely from KL or Singapore.",
+    detail: "Bridge and tip, still your face. Remote review from KL or Singapore.",
   },
   {
     href: "/lp/eyelid-sea",
     label: "Southeast Asia eyelids",
-    detail: "Crease and expression first, not a template fold.",
+    detail: "Crease and expression. Not a high Western fold, not a template double eyelid.",
   },
   {
     href: "/lp/rhinoplasty-indonesia",
     label: "Indonesia",
-    detail: "English-language review before any flight to Shanghai.",
+    detail: "English review first. A ticket to Shanghai is a later decision.",
   },
   {
     href: "/lp/revision-rhinoplasty",
     label: "Revision",
-    detail: "Records first. No promise that a previous result can be undone.",
+    detail: "Old records first. No promise a previous result can be undone.",
   },
 ];
 
 export function CorridorBand() {
   return (
-    <section className="paper-grid corridor-scroll">
+    <section className="paper-grid corridor-scroll" aria-label="Patient corridors">
       {corridors.map((item) => (
         <div key={item.href}>
-          <span>Corridor</span>
+          <span>Pathway</span>
           <h3>{item.label}</h3>
           <p>{item.detail}</p>
           <Link href={item.href} className="text-link">

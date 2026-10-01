@@ -196,9 +196,19 @@ function Home() {
       <div className="hero-caption">{t.heroCaptionTitle}<br /><span>{t.heroCaptionSub}</span></div>
     </section>
     <section className="home-proof-strip" aria-label="Flora international patient pathway">
-      <div><span>01</span><b>Remote first</b><small>Begin with a private review before planning travel.</small></div>
-      <div><span>02</span><b>Surgeon context</b><small>Compare profiles, focus areas and verification status.</small></div>
-      <div><span>03</span><b>Shanghai pathway</b><small>Translation, planning and follow-up in one patient journey.</small></div>
+      <div><span>01</span><b>Remote first</b><small>A review from home. Not a diagnosis, and not a flight.</small></div>
+      <div><span>02</span><b>Proportion, not a template</b><small>Nose and eyelid plans stay inside your face. No Korean or Western standard.</small></div>
+      <div><span>03</span><b>Verified context</b><small>Surgeon status is shown as in review or hospital reported until it is sourced.</small></div>
+    </section>
+    <section className="stance-band" aria-label="What Flora will not sell">
+      <p className="eyebrow">The brief</p>
+      <h2>Still you.<br /><i>Not a new face.</i></h2>
+      <ul>
+        <li>No high Western eyelid as the default.</li>
+        <li>No copied Korean nose.</li>
+        <li>No before/after without written consent.</li>
+        <li>No city hospital figures presented as Flora volume.</li>
+      </ul>
     </section>
     <VirtualConsultBanner />
     <section className="intro-section desktop-only">

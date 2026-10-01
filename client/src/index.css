@@ -77,3 +77,12 @@
   .fact-strip{display:block;padding:8px 5vw 28px}
   .fact-strip>div{padding:16px 0;border-top:1px solid var(--line)}
 }
+
+.stance-band{padding:42px 6vw 18px;max-width:760px}
+.stance-band h2{font:500 42px/0.95 var(--serif);margin:0 0 16px}
+.stance-band ul{margin:0;padding:0;list-style:none}
+.stance-band li{border-top:1px solid var(--line);padding:10px 0;font-size:14px}
+@media (max-width:900px){
+  .stance-band{padding:28px 5vw 8px}
+  .stance-band h2{font-size:34px}
+}
