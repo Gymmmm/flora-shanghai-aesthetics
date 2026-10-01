@@ -22,7 +22,7 @@ export function VirtualConsultBanner() {
         </div>
       </section>
       <CorridorBand />
-      <section className="paper-grid">
+      <section className="paper-grid desktop-only">
         {marketFacts.slice(0, 3).map((fact) => (
           <div key={fact.id}>
             <span>{fact.year}</span>

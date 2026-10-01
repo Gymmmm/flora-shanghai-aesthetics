@@ -26,7 +26,7 @@ const corridors = [
 
 export function CorridorBand() {
   return (
-    <section className="paper-grid">
+    <section className="paper-grid corridor-scroll">
       {corridors.map((item) => (
         <div key={item.href}>
           <span>Corridor</span>

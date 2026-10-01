@@ -10,9 +10,9 @@ function Seal({ children = "PENDING / VERIFY", status }: { children?: React.Reac
 }
 
 function statusLabel(status: Doctor["verificationStatus"]) {
-  if (status === "verified") return "VERIFIED";
-  if (status === "hospital_reported") return "HOSPITAL REPORTED";
-  return "PENDING VERIFICATION";
+  if (status === "verified") return "Verified";
+  if (status === "hospital_reported") return "Hospital reported";
+  return "In review";
 }
 
 export function DoctorCard({ doctor }: { doctor: Doctor }) {
@@ -29,7 +29,7 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
         <span className="doctor-location-chip">Shanghai · Medical Aesthetics</span>
       </div>
       <div className="doctor-meta">
-        <Seal status={doctor.verificationStatus}>{statusLabel(doctor.verificationStatus)}</Seal>
+        <span className={`status-quiet status-${doctor.verificationStatus}`}>{statusLabel(doctor.verificationStatus)}</span>
         <h3>{doctor.name}</h3>
         <p className="doctor-specialty-line">{doctor.specialties[0]}</p>
         <span className="doctor-card-cta">View profile</span>

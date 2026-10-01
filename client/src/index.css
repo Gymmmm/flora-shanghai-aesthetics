@@ -48,3 +48,26 @@
 
 /* Floating contact buttons (dynamic) */
 .floating-contact-buttons{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:12px;z-index:1000;opacity:0;transform:translateY(20px);transition:all var(--ease);pointer-events:none}.floating-contact-buttons.visible{opacity:1;transform:translateY(0);pointer-events:auto}.floating-contact-button{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;background:#fff;position:relative;overflow:visible}.floating-contact-button::before{content:'';position:absolute;inset:-2px;border-radius:50%;background:linear-gradient(135deg,var(--bronze),#c9a882);opacity:0;transition:opacity 0.4s ease;z-index:-1}.floating-contact-button:hover::before{opacity:1;animation:pulse-ring 1.5s ease-out infinite}.floating-contact-button img{width:32px;height:32px;object-fit:contain;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);filter:brightness(0.95)}.floating-contact-button:hover{transform:scale(1.15) rotate(5deg);box-shadow:0 8px 24px rgba(181,148,110,0.35)}.floating-contact-button:hover img{transform:scale(1.1) rotate(-5deg);filter:brightness(1.1) drop-shadow(0 2px 4px rgba(0,0,0,0.2))}.floating-contact-button:active{transform:scale(0.9) rotate(0deg);transition-duration:0.1s}.button-text{position:absolute;right:100%;margin-right:12px;background:rgba(0,0,0,0.85);color:#fff;padding:8px 12px;border-radius:4px;font-size:13px;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);transform:translateX(10px)}.floating-contact-button:hover .button-text{opacity:1;transform:translateX(0)}@keyframes pulse-ring{0%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:0.5}100%{transform:scale(1.2);opacity:0}}@media(max-width:520px){.floating-contact-buttons{bottom:80px;right:16px}.floating-contact-button{width:52px;height:52px}.floating-contact-button img{width:28px;height:28px}}
+
+.status-quiet{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9c795f;margin-bottom:8px}
+.mobile-cta.hidden{display:none}
+@media (max-width:900px){
+  .hero{min-height:100svh;min-height:100dvh;align-items:flex-end}
+  .hero-copy{margin-left:0;max-width:none;padding:96px 5vw 118px}
+  .hero h1{font-size:56px;margin-bottom:14px}
+  .hero-copy p{margin-bottom:18px}
+  .hero-caption{display:none}
+  .hero-actions{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+  .hero-actions .qm-button{justify-content:space-between}
+  .desktop-only{display:none !important}
+  .corridor-scroll{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 5vw 28px;-webkit-overflow-scrolling:touch}
+  .corridor-scroll>div{flex:0 0 78vw;scroll-snap-align:start;border-top:1px solid var(--line);padding-top:16px}
+  .mobile-cta{display:flex;opacity:1;transform:none;pointer-events:auto;gap:8px}
+  .mobile-cta a{flex:1;padding:14px 8px}
+  .site-shell{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .doctor-grid-home .doctor-card:nth-child(n+4){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-video{display:none}
+  .hero{background:url(/images/hero.jpg) center/cover no-repeat}
+}
