@@ -81,7 +81,7 @@ function SiteShell({ children }: { children: React.ReactNode }) {
   const { locale, setLocale, t, footerLabel } = useLocale();
   const whatsapp = contact.whatsapp ? `https://wa.me/${contact.whatsapp.replace(/\D/g, "")}` : "";
   const instagram = String(contact.instagram || "").replace(/^@/, "");
-  const showInstagram = instagram and instagram != "goat.2014238";
+  const showInstagram = Boolean(instagram) && instagram !== "goat.2014238";
 
   useEffect(() => {
     const onFocus = (event: FocusEvent) => {
