@@ -39,5 +39,5 @@
 .js-consultation-more { display: none; }
 .footer .support-hours { letter-spacing: .08em; }
 .hidden-mobile-upload, input[type="file"] { display: none !important; } .case-list [class*="empty"] { text-transform: none; }
-@media (max-width: 900px) { .doctor-status { display: block; color: var(--flora-copper); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; } .mobile-cta { display: flex !important; } .mobile-cta:has(~ main input:focus), .mobile-cta:has(~ main textarea:focus) { display: none !important; } }
+@media (max-width: 900px) { .doctor-status { display: block; color: var(--flora-copper); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; } .mobile-cta { display: flex !important; transform: none !important; } .mobile-cta:has(~ main input:focus), .mobile-cta:has(~ main textarea:focus) { display: none !important; } }
       
