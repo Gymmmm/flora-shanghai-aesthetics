@@ -27,7 +27,6 @@ const heroImage = "/images/hero.jpg";
 const heroVideo = "/images/hero-video.mp4";
 const cityImage = "/images/shanghai-city.jpg";
 const clinicStill = "/images/hero.jpg";
-const recoveryStill = "/images/recovery.jpg";
 const mark = "/images/flora-mark.png";
 const clinicMediaStrip = [
   "/images/doctors/doctor_zhang_yalun__portrait-v2.jpg",
@@ -62,8 +61,8 @@ function Placeholder({ label = "Image placeholder" }: { label?: string }) { retu
 function Seal({ children = "PENDING / VERIFY", status }: { children?: React.ReactNode; status?: string }) {
   const getStatusIcon = () => {
     if (status === "verified") return "✓";
-    if (status === "pending_verification") return "⏱";
-    if (status === "hospital_reported") return "◐";
+    if (status === "pending_verification") return "•";
+    if (status === "hospital_reported") return "•";
     return "✳";
   };
   const getStatusColor = () => {
