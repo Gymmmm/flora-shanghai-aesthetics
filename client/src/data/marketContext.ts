@@ -11,7 +11,7 @@ export type MarketFact = {
 export const marketPositioning = {
   eyebrow: "What the public figures actually say",
   title: "Shanghai is being compared. It is not yet the default.",
-  lead: "Korea still has the strongest elective-aesthetics brand. Thailand still has the most mature medical-travel packaging. Shanghai is the third look: a large hospital city, a newer international-care standard, and a refinement style that clinics describe as born-with-it rather than a template face.",
+  lead: "Flora arranges a Shanghai hospital pathway for patients travelling in. The public figures below describe the city and the country, not a comparison of destinations and not Flora volume.",
   note: "None of these figures are Flora patient counts, surgery volumes, or a promise of savings. Aesthetic travel into China is still early.",
 };
 

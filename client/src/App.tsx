@@ -190,38 +190,30 @@ function Home() {
         <p>{t.heroLead}</p>
         <div className="hero-actions">
           <ButtonLink href="/consultation" dark onClick={() => track("start_consultation")}>{t.privateConsultation}</ButtonLink>
-          <ButtonLink href="/lp/rhinoplasty-malaysia">Malaysia & Singapore</ButtonLink>
+          <ButtonLink href="/why-shanghai">Why Shanghai</ButtonLink>
         </div>
       </div>
       <div className="hero-caption">{t.heroCaptionTitle}<br /><span>{t.heroCaptionSub}</span></div>
     </section>
     <section className="home-proof-strip" aria-label="Flora international patient pathway">
       <div><span>01</span><b>Remote first</b><small>A review from home. Not a diagnosis, and not a flight.</small></div>
-      <div><span>02</span><b>Proportion, not a template</b><small>Nose and eyelid plans stay inside your face. No Korean or Western standard.</small></div>
+      <div><span>02</span><b>Shanghai hospital context</b><small>Surgeon, facility and verification status before you book a flight.</small></div>
       <div><span>03</span><b>Verified context</b><small>Surgeon status is shown as in review or hospital reported until it is sourced.</small></div>
     </section>
-    <section className="compare-band" aria-label="How to compare destinations">
-      <p className="eyebrow">The comparison</p>
-      <div className="compare-row">
-        <article><span>Korea</span><b>Brand</b><p>Use when name recognition and high-volume facial work are the benchmark.</p></article>
-        <article><span>Thailand</span><b>Package</b><p>Use when a hospital package, transfer and recovery stay are the benchmark.</p></article>
-        <article className="is-flora"><span>Shanghai</span><b>Review first</b><p>Use when you want proportion checked before a flight. Not a template face.</p></article>
-      </div>
-    </section>
-    <section className="stance-band" aria-label="What Flora will not sell">
-      <p className="eyebrow">The brief</p>
-      <h2>Still you.<br /><i>Not a new face.</i></h2>
+    <section className="stance-band" aria-label="Shanghai hospital pathway">
+      <p className="eyebrow">Shanghai hospitals, for overseas patients</p>
+      <h2>A hospital pathway<br /><i>before the flight.</i></h2>
       <ul>
-        <li>No high Western eyelid as the default.</li>
-        <li>No copied Korean nose.</li>
+        <li>Remote review with a Shanghai coordinator.</li>
+        <li>Surgeon and hospital context shown before travel.</li>
         <li>No before/after without written consent.</li>
-        <li>No city hospital figures presented as Flora volume.</li>
+        <li>City figures are not Flora volume.</li>
       </ul>
     </section>
     <VirtualConsultBanner />
     <section className="intro-section desktop-only">
       <Chapter index="01" eyebrow="A different starting point" title="A Different Perspective on Asian Aesthetics">
-        <p>Asian aesthetics do not have one standard of beauty. Korea and Thailand are often the first comparisons. Shanghai is a third look: an international city, hospital-grade infrastructure, and a natural-refinement philosophy for patients who want context before they travel.</p>
+        <p>Flora is a pathway into Shanghai hospitals for patients coming from overseas. The first step is a remote review. Travel, surgeon and facility are decided after that, not from a package menu.</p>
         <ButtonLink href="/why-shanghai">Why Shanghai</ButtonLink>
       </Chapter>
       <div className="intro-aside intro-aside-media">
