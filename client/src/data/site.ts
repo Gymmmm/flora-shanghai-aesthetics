@@ -3,7 +3,7 @@ export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surge
 /** Digits for wa.me builders: strip non-digits (App.tsx already does .replace(/\D/g, "")). */
 export const DEFAULT_WHATSAPP = "+855 969510544";
 
-export const DEFAULT_INSTAGRAM = "goat.2014238";
+export const DEFAULT_INSTAGRAM = "";
 
 export const contact = {
   whatsapp: (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP) || DEFAULT_WHATSAPP,
@@ -13,7 +13,7 @@ export const contact = {
   reddit: "",
 };
 
-export const supportedLanguages = ["en", "ms", "id", "ru", "ar", "zh"] as const;
+export const supportedLanguages = ["en", "zh"] as const;
 export const defaultLanguage = "en" as const;
 export const legalReviewed = false;
 
