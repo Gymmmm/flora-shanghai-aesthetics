@@ -385,3 +385,30 @@
   .market-facts-grid h3,.market-comparison-grid h3,.market-corridor-grid h3{margin-bottom:8px!important}
   .market-facts-grid small{display:block;margin-top:10px;line-height:1.45}
 }
+
+
+/* Mobile screenshot QA — final density and collision pass */
+@media(max-width:720px){
+  .surgeon-section{padding:54px 7vw 72px}
+  .surgeon-section .chapter{margin-bottom:28px}
+  .surgeon-section .doctor-grid{gap:12px}
+  .surgeon-section .doctor-card-intl{grid-template-columns:38% 62%;min-height:174px;border-radius:16px}
+  .surgeon-section .doctor-card-intl .doctor-portrait-wrap{height:174px;min-height:174px}
+  .surgeon-section .doctor-card-intl .doctor-portrait{height:100%;width:100%;object-fit:cover;object-position:center 18%!important;transform:none!important}
+  .surgeon-section .doctor-card-intl:hover .doctor-portrait{transform:none!important}
+  .surgeon-section .doctor-card-intl .doctor-meta{min-height:174px;padding:15px 14px}
+  .surgeon-section .doctor-card-intl .doctor-meta h3{font-size:clamp(26px,7.4vw,34px);margin-bottom:7px}
+  .surgeon-section .doctor-card-intl .doctor-specialty-line{font-size:10px;margin-bottom:12px}
+  .surgeon-section .doctor-card-intl .status-quiet{display:inline-flex;align-items:center;width:fit-content;margin:0 0 10px;padding:0;border:0;font:600 7px/1.2 var(--sans,system-ui);letter-spacing:.12em;text-transform:uppercase;color:#4d806f}
+  .surgeon-section .doctor-card-intl .doctor-card-cta{font-size:7px}
+  .surgeon-section .doctor-card-intl .doctor-meta svg{right:13px;bottom:14px}
+  .procedures-section .procedure-grid{grid-template-columns:1fr;gap:12px}
+  .procedures-section .procedure-card{height:250px;border-radius:16px}
+  .procedures-section .procedure-overlay{padding:22px}
+  .procedures-section .procedure-overlay h3{font-size:clamp(30px,9vw,40px);max-width:88%}
+  .procedures-section .procedure-overlay p{display:block;font-size:12px;line-height:1.45;max-width:88%;margin-top:8px}
+  .floating-contact-buttons{right:12px;bottom:84px;gap:7px}
+  .floating-contact-buttons a{width:44px;height:44px}
+  .mobile-cta{left:24vw;right:24vw;bottom:max(10px,env(safe-area-inset-bottom))}
+  .mobile-cta>a{min-height:50px;padding:0 14px;font-size:9px;letter-spacing:.12em;white-space:nowrap}
+}
