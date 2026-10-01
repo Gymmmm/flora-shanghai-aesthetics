@@ -141,7 +141,6 @@ function SiteShell({ children }: { children: React.ReactNode }) {
       )}
       <main>{children}</main>
       <div className={`mobile-cta visible ${hideMobileCta ? "hidden" : ""}`}>
-        {whatsapp ? <a href={whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => track("click_whatsapp")}>{t.whatsappLabel}</a> : null}
         <Link href="/consultation" onClick={() => track("start_consultation")}>
           {t.startConsultation} <ArrowUpRight size={15} />
         </Link>
