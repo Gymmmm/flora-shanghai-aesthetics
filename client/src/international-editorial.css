@@ -314,3 +314,34 @@
     bottom:17px;
   }
 }
+
+
+/* Doctor portrait retouch — consistent studio framing */
+.doctor-card-intl .doctor-portrait-wrap,
+.intl-doctor-portrait{
+  background:linear-gradient(145deg,#f3eee7 0%,#fbf8f3 58%,#ece5dc 100%);
+}
+.doctor-card-intl .doctor-portrait,
+.intl-doctor-portrait img{
+  filter:saturate(.82) contrast(.98) brightness(1.035);
+}
+@media(max-width:720px){
+  .surgeon-section .doctor-card-intl .doctor-portrait{
+    object-fit:contain;
+    object-position:center center !important;
+    transform:scale(.94) !important;
+    transform-origin:center bottom;
+  }
+  .surgeon-section .doctor-card-intl:hover .doctor-portrait{
+    transform:scale(.96) !important;
+  }
+  .surgeon-section .doctor-card-intl .doctor-portrait-wrap{
+    background:linear-gradient(145deg,#f1ebe3,#fbf8f3 62%,#e9e1d7);
+  }
+}
+
+
+/* Consistent doctor portrait framing */
+.doctor-card-intl .doctor-portrait-wrap,.intl-doctor-portrait{background:linear-gradient(145deg,#f3eee7 0%,#fbf8f3 58%,#ece5dc 100%)}
+.doctor-card-intl .doctor-portrait,.intl-doctor-portrait img{filter:saturate(.82) contrast(.98) brightness(1.035)}
+@media(max-width:720px){.surgeon-section .doctor-card-intl .doctor-portrait{object-fit:contain;object-position:center center!important;transform:scale(.94)!important;transform-origin:center bottom}.surgeon-section .doctor-card-intl:hover .doctor-portrait{transform:scale(.96)!important}.surgeon-section .doctor-card-intl .doctor-portrait-wrap{background:linear-gradient(145deg,#f1ebe3,#fbf8f3 62%,#e9e1d7)}}
