@@ -26,7 +26,6 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
           className="doctor-portrait"
           style={{ objectPosition: facePos }}
         />
-        <span className="doctor-location-chip">Shanghai · Medical Aesthetics</span>
       </div>
       <div className="doctor-meta">
         <span className={`status-quiet status-${doctor.verificationStatus}`}>{statusLabel(doctor.verificationStatus)}</span>
