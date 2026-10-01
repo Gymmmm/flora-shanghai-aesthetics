@@ -16,7 +16,7 @@ export function MarketContext() {
         <p>{marketPositioning.lead}</p>
         <p className="disclaimer">{marketPositioning.note}</p>
       </section>
-      <section className="paper-grid">
+      <section className="paper-grid market-facts-grid">
         {marketFacts.map((fact) => (
           <div key={fact.id}>
             <span>{fact.year}</span>
@@ -30,7 +30,7 @@ export function MarketContext() {
           </div>
         ))}
       </section>
-      <section className="paper-grid">
+      <section className="paper-grid market-comparison-grid">
         {comparisonNotes.map((note) => (
           <div key={note.place}>
             <span>-</span>
@@ -43,7 +43,7 @@ export function MarketContext() {
           </div>
         ))}
       </section>
-      <section className="paper-grid">
+      <section className="paper-grid market-corridor-grid">
         {priorityCorridors.map((corridor) => (
           <div key={corridor.region}>
             <span>Corridor</span>
