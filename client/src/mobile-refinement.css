@@ -45,7 +45,12 @@
   .mobile-cta a { min-width: 0; }
   .mobile-cta a:first-child { border-right: 1px solid var(--flora-line); }
   .mobile-cta:has(~ main input:focus), .mobile-cta:has(~ main textarea:focus), .mobile-cta:has(~ main select:focus) { display: none !important; }
-  .hero { min-height: min(760px, 100svh); }
-  .hero-copy { padding-bottom: 84px; }
+  .hero { min-height: 100svh; align-items: flex-start; }
+  .hero-copy { padding-top: 112px; padding-bottom: 96px; }
+  .hero-copy h1 { font-size: clamp(54px, 16vw, 72px) !important; line-height: .84 !important; margin-bottom: 22px !important; }
+  .hero-copy > p:not(.eyebrow) { max-width: 280px; font-size: 14px !important; line-height: 1.55 !important; }
+  .hero-actions { margin-top: 24px !important; }
+  .hero-actions .qm-button { min-height: 48px; }
+  .hero-pause { bottom: 92px; }
 }
       
