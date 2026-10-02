@@ -1,0 +1,57 @@
+/* Mobile refinement for the existing Flora editorial system. */
+@media (max-width: 900px) {
+  .site-shell { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  .mobile-cta { display: flex !important; position: fixed; inset: auto 0 0; z-index: 40; min-height: 56px; padding-bottom: env(safe-area-inset-bottom); background: rgba(9,10,10,.97); border-top: 1px solid var(--flora-line); }
+  .mobile-cta a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 56px; color: var(--flora-ink); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+  .mobile-cta a + a { background: var(--flora-copper); color: var(--flora-night); }
+  .site-shell:has(input:focus) .mobile-cta, .site-shell:has(textarea:focus) .mobile-cta, .site-shell:has(select:focus) .mobile-cta { display: none !important; }
+  .mobile-menu .lang-toggle.mobile { display: flex; align-items: center; gap: 9px; padding: 16px 0 4px; color: var(--flora-ink); }
+  .mobile-menu .lang-toggle button { border: 0; background: none; color: inherit; padding: 0; font: inherit; font-size: 11px; letter-spacing: .12em; }
+  .mobile-menu .lang-toggle button.active { color: var(--flora-copper); }
+  .hero-pause { position: absolute; right: 7vw; bottom: 28px; z-index: 4; border: 1px solid rgba(244,240,233,.42); background: rgba(9,10,10,.5); color: var(--flora-ink); padding: 7px 10px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+  .form-wrap { padding-bottom: 120px !important; }
+  .form-wrap input, .form-wrap select, .form-wrap textarea { font-size: 16px !important; }
+  .form-wrap button[type=submit] { width: 100%; min-height: 52px; }
+  .intro-section, .city-band, .journey-teaser, .market-stats, .market-stats-section, .pricing-section, .pricing-guide, .trust-banner, .virtual-consult-banner { display: none !important; }
+  .value-section { padding-top: 62px; padding-bottom: 62px; }
+  .value-list .value-item:nth-child(n+4) { display: none; }
+  .surgeon-section { padding-top: 68px; padding-bottom: 68px; }
+  .surgeon-section .doctor-grid { display: grid; grid-template-columns: repeat(3, 78vw); overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-right: -7vw; padding-right: 7vw; }
+  .surgeon-section .doctor-card { min-height: 480px; scroll-snap-align: start; }
+  .surgeon-section .doctor-portrait-wrap { min-height: 480px; }
+  .surgeon-section .doctor-meta .evidence-seal, .doctor-card .doctor-badges { display: none !important; }
+  .procedures-section { display: block; padding-top: 68px; padding-bottom: 68px; }
+  .procedure-list { padding: 54px 7vw; }
+  .editorial-accordion-item strong { font-size: 29px; }
+  .verify-teaser { padding-top: 60px; padding-bottom: 60px; }
+  .consult-banner { padding: 68px 7vw 110px; }
+  .case-list .demo-banner { font-size: 0; }
+  .case-list .demo-banner::after { content: "No patient journeys are publicly displayed yet."; font-size: 15px; }
+  .case-list .demo-banner .evidence-seal, .consult-photo-note, .photo-upload-note, .footer .instagram, .footer a[href*=instagram] { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+  .site-shell > main > .hero { background: url('/images/hero.jpg') center/cover; }
+}
+.mobile-cta { display: none; }
+.doctor-status { display: none; }
+.form-wrap { padding-bottom: 120px; }
+.js-consultation-more { display: none; }
+.footer .support-hours { letter-spacing: .08em; }
+.hidden-mobile-upload, input[type="file"] { display: none !important; } .case-list [class*="empty"] { text-transform: none; }
+@media (max-width: 900px) {
+  .doctor-status { display: block; color: var(--flora-copper); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; }
+  .mobile-cta { display: flex !important; visibility: visible !important; opacity: 1 !important; transform: none !important; }
+  .mobile-cta a { min-width: 0; }
+  .mobile-cta a:first-child { border-right: 1px solid var(--flora-line); }
+  .mobile-cta:has(~ main input:focus), .mobile-cta:has(~ main textarea:focus), .mobile-cta:has(~ main select:focus) { display: none !important; }
+  .hero { min-height: calc(100svh - 64px); height: calc(100svh - 64px); align-items: flex-start; }
+  .hero-copy { padding-top: 92px; padding-bottom: 82px; }
+  .hero-copy h1 { font-size: clamp(52px, 15.5vw, 68px) !important; line-height: .86 !important; margin-bottom: 18px !important; }
+  .hero-copy > p:not(.eyebrow) { max-width: 270px; font-size: 13px !important; line-height: 1.5 !important; }
+  .hero-actions { margin-top: 20px !important; }
+  .hero-actions .qm-button { min-height: 48px; padding-inline: 18px; }
+  .hero-caption { display: none; }
+  .hero-pause { right: 7vw; bottom: 84px; }
+}
+      
