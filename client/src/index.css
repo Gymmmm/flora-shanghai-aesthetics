@@ -135,3 +135,47 @@
 @media(max-width:900px){.access-proof{grid-template-columns:1fr}.access-proof>div{padding:24px 6vw}.product-pathway,.verification-product,.intake-product{display:block;padding:75px 7vw}.pathway-rail,.verification-graph,.intake-schema{margin-top:42px}.pathway-actions{display:flex;margin-top:28px}.verification-graph{display:grid;grid-template-columns:1fr 1fr}.verification-graph>i{display:none}.verification-graph>div{min-height:130px}.coordination-band{padding:75px 7vw}.coordination-grid{grid-template-columns:1fr 1fr}.access-doctors,.access-procedures{padding-top:75px;padding-bottom:75px}}
 @media(max-width:520px){.access-hero .hero-copy{padding-bottom:145px}.access-proof b{font-size:42px}.product-pathway-head h2,.verification-product h2,.intake-copy h2,.coordination-band h2{font-size:43px}.verification-graph,.coordination-grid{grid-template-columns:1fr}.pathway-actions{flex-direction:column}.pathway-actions .qm-button{justify-content:space-between}}
 
+
+
+/* Mobile-first hospital presentation — 2026-10-02 */
+.mobile-priority-strip{display:none}
+@media(max-width:900px){
+  .trust-banner,.virtual-consult-banner,.floating-contact-buttons{display:none!important}
+  .site-header{height:72px;padding:0 5vw;background:rgba(18,20,19,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.12)}
+  .site-header .brand{gap:9px}.site-header .brand-mark{width:34px;height:34px}
+  .site-header .brand span b{font-size:25px;line-height:1}.site-header .brand span em{font:500 8px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+  .site-header>.qm-button{display:none}.menu-trigger{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+  .access-hero.hero{min-height:760px;height:88svh;max-height:900px;align-items:flex-end}
+  .access-hero .hero-video{opacity:.56;filter:saturate(.72) contrast(.95)}
+  .access-hero .hero-wash{background:linear-gradient(180deg,rgba(10,12,11,.34) 0%,rgba(10,12,11,.42) 28%,rgba(10,12,11,.88) 100%)}
+  .access-hero .hero-copy{padding:116px 7vw 54px;max-width:100%;margin:0}
+  .access-hero .eyebrow{font-size:9px;letter-spacing:.18em;margin:0 0 18px}
+  .access-hero h1{font-size:clamp(43px,12.4vw,58px);line-height:.94;letter-spacing:-.045em;margin:0 0 24px;max-width:640px}
+  .access-hero h1 i{font-size:.82em;line-height:1.02;color:#d8b48f}
+  .access-hero .hero-copy>p:not(.eyebrow){font-size:16px;line-height:1.55;max-width:34em;margin:0 0 26px;color:rgba(255,255,255,.86)}
+  .access-hero .hero-actions{gap:10px}.access-hero .hero-actions .qm-button{min-height:52px;padding:0 18px;font-size:10px;letter-spacing:.1em}
+  .access-hero .hero-actions .qm-button:not(.qm-button-dark){background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .hero-pause{display:none}
+  .mobile-priority-strip{display:block;padding:34px 6vw 28px;background:#f5f1ea;border-bottom:1px solid var(--line)}
+  .mobile-priority-strip>h2{font:500 32px/1.02 var(--serif);letter-spacing:-.025em;margin:7px 0 24px;max-width:320px}
+  .mobile-priority-strip>div{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .mobile-priority-strip article{padding:14px 10px 8px 0;border-right:1px solid var(--line);min-width:0}.mobile-priority-strip article+article{padding-left:10px}
+  .mobile-priority-strip article:last-child{border-right:0}.mobile-priority-strip article span{display:block;color:var(--bronze);font-size:9px;margin-bottom:8px}
+  .mobile-priority-strip article b{display:block;font:500 17px var(--serif)}.mobile-priority-strip article p{font-size:10px;line-height:1.35;color:var(--muted);margin:5px 0 0}
+  .intro-section,.surgeon-section,.verify-teaser,.journey-teaser{padding-left:6vw!important;padding-right:6vw!important}
+  .chapter h2,.value-heading h2,.verify-teaser h2{font-size:38px!important;line-height:.98!important;letter-spacing:-.025em}
+  .chapter-copy>p,.verify-teaser p{font-size:14px;line-height:1.65}
+  .intro-aside{display:none}
+  .doctor-grid,.doctor-grid-home{grid-template-columns:1fr 1fr;gap:10px}.doctor-card{min-width:0}.doctor-meta p{font-size:11px;line-height:1.35}
+  .journey-line{overflow-x:auto;display:flex;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.journey-line>div{flex:0 0 58vw;scroll-snap-align:start}
+  .consult-banner{padding:64px 7vw 88px}.consult-banner h2{font-size:44px!important;line-height:.95!important}
+  .mobile-cta{display:none!important}
+  .site-shell{padding-bottom:0}
+}
+@media(max-width:390px){
+  .access-hero.hero{min-height:700px}
+  .access-hero .hero-copy{padding-left:6vw;padding-right:6vw}
+  .access-hero h1{font-size:42px}
+  .mobile-priority-strip>h2{font-size:29px}
+  .doctor-grid,.doctor-grid-home{grid-template-columns:1fr}
+}
