@@ -1,12 +1,34 @@
 export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Patient Stories", "/cases"], ["Your Journey", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
 
+/** Public demo contact — env overrides when set. */
+const envWhatsapp =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP) || "";
+const envEmail =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL) || "";
+const envInstagram =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_INSTAGRAM) || "";
+
 export const contact = {
-  whatsapp: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP || "",
-  email: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL || "",
-  instagram: "",
+  /** Digits or +E.164; UI strips non-digits for wa.me */
+  whatsapp: String(envWhatsapp || "+855969510544"),
+  email: String(envEmail || ""),
+  /** Handle without @ */
+  instagram: String(envInstagram || "goat.2014238").replace(/^@/, ""),
   tiktok: "",
   reddit: "",
 };
+
+export function whatsappHref(prefill?: string) {
+  const digits = contact.whatsapp.replace(/\D/g, "");
+  if (!digits) return "/consultation";
+  const base = `https://wa.me/${digits}`;
+  return prefill ? `${base}?text=${encodeURIComponent(prefill)}` : base;
+}
+
+export function instagramHref() {
+  const handle = contact.instagram.replace(/^@/, "").trim();
+  return handle ? `https://instagram.com/${handle}` : "";
+}
 
 export const supportedLanguages = ["en", "ms", "id", "ru", "ar", "zh"] as const;
 export const defaultLanguage = "en" as const;
@@ -15,8 +37,8 @@ export const legalReviewed = false;
 export const siteCopy = {
   brand: "Flora Shanghai Aesthetics",
   tagline: "Still You. Just Refined.",
-  audienceLine: "A Shanghai-based aesthetic surgery pathway designed for international patients.",
-  consultationLine: "Start from home with an English-language inquiry. We help organize your questions, medical context, doctor review and Shanghai visit planning.",
+  audienceLine: "Flora Shanghai Aesthetics — our doctors, our Shanghai clinic, for overseas patients.",
+  consultationLine: "Message our patient coordinator on WhatsApp, or start a private inquiry. We organize your questions, medical context, doctor review and Shanghai visit planning.",
   medicalBoundary: "Remote review is preliminary and does not replace an in-person medical assessment. Any diagnosis or treatment plan must be confirmed by an appropriately licensed clinician in the relevant clinical setting.",
   photoNotice: "Photos may be reviewed only to support a preliminary consultation. They are not a diagnosis and do not guarantee treatment suitability or outcome.",
 };

@@ -89,13 +89,13 @@
 
 .doctor-card-intl{background:#f7f3ec;border:1px solid rgba(29,30,28,.08);overflow:hidden}
 .doctor-portrait-wrap{aspect-ratio:4/5;background:#efe8dc;overflow:hidden}
-.doctor-portrait{width:100%;height:100%;object-fit:cover;object-position:32% 18%;filter:contrast(1.04) saturate(.92)}
+.doctor-portrait{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:contrast(1.04) saturate(.92)}
 .doctor-location-chip{display:none}
 .doctor-meta{padding:14px 14px 16px}
 .doctor-meta h3{margin:4px 0 2px;font-size:18px}
 @media (max-width:900px){
   .doctor-grid,.doctor-grid-home{grid-template-columns:1fr 1fr;gap:10px}
-  .doctor-portrait{object-position:34% 16%}
+  .doctor-portrait{object-position:center 20%}
   .doctor-meta{padding:10px}
   .doctor-meta h3{font-size:15px}
 }
