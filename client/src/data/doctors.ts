@@ -1,4 +1,4 @@
-export type VerificationStatus = "verified" | "hospital_reported" | "pending_verification" | "do_not_publish";
+export type VerificationStatus = "verified" | "hospital_provided" | "pending_verification" | "do_not_publish";
 
 export type VerificationSource = {
   sourceName: string;
@@ -103,28 +103,28 @@ export const doctors: Doctor[] = [
       "Facial lifting & rejuvenation",
     ],
     experienceYears: null,
-    currentInstitution: "Flora Medical Aesthetics, Shanghai",
-    philosophy: "Dr. Si Yang's hospital-reported profile focuses on individualized eye and facial aesthetic planning, with attention to proportion, expression, structural balance and natural-looking refinement. For international patients, the pathway can begin with a remote consultation before deciding whether an in-person visit to Shanghai is appropriate.",
+    currentInstitution: "Flora Shanghai Aesthetics Hospital (Hospital-provided)",
+    philosophy: "Dr. Si Yang's hospital-provided profile focuses on individualized eye and facial aesthetic planning, with attention to proportion, expression, structural balance and natural-looking refinement. For international patients, the pathway can begin with a remote consultation before deciding whether an in-person visit to Flora is appropriate.",
     languages: ["Chinese", "English-language patient support available through Flora"],
-    credentials: ["Chief Plastic Surgeon — Flora Medical Aesthetics (hospital-reported)"],
+    credentials: ["Chief Plastic Surgeon — Flora Shanghai Aesthetics Hospital (hospital-provided)"],
     publications: [],
     memberships: [],
     patents: [],
     education: [],
     academicAffiliations: [],
-    verificationStatus: "hospital_reported",
+    verificationStatus: "hospital_provided",
     verificationSources: [
       {
-        sourceName: "Flora Medical Aesthetics physician profile material",
+        sourceName: "Hospital-provided physician profile material",
         sourceUrl: "",
         verificationDate: "2026-08-29",
-        note: "Name, institution role and listed treatment focus are based on hospital-supplied material and remain subject to independent credential verification.",
+        note: "Name, hospital role and listed treatment focus are based on hospital-provided material from Flora and remain subject to independent credential verification.",
       },
     ],
     caseIds: [],
     seo: {
       title: "Dr. Si Yang | Eye & Facial Aesthetic Surgeon in Shanghai | Flora",
-      description: "Meet Dr. Si Yang at Flora Medical Aesthetics in Shanghai. Explore her hospital-reported focus in eyelid surgery, revision eyelid surgery, facial contouring and facial rejuvenation, with support for international patients.",
+      description: "Meet Dr. Si Yang for international patients considering eyelid surgery, revision eyelid surgery, facial contouring or facial rejuvenation at Flora. The profile is hospital-provided and remains subject to independent credential review.",
     },
   },
   {

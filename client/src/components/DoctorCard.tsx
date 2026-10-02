@@ -4,14 +4,14 @@ import { track } from "../lib/analytics";
 import type { Doctor } from "../data/doctors";
 
 function Seal({ children = "PENDING / VERIFY", status }: { children?: React.ReactNode; status?: string }) {
-  const icon = status === "verified" ? "✓" : status === "pending_verification" ? "⏱" : status === "hospital_reported" ? "◐" : "✳";
+  const icon = status === "verified" ? "✓" : status === "pending_verification" ? "⏱" : status === "hospital_provided" ? "◐" : "✳";
   const color = status === "verified" ? "seal-verified" : status === "pending_verification" ? "seal-pending" : "";
   return <span className={`evidence-seal ${color}`}><b>{icon}</b>{children}</span>;
 }
 
 function statusLabel(status: Doctor["verificationStatus"]) {
   if (status === "verified") return "Verified";
-  if (status === "hospital_reported") return "Hospital reported";
+  if (status === "hospital_provided") return "Hospital-provided";
   return "In review";
 }
 

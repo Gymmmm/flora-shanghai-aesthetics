@@ -1,4 +1,9 @@
-/** Industry context for international patients. Figures are third-party, not Flora volume claims. */
+/**
+ * Public market context for the Why Flora page.
+ * All figures are third-party public sources, not Flora patient numbers.
+ * They describe the Shanghai medical landscape, not a comparison of
+ * destinations, and not Flora's volume.
+ */
 export type MarketFact = {
   id: string;
   label: string;
@@ -10,8 +15,8 @@ export type MarketFact = {
 
 export const marketPositioning = {
   eyebrow: "What the public figures actually say",
-  title: "Shanghai is being compared. It is not yet the default.",
-  lead: "Flora arranges a Shanghai hospital pathway for patients travelling in. The public figures below describe the city and the country, not a comparison of destinations and not Flora volume.",
+  title: "Shanghai is a hospital city. It is not yet the default for medical aesthetics.",
+  lead: "Flora is a Shanghai medical aesthetics hospital. The public figures below describe the city and the country where we operate — not a comparison of destinations and not Flora volume.",
   note: "None of these figures are Flora patient counts, surgery volumes, or a promise of savings. Aesthetic travel into China is still early.",
 };
 
@@ -64,7 +69,7 @@ export const comparisonNotes = [
   {
     place: "Shanghai",
     role: "Hospital city, early inbound aesthetics",
-    fit: "Use when you want a planning-led review, hospital-grade infrastructure, and a natural-refinement brief. Check the current visa rule for your passport before you book flights.",
+    fit: "Flora is a Shanghai hospital. Choose us when you want a planning-led review, hospital-grade infrastructure, and a natural-refinement brief. Check the current visa rule for your passport before you book flights.",
   },
 ];
 

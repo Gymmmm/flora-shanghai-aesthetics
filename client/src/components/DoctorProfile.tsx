@@ -6,7 +6,7 @@ import { faq } from "../data/faq";
 import { track } from "../lib/analytics";
 
 function Seal({ children = "PENDING / VERIFY", status }: { children?: React.ReactNode; status?: string }) {
-  const icon = status === "verified" ? "✓" : status === "pending_verification" ? "⏱" : status === "hospital_reported" ? "◐" : "✳";
+  const icon = status === "verified" ? "✓" : status === "pending_verification" ? "⏱" : status === "hospital_provided" ? "◐" : "✳";
   const color = status === "verified" ? "seal-verified" : status === "pending_verification" ? "seal-pending" : "";
   return <span className={`evidence-seal ${color}`}><b>{icon}</b>{children}</span>;
 }
@@ -36,10 +36,10 @@ export function DoctorProfile({ doctor }: { doctor: Doctor }) {
               objectPosition: doctor.photoObjectPosition ?? "center 20%",
             }}
           />
-          <span className="intl-doctor-chip">Shanghai · Medical Aesthetics</span>
+          <span className="intl-doctor-chip">Flora Shanghai Aesthetics Hospital</span>
         </div>
         <div className="intl-doctor-copy">
-          <p className="eyebrow">Shanghai Medical Aesthetics · Plastic Surgery for International Patients</p>
+          <p className="eyebrow">Flora Shanghai Aesthetics Hospital</p>
           <Seal status={doctor.verificationStatus}>{doctor.verificationStatus.replaceAll("_", " ").toUpperCase()}</Seal>
           <h1>{doctor.name}</h1>
           {doctor.chineseName ? <p className="intl-doctor-cn">{doctor.chineseName}</p> : null}
@@ -85,7 +85,7 @@ export function DoctorProfile({ doctor }: { doctor: Doctor }) {
         <div className="credential-box">
           <span>Verification status</span>
           <strong>{doctor.verificationStatus.replaceAll("_", " ")}</strong>
-          <p>We keep pending and hospital-reported profiles honest. Independent credential documentation is added as it is confirmed — never invented.</p>
+          <p>We keep pending and hospital-provided profiles honest. Independent credential documentation is added as it is confirmed — never invented.</p>
           <Link href="/surgeon-verification">
             See verification framework <ArrowUpRight size={15} />
           </Link>

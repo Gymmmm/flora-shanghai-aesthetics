@@ -1,9 +1,9 @@
 export function TrustBanner() {
   const certifications = [
-    { id: "jci", label: "JCI accreditation checks", icon: "✓" },
-    { id: "shanghai-health", label: "Shanghai Health Commission sourcing", icon: "◉" },
-    { id: "plastic-surgery", label: "Plastic surgery credential review", icon: "✦" },
-    { id: "international", label: "International patient pathway", icon: "⊕" },
+    { id: "source", label: "Profile source labels", icon: "✓" },
+    { id: "status", label: "Visible verification status", icon: "◉" },
+    { id: "evidence", label: "Evidence before claim", icon: "✦" },
+    { id: "pathway", label: "Structured international pathway", icon: "⊕" },
   ];
 
   return (
