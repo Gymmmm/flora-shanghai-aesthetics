@@ -27,25 +27,25 @@ const journeyDetails: Record<string, { services: string[]; timing: string; bound
     timing: "Before a patient is asked to rely on the information",
     boundary: "Pending or hospital-reported information is labelled and must not be presented as independently verified.",
   },
-  routing: {
-    services: ["Hospital or clinician handoff when the route is sufficiently clear", "Patient context packaged for review", "Next-step questions documented"],
+  coordination: {
+    services: ["Patient context organised for clinical review", "Relevant questions and records prepared for the next step", "Appointment and review requirements clarified when available"],
     timing: "After preliminary review and verification checks",
-    boundary: "Routing does not guarantee acceptance, availability, treatment suitability or outcome.",
+    boundary: "Coordination does not confirm clinician availability, treatment suitability, acceptance or outcome.",
   },
   readiness: {
-    services: ["Cost variables and quote questions", "Travel timing and stay requirements", "Payment, insurance and language-support questions to clarify with the receiving provider"],
+    services: ["Cost variables and quote questions", "Travel timing and stay requirements", "Payment, insurance and language-support questions to clarify before travel"],
     timing: "Before travel is committed",
     boundary: "Flora does not present unconfirmed travel, insurance, payment or hospital services as guaranteed benefits.",
   },
   "in-person": {
-    services: ["In-person clinical assessment by the receiving licensed medical team", "Medical tests or clearance when clinically required", "Final informed-consent and treatment-plan discussion"],
-    timing: "According to the receiving hospital or clinician",
+    services: ["In-person clinical assessment by the responsible licensed medical team", "Medical tests or clearance when clinically required", "Final informed-consent and treatment-plan discussion"],
+    timing: "According to the responsible medical team",
     boundary: "Final diagnosis, treatment recommendation and informed consent belong to the licensed medical team responsible for care.",
   },
   followup: {
-    services: ["Recovery question tracking", "Follow-up requirements documented by the treating team", "Remote coordination where the receiving provider supports it"],
+    services: ["Recovery question tracking", "Follow-up requirements documented by the treating team", "Remote coordination where the responsible provider supports it"],
     timing: "Based on the treating team's clinical plan",
-    boundary: "Follow-up timing, emergency care and medical-record access depend on the treating provider and cannot be promised universally by Flora.",
+    boundary: "Follow-up timing, emergency care and medical-record access depend on the treating provider and must be confirmed for each patient.",
   },
 };
 
@@ -53,7 +53,7 @@ export const journey: JourneyStep[] = [
   ["inquiry", "International Intake"],
   ["remote-review", "Remote Review"],
   ["verification", "Verification"],
-  ["routing", "Hospital Routing"],
+  ["coordination", "Clinical Coordination"],
   ["readiness", "Cost & Travel Readiness"],
   ["in-person", "In-person Assessment"],
   ["followup", "Recovery & Follow-up"],
@@ -63,7 +63,7 @@ export const journey: JourneyStep[] = [
   title,
   description: "A documented step in the international patient pathway, with a clear owner, evidence boundary and next action.",
   services: journeyDetails[id].services,
-  responsibleParty: index < 4 ? "Patient and international care coordination" : "Patient, coordination team and receiving licensed medical team",
+  responsibleParty: index < 4 ? "Patient and international patient coordination" : "Patient, coordination team and responsible licensed medical team",
   patientProvides: ["Relevant history, goals, questions, timing and travel constraints"],
   clinicProvides: ["The information and clinical decisions that only the responsible licensed provider can confirm"],
   medicalBoundary: journeyDetails[id].boundary,
