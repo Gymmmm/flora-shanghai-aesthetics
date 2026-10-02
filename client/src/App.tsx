@@ -202,13 +202,13 @@ function Home() {
           <ButtonLink href="/surgeon-verification">See Verification</ButtonLink>
         </div>
       </div>
-      <div className="hero-caption">Independent access layer<br /><span>Market data is external context — not Flora patient volume.</span></div>
+      <div className="hero-caption">Independent access layer<br /><span>Verification status shown before travel.</span></div>
     </section>
 
     <section className="access-proof" aria-label="Shanghai international medical access context">
-      <div><span>Shanghai access</span><b>73,200</b><p>foreign-passport visits in Shanghai public hospitals in 2025. A city service-volume signal, not Flora volume.</p></div>
-      <div><span>System capacity</span><b>22</b><p>public international medical tourism pilot institutions. A policy and supply signal, not a Flora partner count.</p></div>
-      <div><span>City connectivity</span><b>7.23m</b><p>foreign inbound visitors to Shanghai in 2025. An accessibility signal, not medical-tourism volume.</p></div>
+      <div><span>Before travel</span><b>01</b><p>See doctor, institution and verification status before committing to a Shanghai care route.</p></div>
+      <div><span>Before handoff</span><b>02</b><p>Complete a structured international intake so the next step starts with usable context.</p></div>
+      <div><span>Before treatment</span><b>03</b><p>Keep final diagnosis, treatment planning and informed consent with the responsible licensed medical team.</p></div>
     </section>
 
     <section className="product-pathway">
