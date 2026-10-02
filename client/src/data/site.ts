@@ -30,15 +30,15 @@ export function instagramHref() {
   return handle ? `https://instagram.com/${handle}` : "";
 }
 
-export const supportedLanguages = ["en", "ms", "id", "ru", "ar", "zh"] as const;
+export const supportedLanguages = ["en", "zh"] as const;
 export const defaultLanguage = "en" as const;
 export const legalReviewed = false;
 
 export const siteCopy = {
   brand: "Flora Shanghai Aesthetics",
   tagline: "Still You. Just Refined.",
-  audienceLine: "Flora Shanghai Aesthetics — our doctors, our Shanghai clinic, for overseas patients.",
-  consultationLine: "Message our patient coordinator on WhatsApp, or start a private inquiry. We organize your questions, medical context, doctor review and Shanghai visit planning.",
+  audienceLine: "Flora Shanghai Aesthetics — a Shanghai aesthetic-care experience designed for international patients.",
+  consultationLine: "Start with a structured international patient inquiry. Your questions, medical context and travel readiness can be organised before an in-person Shanghai visit is considered.",
   medicalBoundary: "Remote review is preliminary and does not replace an in-person medical assessment. Any diagnosis or treatment plan must be confirmed by an appropriately licensed clinician in the relevant clinical setting.",
   photoNotice: "Photos may be reviewed only to support a preliminary consultation. They are not a diagnosis and do not guarantee treatment suitability or outcome.",
 };
@@ -59,4 +59,4 @@ export const landingPages: LandingPage[] = [
   { slug: "revision-rhinoplasty", title: "Revision Rhinoplasty in Shanghai", titleZh: "在上海重新开始修复评估", eyebrow: "For patients considering revision surgery", eyebrowZh: "为正在考虑修复手术的患者", intro: "Begin with your records, previous procedure and current concerns before discussing what may be appropriate next.", introZh: "先从既往病历、手术记录与当前困扰开始，再讨论下一步是否适合。", audience: "For patients who need a records-first review before travelling or choosing a surgeon.", audienceZh: "适合希望在出行或选择医生前，先进行以记录为核心评估的患者。", refuse: "We do not promise that a previous result can be undone or that revision is always possible.", refuseZh: "我们不承诺可以撤销既往结果，也不承诺修复手术一定适合或可行。", comparison: "Korea is the benchmark many patients know; Thailand is the packaged-travel benchmark; Shanghai is a hospital-city, planning-led third look.", comparisonZh: "韩国是许多人熟悉的参照，泰国是套餐式医疗旅行的参照，上海则是以医院与规划为核心的第三种视角。", procedureSlug: "revision-rhinoplasty", sourceChannel: "revision" },
 ];
 
-export const footerLinks = [["Privacy Policy", "/privacy"], ["Medical Disclaimer", "/medical-disclaimer"], ["Terms of Use", "/terms"], ["Patient Media Consent", "/patient-media-consent"], ["Data Processing Notice", "/data-processing-notice"]] as const;
+export const footerLinks = [["Medical Disclaimer", "/medical-disclaimer"]] as const;
