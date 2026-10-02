@@ -1,6 +1,6 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import { Link } from "wouter";
-import { contact } from "@/data/site";
+import { contact, whatsappHref } from "@/data/site";
 import { landingBySlug } from "@/data/landings";
 import { procedureBySlug } from "@/data/procedures";
 import { publishableDoctors } from "@/data/doctors";

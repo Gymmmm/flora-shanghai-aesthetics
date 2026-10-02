@@ -1,12 +1,34 @@
 export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Patient Stories", "/cases"], ["Your Journey", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
 
+/** Public demo contact — env overrides when set. */
+const envWhatsapp =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP) || "";
+const envEmail =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL) || "";
+const envInstagram =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_INSTAGRAM) || "";
+
 export const contact = {
-  whatsapp: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_WHATSAPP || "",
-  email: typeof import.meta !== "undefined" && import.meta.env?.VITE_CONTACT_EMAIL || "",
-  instagram: "",
+  /** Digits or +E.164; UI strips non-digits for wa.me */
+  whatsapp: String(envWhatsapp || "+855969510544"),
+  email: String(envEmail || ""),
+  /** Handle without @ */
+  instagram: String(envInstagram || "goat.2014238").replace(/^@/, ""),
   tiktok: "",
   reddit: "",
 };
+
+export function whatsappHref(prefill?: string) {
+  const digits = contact.whatsapp.replace(/\D/g, "");
+  if (!digits) return "/consultation";
+  const base = `https://wa.me/${digits}`;
+  return prefill ? `${base}?text=${encodeURIComponent(prefill)}` : base;
+}
+
+export function instagramHref() {
+  const handle = contact.instagram.replace(/^@/, "").trim();
+  return handle ? `https://instagram.com/${handle}` : "";
+}
 
 export const supportedLanguages = ["en", "ms", "id", "ru", "ar", "zh"] as const;
 export const defaultLanguage = "en" as const;

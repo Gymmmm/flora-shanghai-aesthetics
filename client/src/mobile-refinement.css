@@ -12,7 +12,8 @@
   .form-wrap { padding-bottom: 120px !important; }
   .form-wrap input, .form-wrap select, .form-wrap textarea { font-size: 16px !important; }
   .form-wrap button[type=submit] { width: 100%; min-height: 52px; }
-  .intro-section, .city-band, .journey-teaser, .market-stats, .market-stats-section, .pricing-section, .pricing-guide, .trust-banner, .virtual-consult-banner { display: none !important; }
+  /* Demo-ready mobile: keep journey + virtual consult visible; hide denser city/intro/pricing strips */
+  .intro-section, .city-band, .market-stats, .market-stats-section, .pricing-section, .pricing-guide, .trust-banner { display: none !important; }
   .value-section { padding-top: 62px; padding-bottom: 62px; }
   .value-list .value-item:nth-child(n+4) { display: none; }
   .surgeon-section { padding-top: 68px; padding-bottom: 68px; }
@@ -25,9 +26,11 @@
   .editorial-accordion-item strong { font-size: 29px; }
   .verify-teaser { padding-top: 60px; padding-bottom: 60px; }
   .consult-banner { padding: 68px 7vw 110px; }
-  .case-list .demo-banner { font-size: 0; }
-  .case-list .demo-banner::after { content: "No patient journeys are publicly displayed yet."; font-size: 15px; }
-  .case-list .demo-banner .evidence-seal, .consult-photo-note, .photo-upload-note, .footer .instagram, .footer a[href*=instagram] { display: none !important; }
+  .case-list .demo-banner.cases-empty { display: flex; flex-direction: column; gap: 14px; font-size: 14px; line-height: 1.55; letter-spacing: 0; text-transform: none; padding: 22px 0; }
+  .case-list .demo-banner.cases-empty .evidence-seal { display: inline-flex !important; margin-bottom: 4px; }
+  .case-list .demo-banner.cases-empty p { margin: 0; color: var(--flora-ink, #f4f0e9); }
+  .case-list .demo-banner.cases-empty .qm-button { align-self: flex-start; }
+  .consult-photo-note, .photo-upload-note { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-video { display: none; }
