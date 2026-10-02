@@ -1,4 +1,4 @@
-export type VerificationStatus = "verified" | "hospital_provided" | "pending_verification" | "do_not_publish";
+export type VerificationStatus = "verified" | "hospital_reported" | "pending_verification" | "do_not_publish";
 
 export type VerificationSource = {
   sourceName: string;
@@ -12,12 +12,7 @@ export type Doctor = {
   slug: string;
   name: string;
   chineseName: string;
-  /** Real Flora doctor face-crop JPG (clinic source). */
   photo: string;
-  /** Optional object-position hint; face-crops use center 22%. */
-  photoObjectPosition?: string;
-  /** Optional full clinical-review poster kept for collapsed source transparency only. */
-  sourcePoster?: string;
   specialties: string[];
   primaryProcedures: string[];
   experienceYears: number | null;
@@ -37,25 +32,6 @@ export type Doctor = {
   seo: { title: string; description: string };
 };
 
-/** Short English bullets from existing profile fields — no invented credentials. */
-export function doctorHighlightBullets(doctor: Doctor): string[] {
-  const bullets: string[] = [];
-  if (doctor.specialties[0]) bullets.push(`Specialty focus: ${doctor.specialties[0]}`);
-  if (doctor.primaryProcedures.length) {
-    bullets.push(`Consultation themes: ${doctor.primaryProcedures.slice(0, 3).join(", ")}`);
-  }
-  if (doctor.languages.length) bullets.push(doctor.languages.join(" · "));
-  if (doctor.currentInstitution && !/under verification/i.test(doctor.currentInstitution)) {
-    bullets.push(doctor.currentInstitution);
-  } else {
-    bullets.push("Shanghai · Medical Aesthetics pathway for international patients");
-  }
-  if (doctor.verificationStatus !== "verified") {
-    bullets.push("Credential details remain under verification");
-  }
-  return bullets;
-}
-
 const placeholderPhoto = "/images/doctors/doctor-placeholder.svg";
 
 export const doctors: Doctor[] = [
@@ -64,9 +40,7 @@ export const doctors: Doctor[] = [
     slug: "dr-zhang-yalun",
     name: "Dr. Zhang Yalun",
     chineseName: "张亚伦",
-    photo: "/images/doctors/doctor_zhang_yalun__portrait-v2.jpg",
-    photoObjectPosition: "center 22%",
-    sourcePoster: "/images/doctors/doctor_zhang_yalun__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_zhang_yalun__source__clinical-review.jpg",
     specialties: ["Facial Aesthetic Surgery"],
     primaryProcedures: ["Rhinoplasty", "Revision rhinoplasty"],
     experienceYears: null,
@@ -92,9 +66,7 @@ export const doctors: Doctor[] = [
     slug: "dr-si-yang",
     name: "Dr. Si Yang",
     chineseName: "司杨",
-    photo: "/images/doctors/doctor_si_yang__portrait-v2.jpg",
-    photoObjectPosition: "center 22%",
-    sourcePoster: "/images/doctors/doctor_si_yang__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_si_yang__source__clinical-review.jpg",
     specialties: ["Eye & Facial Aesthetic Surgery"],
     primaryProcedures: [
       "Upper eyelid surgery",
@@ -103,28 +75,28 @@ export const doctors: Doctor[] = [
       "Facial lifting & rejuvenation",
     ],
     experienceYears: null,
-    currentInstitution: "Flora Shanghai Aesthetics Hospital (Hospital-provided)",
-    philosophy: "Dr. Si Yang's hospital-provided profile focuses on individualized eye and facial aesthetic planning, with attention to proportion, expression, structural balance and natural-looking refinement. For international patients, the pathway can begin with a remote consultation before deciding whether an in-person visit to Flora is appropriate.",
+    currentInstitution: "Flora Medical Aesthetics, Shanghai",
+    philosophy: "Dr. Si Yang's hospital-reported profile focuses on individualized eye and facial aesthetic planning, with attention to proportion, expression, structural balance and natural-looking refinement. For international patients, the pathway can begin with a remote consultation before deciding whether an in-person visit to Shanghai is appropriate.",
     languages: ["Chinese", "English-language patient support available through Flora"],
-    credentials: ["Chief Plastic Surgeon — Flora Shanghai Aesthetics Hospital (hospital-provided)"],
+    credentials: ["Chief Plastic Surgeon — Flora Medical Aesthetics (hospital-reported)"],
     publications: [],
     memberships: [],
     patents: [],
     education: [],
     academicAffiliations: [],
-    verificationStatus: "hospital_provided",
+    verificationStatus: "hospital_reported",
     verificationSources: [
       {
-        sourceName: "Hospital-provided physician profile material",
+        sourceName: "Flora Medical Aesthetics physician profile material",
         sourceUrl: "",
         verificationDate: "2026-08-29",
-        note: "Name, hospital role and listed treatment focus are based on hospital-provided material from Flora and remain subject to independent credential verification.",
+        note: "Name, institution role and listed treatment focus are based on hospital-supplied material and remain subject to independent credential verification.",
       },
     ],
     caseIds: [],
     seo: {
       title: "Dr. Si Yang | Eye & Facial Aesthetic Surgeon in Shanghai | Flora",
-      description: "Meet Dr. Si Yang for international patients considering eyelid surgery, revision eyelid surgery, facial contouring or facial rejuvenation at Flora. The profile is hospital-provided and remains subject to independent credential review.",
+      description: "Meet Dr. Si Yang at Flora Medical Aesthetics in Shanghai. Explore her hospital-reported focus in eyelid surgery, revision eyelid surgery, facial contouring and facial rejuvenation, with support for international patients.",
     },
   },
   {
@@ -132,9 +104,7 @@ export const doctors: Doctor[] = [
     slug: "dr-wu-baoen",
     name: "Dr. Wu Baoen",
     chineseName: "吴宝恩",
-    photo: "/images/doctors/doctor_wu_baoci__portrait-v2.jpg",
-    photoObjectPosition: "center 22%",
-    sourcePoster: "/images/doctors/doctor_wu_baoci__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_wu_baoci__source__clinical-review.jpg",
     specialties: ["Body Aesthetic Surgery"],
     primaryProcedures: ["Body contouring", "Breast surgery"],
     experienceYears: null,
@@ -160,9 +130,7 @@ export const doctors: Doctor[] = [
     slug: "dr-dong-lei",
     name: "Dr. Dong Lei",
     chineseName: "董磊",
-    photo: "/images/doctors/doctor_dong_lei__portrait-v2.jpg",
-    photoObjectPosition: "center 22%",
-    sourcePoster: "/images/doctors/doctor_dong_lei__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_dong_lei__source__clinical-review.jpg",
     specialties: ["Facial Aesthetic Surgery"],
     primaryProcedures: ["Rhinoplasty", "Facial contouring"],
     experienceYears: null,
@@ -188,9 +156,7 @@ export const doctors: Doctor[] = [
     slug: "dr-zhang-shuming",
     name: "Dr. Zhang Shuming",
     chineseName: "张书铭",
-    photo: "/images/doctors/doctor_zhang_shuming__portrait-v2.jpg",
-    photoObjectPosition: "center 22%",
-    sourcePoster: "/images/doctors/doctor_zhang_shuming__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_zhang_shuming__source__clinical-review.jpg",
     specialties: ["Aesthetic Surgery"],
     primaryProcedures: ["Eyelid surgery", "Facial rejuvenation"],
     experienceYears: null,
@@ -216,9 +182,7 @@ export const doctors: Doctor[] = [
     slug: "dr-zhao-weihui",
     name: "Dr. Zhao Weihui",
     chineseName: "赵伟辉",
-    photo: "/images/doctors/doctor_zhao_weihui__portrait-v2.jpg",
-    photoObjectPosition: "center 22%",
-    sourcePoster: "/images/doctors/doctor_zhao_weihui__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_zhao_weihui__source__clinical-review.jpg",
     specialties: ["Reconstructive & Aesthetic Surgery"],
     primaryProcedures: ["Breast surgery", "Body contouring"],
     experienceYears: null,

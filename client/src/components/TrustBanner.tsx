@@ -1,15 +1,15 @@
 export function TrustBanner() {
   const certifications = [
-    { id: "source", label: "Profile source labels", icon: "✓" },
-    { id: "status", label: "Visible verification status", icon: "◉" },
-    { id: "evidence", label: "Evidence before claim", icon: "✦" },
-    { id: "pathway", label: "Structured international pathway", icon: "⊕" },
+    { id: "jci", label: "JCI Accredited", icon: "✓" },
+    { id: "shanghai-health", label: "Shanghai Health Commission", icon: "◉" },
+    { id: "plastic-surgery", label: "Chinese Society of Plastic Surgery", icon: "✦" },
+    { id: "international", label: "International Patient Services", icon: "⊕" },
   ];
 
   return (
     <section className="trust-banner">
       <div className="trust-content">
-        <span className="trust-label">Verification Framework</span>
+        <span className="trust-label">Verified Credentials</span>
         <div className="trust-badges">
           {certifications.map((cert) => (
             <div key={cert.id} className="trust-badge">
