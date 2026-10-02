@@ -37,8 +37,8 @@ export const legalReviewed = false;
 export const siteCopy = {
   brand: "Flora Shanghai Aesthetics",
   tagline: "Still You. Just Refined.",
-  audienceLine: "A Shanghai-based aesthetic surgery pathway designed for international patients.",
-  consultationLine: "Start from home with an English-language inquiry. We help organize your questions, medical context, doctor review and Shanghai visit planning.",
+  audienceLine: "Flora Shanghai Aesthetics — our doctors, our Shanghai clinic, for overseas patients.",
+  consultationLine: "Message our patient coordinator on WhatsApp, or start a private inquiry. We organize your questions, medical context, doctor review and Shanghai visit planning.",
   medicalBoundary: "Remote review is preliminary and does not replace an in-person medical assessment. Any diagnosis or treatment plan must be confirmed by an appropriately licensed clinician in the relevant clinical setting.",
   photoNotice: "Photos may be reviewed only to support a preliminary consultation. They are not a diagnosis and do not guarantee treatment suitability or outcome.",
 };
