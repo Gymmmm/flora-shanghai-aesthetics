@@ -43,18 +43,7 @@ export function MarketContext() {
           </div>
         ))}
       </section>
-      <section className="paper-grid market-corridor-grid">
-        {priorityCorridors.map((corridor) => (
-          <div key={corridor.region}>
-            <span>Corridor</span>
-            <h3>{corridor.region}</h3>
-            <p>{corridor.why}</p>
-            <Link href={corridor.href} className="text-link">
-              Start this pathway <ArrowUpRight size={14} />
-            </Link>
-          </div>
-        ))}
-      </section>
+
     </>
   );
 }
