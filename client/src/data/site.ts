@@ -18,9 +18,9 @@ export const defaultLanguage = "en" as const;
 export const legalReviewed = false;
 
 export const siteCopy = {
-  brand: "Flora Shanghai Aesthetics",
-  tagline: "Still You. Just Refined.",
-  audienceLine: "Shanghai Medical Aesthetics / Plastic Surgery for International Patients.",
+  brand: "Flora Shanghai",
+  tagline: "International Patient Access & Coordination.",
+  audienceLine: "Verified context, structured intake and Shanghai care coordination for international patients.",
   consultationLine: "Start from home. No travel required for the first conversation. We help organise questions, medical context, surgeon review and — if it is appropriate — a Shanghai visit.",
   medicalBoundary: "Remote review is preliminary and does not replace an in-person medical assessment. Any diagnosis or treatment plan must be confirmed by an appropriately licensed clinician in the relevant clinical setting.",
   photoNotice: "Photos may be reviewed only to support a preliminary consultation. They are not a diagnosis and do not guarantee treatment suitability or outcome.",
