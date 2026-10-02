@@ -12,7 +12,12 @@ export type Doctor = {
   slug: string;
   name: string;
   chineseName: string;
+  /** Real Flora doctor face-crop JPG (clinic source). */
   photo: string;
+  /** Optional object-position hint; face-crops use center 22%. */
+  photoObjectPosition?: string;
+  /** Optional full clinical-review poster kept for collapsed source transparency only. */
+  sourcePoster?: string;
   specialties: string[];
   primaryProcedures: string[];
   experienceYears: number | null;
@@ -32,6 +37,25 @@ export type Doctor = {
   seo: { title: string; description: string };
 };
 
+/** Short English bullets from existing profile fields — no invented credentials. */
+export function doctorHighlightBullets(doctor: Doctor): string[] {
+  const bullets: string[] = [];
+  if (doctor.specialties[0]) bullets.push(`Specialty focus: ${doctor.specialties[0]}`);
+  if (doctor.primaryProcedures.length) {
+    bullets.push(`Consultation themes: ${doctor.primaryProcedures.slice(0, 3).join(", ")}`);
+  }
+  if (doctor.languages.length) bullets.push(doctor.languages.join(" · "));
+  if (doctor.currentInstitution && !/under verification/i.test(doctor.currentInstitution)) {
+    bullets.push(doctor.currentInstitution);
+  } else {
+    bullets.push("Shanghai · Medical Aesthetics pathway for international patients");
+  }
+  if (doctor.verificationStatus !== "verified") {
+    bullets.push("Credential details remain under verification");
+  }
+  return bullets;
+}
+
 const placeholderPhoto = "/images/doctors/doctor-placeholder.svg";
 
 export const doctors: Doctor[] = [
@@ -40,7 +64,9 @@ export const doctors: Doctor[] = [
     slug: "dr-zhang-yalun",
     name: "Dr. Zhang Yalun",
     chineseName: "张亚伦",
-    photo: "/images/doctors/doctor_zhang_yalun__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_zhang_yalun__portrait-v2.jpg",
+    photoObjectPosition: "center 22%",
+    sourcePoster: "/images/doctors/doctor_zhang_yalun__source__clinical-review.jpg",
     specialties: ["Facial Aesthetic Surgery"],
     primaryProcedures: ["Rhinoplasty", "Revision rhinoplasty"],
     experienceYears: null,
@@ -66,7 +92,9 @@ export const doctors: Doctor[] = [
     slug: "dr-si-yang",
     name: "Dr. Si Yang",
     chineseName: "司杨",
-    photo: "/images/doctors/doctor_si_yang__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_si_yang__portrait-v2.jpg",
+    photoObjectPosition: "center 22%",
+    sourcePoster: "/images/doctors/doctor_si_yang__source__clinical-review.jpg",
     specialties: ["Eye & Facial Aesthetic Surgery"],
     primaryProcedures: [
       "Upper eyelid surgery",
@@ -104,7 +132,9 @@ export const doctors: Doctor[] = [
     slug: "dr-wu-baoen",
     name: "Dr. Wu Baoen",
     chineseName: "吴宝恩",
-    photo: "/images/doctors/doctor_wu_baoci__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_wu_baoci__portrait-v2.jpg",
+    photoObjectPosition: "center 22%",
+    sourcePoster: "/images/doctors/doctor_wu_baoci__source__clinical-review.jpg",
     specialties: ["Body Aesthetic Surgery"],
     primaryProcedures: ["Body contouring", "Breast surgery"],
     experienceYears: null,
@@ -130,7 +160,9 @@ export const doctors: Doctor[] = [
     slug: "dr-dong-lei",
     name: "Dr. Dong Lei",
     chineseName: "董磊",
-    photo: "/images/doctors/doctor_dong_lei__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_dong_lei__portrait-v2.jpg",
+    photoObjectPosition: "center 22%",
+    sourcePoster: "/images/doctors/doctor_dong_lei__source__clinical-review.jpg",
     specialties: ["Facial Aesthetic Surgery"],
     primaryProcedures: ["Rhinoplasty", "Facial contouring"],
     experienceYears: null,
@@ -156,7 +188,9 @@ export const doctors: Doctor[] = [
     slug: "dr-zhang-shuming",
     name: "Dr. Zhang Shuming",
     chineseName: "张书铭",
-    photo: "/images/doctors/doctor_zhang_shuming__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_zhang_shuming__portrait-v2.jpg",
+    photoObjectPosition: "center 22%",
+    sourcePoster: "/images/doctors/doctor_zhang_shuming__source__clinical-review.jpg",
     specialties: ["Aesthetic Surgery"],
     primaryProcedures: ["Eyelid surgery", "Facial rejuvenation"],
     experienceYears: null,
@@ -182,7 +216,9 @@ export const doctors: Doctor[] = [
     slug: "dr-zhao-weihui",
     name: "Dr. Zhao Weihui",
     chineseName: "赵伟辉",
-    photo: "/images/doctors/doctor_zhao_weihui__source__clinical-review.jpg",
+    photo: "/images/doctors/doctor_zhao_weihui__portrait-v2.jpg",
+    photoObjectPosition: "center 22%",
+    sourcePoster: "/images/doctors/doctor_zhao_weihui__source__clinical-review.jpg",
     specialties: ["Reconstructive & Aesthetic Surgery"],
     primaryProcedures: ["Breast surgery", "Body contouring"],
     experienceYears: null,
