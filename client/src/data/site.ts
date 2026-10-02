@@ -1,4 +1,4 @@
-export const navItems = [["Why Shanghai", "/why-shanghai"], ["Surgeons", "/surgeons"], ["Procedures", "/procedures"], ["Patient Stories", "/cases"], ["Your Journey", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
+export const navItems = [["Why Shanghai", "/why-shanghai"], ["Doctors", "/surgeons"], ["Treatments", "/procedures"], ["Patient Pathway", "/patient-journey"], ["Verification", "/surgeon-verification"]] as const;
 
 /** Digits for wa.me builders: strip non-digits (App.tsx already does .replace(/\D/g, "")). */
 export const DEFAULT_WHATSAPP = "+855 969510544";
@@ -49,9 +49,5 @@ export const footerLinks = [
   ["Indonesia", "/lp/rhinoplasty-indonesia"],
   ["Eyelid / SEA", "/lp/eyelid-sea"],
   ["Revision", "/lp/revision-rhinoplasty"],
-  ["Privacy Policy", "/privacy"],
   ["Medical Disclaimer", "/medical-disclaimer"],
-  ["Terms of Use", "/terms"],
-  ["Patient Media Consent", "/patient-media-consent"],
-  ["Data Processing Notice", "/data-processing-notice"],
 ] as const;
