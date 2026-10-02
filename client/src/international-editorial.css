@@ -199,3 +199,14 @@ html,body{background:var(--flora-night);color:var(--flora-ink)}
 .site-header.header-paper{color:var(--ink);background:var(--flora-ivory)}
 
 
+
+/* Mobile final cleanup — keep actions clear without covering content */
+@media(max-width:720px){
+  .mobile-menu{padding:22px 7vw 30px;background:#f6f2ec}
+  .mobile-menu>a{display:flex;align-items:center;justify-content:space-between;min-height:56px;color:#171716;border-bottom:1px solid #d8d0c6;font-size:15px;letter-spacing:.04em}
+  .mobile-menu .lang-toggle{margin-top:22px;color:#8d6b4f}
+  .mobile-cta{grid-template-columns:1fr}
+  .mobile-cta>a:first-child{display:none}
+  .mobile-cta>a{min-height:54px}
+  .floating-contact-buttons{bottom:82px}
+}
