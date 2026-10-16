@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { eq } from "drizzle-orm";
-import { publicProcedure, router } from "./_core/trpc";
-import { getDb } from "./db";
-import { floatingContactButtons } from "../drizzle/schema";
+import { publicProcedure, router } from "./_core/trpc.js";
+import { getDb } from "./db.js";
+import { floatingContactButtons } from "../drizzle/schema.js";
 
 const createButtonSchema = z.object({
   platformType: z.string().min(1).max(40),

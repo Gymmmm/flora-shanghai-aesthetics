@@ -1,6 +1,6 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-import { appRouter } from "../../server/routers";
-import type { TrpcContext } from "../../server/_core/context";
+import { appRouter } from "../../server/routers.js";
+import type { TrpcContext } from "../../server/_core/context.js";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 // Vercel serverless function handler for tRPC

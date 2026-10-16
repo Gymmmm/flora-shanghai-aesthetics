@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { consultationSubmissions, InsertUser, leads, User, users } from "../drizzle/schema";
-import { ENV } from "./_core/env";
-import type { ConsultationPayload } from "../shared/lead";
+import { consultationSubmissions, InsertUser, leads, User, users } from "../drizzle/schema.js";
+import { ENV } from "./_core/env.js";
+import type { ConsultationPayload } from "../shared/lead.js";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
