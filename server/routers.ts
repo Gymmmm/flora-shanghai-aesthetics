@@ -1,13 +1,13 @@
 import { z } from "zod";
 import { nanoid } from "nanoid";
-import { COOKIE_NAME } from "@shared/const";
-import { crmPipelineStatuses } from "../client/src/data/site";
-import { getSessionCookieOptions } from "./_core/cookies";
-import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
-import { createLead } from "./db";
-import { floatingContactButtonsRouter } from "./routers/floatingContactButtons";
-import type { ConsultationPayload } from "../shared/lead";
+import { COOKIE_NAME } from "../shared/const.js";
+import { crmPipelineStatuses } from "../client/src/data/site.js";
+import { getSessionCookieOptions } from "./_core/cookies.js";
+import { systemRouter } from "./_core/systemRouter.js";
+import { publicProcedure, router } from "./_core/trpc.js";
+import { createLead } from "./db.js";
+import { floatingContactButtonsRouter } from "./floatingContactButtons.js";
+import type { ConsultationPayload } from "../shared/lead.js";
 
 const attributionSchema = z.object({ source: z.string().max(120), utm_source: z.string().max(120), utm_medium: z.string().max(120), utm_campaign: z.string().max(160), utm_content: z.string().max(160), landing_page: z.string().max(500), referrer: z.string().max(500), created_at: z.string().datetime() });
 const consultationSchema = z.object({
